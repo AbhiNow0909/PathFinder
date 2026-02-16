@@ -85,18 +85,26 @@ All roadmap decisions are grounded in this retrieved curriculum content.
 # 4. System Architecture
 ```json
 Student Snapshot
-        ↓
-Skill Analyzer Agent
-        ↓
-Dependency Graph Engine
-        ↓
-Curriculum Retrieval (RAG)
-        ↓
-Reasoning-Aware Planning Agent
-        ↓
-Validation Agent
-        ↓
-Final Structured Roadmap
+      ↓
+(1) Skill Analyzer Agent
+      ↓
+(2) Weak Topic List
+      ↓
+(3) Graph Expansion (Prerequisites)
+      ↓
+(4) Candidate Topic Set
+      ↓
+(5) Eligible Topic Identification (Graph)
+      ↓
+(6) Iterative Ordering Loop (LLM + Graph)
+      ↓
+(7) RAG Retrieval (Grounding)
+      ↓
+(8) Planning Agent (LLM Reasoning)
+      ↓
+(9) Validation Agent
+      ↓
+Final Roadmap
 ```
 # 5. Core Components
 
