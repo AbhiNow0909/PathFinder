@@ -18,9 +18,9 @@ SKILL_PRIORITY_ORDER = {
 
 def infer_difficulty_tolerance(skill_map: dict) -> DifficultyTolerance:
     avg = sum(SKILL_PRIORITY_ORDER[v] for v in skill_map.values()) / len(skill_map)
-    if avg < 1.5:
+    if avg < 2.0:
         return "easy"
-    elif avg < 2.8:
+    elif avg < 3.0:
         return "medium"
     else:
         return "hard"

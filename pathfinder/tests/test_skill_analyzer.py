@@ -164,7 +164,7 @@ class TestRunSkillAnalyzer:
             "message": {"content": "Some summary."}
         }
         result = run_skill_analyzer(weak_student)
-        assert isinstance(result["analysis"], SkillAnalysis)
+        assert isinstance(result.analysis, SkillAnalysis)
 
     @patch("agents.skill_analyzer.ollama.chat")
     def test_summary_is_string(self, mock_chat, weak_student):
@@ -172,4 +172,4 @@ class TestRunSkillAnalyzer:
             "message": {"content": "Some summary."}
         }
         result = run_skill_analyzer(weak_student)
-        assert isinstance(result["summary"], str)
+        assert isinstance(result.summary, str)
