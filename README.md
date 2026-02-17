@@ -72,13 +72,13 @@ Example:
 
 The system stores curriculum materials in a vector database, including:
 
--Course syllabi
--CLRS textbook chapters
--Lecture slides
--Topic explanations
--Difficulty metadata
--Estimated learning time
--Reference links
+- Course syllabi
+- CLRS textbook chapters
+- Lecture slides
+- Topic explanations
+- Difficulty metadata
+- Estimated learning time
+- Reference links
 
 All roadmap decisions are grounded in this retrieved curriculum content.
 
@@ -115,12 +115,12 @@ Transforms raw student statistics into structured planning signals.
 
 **Responsibilities**
 
--Identify weak topics
--Identify mastered topics
--Rank priority areas
--Extract time constraints
--Determine difficulty tolerance
-
+- Identify weak topics
+- Identify mastered topics
+- Rank priority areas
+- Extract time constraints
+- Determine difficulty tolerance
+ 
 Example output:
 
 ```json
@@ -154,10 +154,10 @@ Example Representation
 
 Role in System
 
--Expands weak topics to include required prerequisites
--Enforces valid topic ordering
--Enables topological sorting
--Enables deterministic validation
+- Expands weak topics to include required prerequisites
+- Enforces valid topic ordering
+- Enables topological sorting
+- Enables deterministic validation
 
 This prevents logically invalid study sequences.
 
@@ -165,17 +165,17 @@ This prevents logically invalid study sequences.
 
 The Retrieval-Augmented Generation module:
 
--Retrieves prerequisite descriptions
--Retrieves topic explanations
--Retrieves estimated learning time
--Retrieves textbook or syllabus references
+- Retrieves prerequisite descriptions
+- Retrieves topic explanations
+- Retrieves estimated learning time
+- Retrieves textbook or syllabus references
 
 This ensures:
 
--Curriculum alignment
--Reduced hallucination
--Explainable recommendations
--Source-grounded reasoning
+- Curriculum alignment
+- Reduced hallucination
+- Explainable recommendations
+- Source-grounded reasoning
 
 ## 5.4 Reasoning-Aware Planning Agent
 
@@ -185,19 +185,19 @@ Instead of a single prompt, the agent reasons under constraints.
 
 Constraints Enforced
 
--Total time ≤ available time
--Weak topics must be prioritized
--No topic before its prerequisites
--Strong topics should not dominate
--Each step must include explanation and reference
+- Total time ≤ available time
+- Weak topics must be prioritized
+- No topic before its prerequisites
+- Strong topics should not dominate
+- Each step must include explanation and reference
 
 Responsibilities
 
--Select appropriate subgraph of topics
--Allocate time per topic
--Generate structured roadmap steps
--Provide reasoning for sequencing
--Justify decisions using curriculum references
+- Select appropriate subgraph of topics
+- Allocate time per topic
+- Generate structured roadmap steps
+- Provide reasoning for sequencing
+- Justify decisions using curriculum references
 
 This transforms the system into a constraint-aware AI planner.
 
@@ -205,16 +205,16 @@ This transforms the system into a constraint-aware AI planner.
 
 After roadmap generation, the system validates:
 
--Prerequisite ordering violations
--Time overflow
--Weak-topic coverage
--Structural consistency
+- Prerequisite ordering violations
+- Time overflow
+- Weak-topic coverage
+- Structural consistency
 
 If violations occur:
 
--The planner is re-invoked with feedback
--The roadmap is revised
--The process repeats until valid
+- The planner is re-invoked with feedback
+- The roadmap is revised
+- The process repeats until valid
 
 This introduces a self-correcting agentic loop, improving reliability.
 
@@ -246,7 +246,7 @@ Example:
 
 Each step includes:
 
--Topic
--Time estimate
--Reason for inclusion
--Curriculum reference
+- Topic
+- Time estimate
+- Reason for inclusion
+- Curriculum reference
