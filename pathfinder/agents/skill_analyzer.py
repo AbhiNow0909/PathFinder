@@ -1,6 +1,6 @@
 # agents/skill_analyzer.py
 
-from schemas.models import StudentSnapshot, SkillAnalysis, DifficultyTolerance
+from schemas.models import StudentSnapshot, SkillAnalysis, DifficultyTolerance, SkillAnalyzerOutput
 import ollama
 
 WEAK_THRESHOLDS = {"very weak", "weak"}
@@ -77,10 +77,7 @@ Summarize their learning situation and what they should focus on given their tim
 
 # ── Public Interface ──────────────────────────────────────────────────────────
 
-def run_skill_analyzer(snapshot: StudentSnapshot) -> dict:
-    analysis = analyze_skills(snapshot)        # fast, always runs
-    summary = get_llm_summary(analysis)        # LLM enrichment on top
-    return {
-        "analysis": analysis,
-        "summary": summary
-    }
+def run_skill_analyzer(snapshot: StudentSnapshot) -> SkillAnalyzerOutput:
+    analysis = analyze_skills(snapshot)
+    summary = get_llm_summary(analysis)
+    return SkillAnalyzerOutput(analysis=analysis, summary=summary)

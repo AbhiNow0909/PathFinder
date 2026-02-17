@@ -1,9 +1,10 @@
 # tests/test_skill_analyzer.py
 
+from unittest import result
 import pytest
 from unittest.mock import patch, MagicMock
 from agents.skill_analyzer import analyze_skills, get_llm_summary, run_skill_analyzer
-from schemas.models import StudentSnapshot
+from schemas.models import StudentSnapshot, SkillAnalyzerOutput
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -152,12 +153,9 @@ class TestRunSkillAnalyzer:
 
     @patch("agents.skill_analyzer.ollama.chat")
     def test_returns_analysis_and_summary(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Focus on DP and Trees first."}
-        }
+        mock_chat.return_value = {"message": {"content": "Focus on DP and Trees first."}}
         result = run_skill_analyzer(weak_student)
-        assert "analysis" in result
-        assert "summary" in result
+        assert isinstance(result, SkillAnalyzerOutput)
 
     @patch("agents.skill_analyzer.ollama.chat")
     def test_analysis_is_skill_analysis_type(self, mock_chat, weak_student):
