@@ -18,7 +18,7 @@ class StudentSnapshot(BaseModel):
     recursion: SkillLevel = "medium"
     binary_search: SkillLevel = "medium"
     sorting: SkillLevel = "medium"
-    time_available_hours: float = Field(..., gt=0, le=100)
+    time_available_hours: float = Field(..., gt=0, le=500)
 
 # ── Intermediate Output (Layer 1) ─────────────────────────────────────────────
 
@@ -35,3 +35,19 @@ class SkillAnalysis(BaseModel):
 class SkillAnalyzerOutput(BaseModel):
     analysis: SkillAnalysis
     summary: str = Field(..., description="LLM-generated natural language summary")
+
+# ── Step 6: Iterative Ordering Output ─────────────────────────────────────────
+
+class OrderedTopic(BaseModel):
+    topic: str
+    is_target: bool = Field(..., description="True if this is a weak topic the student needs; False if prerequisite filler")
+    estimated_hours: float = Field(..., description="LLM-estimated time for this topic")
+    reason: str = Field(..., description="LLM's reason for picking this topic at this position")
+
+class OrderingResult(BaseModel):
+    ordered_topics: List[OrderedTopic]
+    mastered_topics: List[str]
+    candidate_topics: List[str]
+    time_budget: float = Field(..., description="Total time the student has")
+    time_allocated: float = Field(..., description="Total time allocated across ordered topics")
+    topics_skipped: List[str] = Field(default_factory=list, description="Candidates dropped due to time budget")
