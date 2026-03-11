@@ -1,7 +1,7 @@
 # agents/skill_analyzer.py
 
 from schemas.models import StudentSnapshot, SkillAnalysis, DifficultyTolerance, SkillAnalyzerOutput
-import ollama
+from llm.client import chat as llm_chat
 
 WEAK_THRESHOLDS = {"very weak", "weak"}
 STRONG_THRESHOLDS = {"strong", "very strong"}
@@ -66,14 +66,10 @@ Full skill breakdown: {analysis.skill_map}
 
 Summarize their learning situation and what they should focus on given their time budget."""
 
-    response = ollama.chat(
-        model="llama3",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ]
-    )
-    return response["message"]["content"]
+    return llm_chat(messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ])
 
 # ── Public Interface ──────────────────────────────────────────────────────────
 
