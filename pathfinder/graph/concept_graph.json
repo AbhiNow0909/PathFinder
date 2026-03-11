@@ -1,0 +1,17 @@
+{
+  "arrays": [],
+  "linked_list": ["arrays"],
+  "stack_queue": ["arrays"],
+  "two_pointers": ["arrays"],
+  "sorting": ["arrays"],
+  "binary_search": ["arrays"],
+  "hashing": ["arrays"],
+  "heap": ["arrays"],
+  "recursion": [],
+  "backtracking": ["recursion"],
+  "trees": ["recursion"],
+  "balanced_trees": ["trees"],
+  "graphs": ["recursion", "stack_queue"],
+  "greedy": ["arrays", "sorting"],
+  "dynamic_programming": ["arrays", "recursion"]
+}
