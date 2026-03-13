@@ -1,0 +1,2719 @@
+A Queue Data Structure is a fundamental concept in computer science used for storing and managing data in a specific order.
+
+It follows the principle of "First in, First out" (FIFO), where the first element added to the queue is the first one to be removed.
+It is used as a buffer in computer systems where we have speed mismatch between two devices that communicate with each other. For example, CPU and keyboard and two devices in a network
+Queue is also used in Operating System algorithms like CPU Scheduling and Memory Management, and many standard algorithms like Breadth First Search of Graph, Level Order Traversal of a Tree.
+
+
+Introduction:
+
+Queue is a linear data structure that follows FIFO (First In First Out) Principle, so the first element inserted is the first to be popped out.
+
+It is an ordered list in which insertions are done at one end which is known as the rear and deletions are done from the other end known as the front.
+A good example of a queue is any queue of consumers for a resource where the consumer that came first is served first. 
+The difference between stack and queue is in removing an element. In a stack we remove the item that is most recently added while in a queue, we remove the item that is least recently added.
+FIFO Principle in Queue:
+
+FIFO Principle states that the first element added to the Queue will be the first one to be removed or processed. So, Queue is like a line of people waiting to purchase tickets, where the first person in line is the first person served. (i.e. First Come First Serve).
+
+Dequeue-Operation-in-Queue-1
+Basic Terminologies of Queue
+Front: Position of the entry in a queue ready to be served, that is, the first entry that will be removed from the queue, is called the front of the queue. It is also referred as the head of the queue.
+Rear: Position of the last entry in the queue, that is, the one most recently added, is called the rear of the queue. It is also referred as the tail of the queue.
+Size: Size refers to the current number of elements in the queue.
+Capacity: Capacity refers to the maximum number of elements the queue can hold.
+Types of Queues
+Queue data structure can be classified into 3 types:
+
+Types-of-Queue
+1. Simple Queue
+A simple queue follows the FIFO (First In, First Out) principle.
+
+Insertion is allowed only at the rear (back).
+Deletion is allowed only from the front.
+Can be implemented using a linked list or a circular array.
+
+When an array is used, we often prefer a circular queue, which is mainly an efficient array implementation of a simple queue. It efficiently utilizes memory by reusing the empty spaces left after deletion, avoiding wastage that occurs in a normal linear array implementation..
+
+2. Double-Ended Queue (Deque)
+In a deque, insertion and deletion can be performed from both ends.
+
+3. Priority Queue
+A queue where each element is assigned a priority, and deletion always happens based on priority (not just position).
+
+Queue Operations
+Enqueue: Adds an element to the end (rear) of the queue. If the queue is full, an overflow error occurs.
+Dequeue: Removes the element from the front of the queue. If the queue is empty, an underflow error occurs.
+Peek/Front: Returns the element at the front without removing it.
+Size: Returns the number of elements in the queue.
+isEmpty: Returns true if the queue is empty, otherwise false.
+isFull: Returns true if the queue is full, otherwise false.
+
+
+Queue using Array - Simple Implementation
+
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle. The first element inserted is the first one to be removed.
+
+Declaration of Queue Using Array:
+A queue can be implemented using an array, and there are two main ways:
+
+Infinite (or Dynamically Growable) Array Queue
+Fixed-Size Array Queue
+Infinite (or Dynamically Growable) Array Queue:
+We can implement a queue using a conceptually infinite array by maintaining only a front pointer. The front pointer tracks the first valid element.
+
+Enqueue: Insert at the next available position at the end. No rear pointer is required.
+Dequeue: Remove the element at front and increment the front pointer.
+The space before front is never reused, and unlike basic array implementations, we do not shift elements after each dequeue. This ensures both enqueue and dequeue operations run in O(1) time with a simple design.
+
+Limitations:
+
+Wasted space: The elements before the front pointer are never reused, so memory can be wasted if many elements are dequeued.
+Infinite array assumption: We assume the array is conceptually infinite. In practice, memory is finite, so very large queues can cause memory issues.
+Fixed-Size Array Queue
+In this article, we will mainly discuss the queue implementation using a fixed-size array. In such an array-based queue, we maintain:
+
+A fixed-size array arr[] to store the elements.
+A variable size to track the current number of elements in the queue.
+A variable capacity to represent the maximum number of elements the queue can hold.
+
+//C++ code
+
+#include <iostream>
+using namespace std;
+
+class myQueue {
+    
+    // Array to store queue elements.
+    int* arr;
+    
+    //Maximum number of elements the queue can hold.
+    int capacity;
+    
+    // Current number of elements in the queue.
+    int size;
+    
+public:
+
+    myQueue(int c) {
+        capacity = c;
+        arr = new int[capacity];
+        size = 0;
+    }
+}
+
+
+//C code
+
+struct Queue {
+    int *arr;
+    int capacity;
+    int size;
+};
+
+// Create queue
+struct myQueue* createQueue(int capacity) {
+    struct Queue* q = (struct Queue*)malloc(sizeof(struct Queue));
+    
+    //Maximum number of elements the queue can hold.
+    q->capacity = capacity;
+    q->size = 0;
+ 
+    // Array to store queue elements.
+    q->arr = (int*)malloc(capacity * sizeof(int));
+    return q;
+}
+
+
+//Java code
+class myQueue {
+    private int[] arr;
+    private int capacity;
+    private int size;
+
+    // Constructor
+    public myQueue(int capacity) {
+        
+         //Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+        
+        // Array to store queue elements.
+        arr = new int[capacity];
+        
+        // Current number of elements in the queue.
+        size = 0;
+    }
+}
+
+//Python code
+class myQueue:
+    def __init__(self, capacity):
+        
+        # Maximum number of elements the queue can hold.
+        self.capacity = capacity
+        
+        # Array to store queue elements.
+        self.arr = [0] * capacity
+        
+        # Current number of elements in the queue.
+        self.size = 0
+
+//C#
+class myQueue {
+    private int[] arr;
+    private int capacity;
+    private int size;
+
+    public myQueue(int capacity) {
+        
+         //Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+        
+        // Array to store queue elements.
+        arr = new int[capacity];
+        
+        // Current number of elements in the queue.
+        size = 0;
+    }
+}
+
+//JavaScript
+class myQueue {
+    constructor(capacity) {
+ 
+        //Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+ 
+        // Array to store queue elements.
+        this.arr = new Array(capacity);
+ 
+        // Current number of elements in the queue.
+        this.size = 0;
+    }
+}
+
+
+Operations on Queue
+Enqueue (Insert):
+
+Add element at the end of the queue if space is available; otherwise, it results in an Overflow condition.
+Time: O(1) , Space: O(1)
+
+//C++
+void enqueue(int x) {
+    if (size == capacity) {
+        cout << "Queue Overflow" << endl;
+        return;
+    }
+    
+    arr[size++] = x;
+}
+
+//C
+void enqueue(int x) {
+    if (*size == capacity) {
+        printf("Queue Overflow");
+        return;
+    }
+    
+    arr[*size] = x;
+    (*size)++;
+}
+
+//JAVA
+void enqueue(int x) {
+    if (size == capacity) {
+        System.out.println("Queue Overflow");
+        return;
+    }
+    arr[size++] = x;
+}
+
+//PYTHON
+def enqueue(self, x):
+    if self.size == self.capacity:
+        print("Queue Overflow")
+        return
+    
+    self.arr[self.size] = x
+    self.size += 1
+
+//C#
+public void enqueue(int x) {
+    if (size == capacity) {
+        Console.WriteLine("Queue Overflow");
+        return;
+    }
+    arr[size++] = x;
+}
+
+//JAVASCRIPT
+enqueue(x) {
+    if (this.size === this.capacity) {
+        console.log("Queue Overflow");
+        return;
+    }
+    this.arr[this.size++] = x;
+}
+
+
+Dequeue:
+
+Remove element from the front of the queue; if the queue is empty, it results in an Underflow condition.
+Time: O(n) (because of shifting) , Space : O(1)
+
+//C++
+void dequeue() {
+    if (size == 0) {
+        cout << "Queue Underflow" << endl;
+        return;
+    }
+   
+    for (int i = 1; i < size; i++) {
+        arr[i-1] = arr[i];
+    }
+    size--;
+}
+
+//C
+void dequeue() {
+    if (*size == 0) {
+        printf("Queue Underflow");
+        return;
+    }
+    
+    for (int i = 1; i < *size; i++) {
+        arr[i-1] = arr[i];
+    }
+    (*size)--;
+}
+
+//JAVA
+void dequeue() {
+    if (size == 0) {
+        System.out.println("Queue Underflow");
+        return;
+    }
+    
+    for (int i = 1; i < size; i++) {
+        arr[i-1] = arr[i];
+    }
+    size--;
+}
+
+
+//PYTHON
+def dequeue(self):
+    if self.size == 0:
+        print("Queue Underflow")
+        return
+   
+    for i in range(1, self.size):
+        self.arr[i-1] = self.arr[i]
+    self.size -= 1
+
+//C#
+public void dequeue() {
+    if (size == 0) {
+        Console.WriteLine("Queue Underflow");
+        return;
+    }
+    
+    for (int i = 1; i < size; i++) {
+        arr[i-1] = arr[i];
+    }
+    size--;
+}
+
+//JAVASCRIPT
+dequeue() {
+    if (this.size === 0) {
+        console.log("Queue Underflow");
+        return;
+    }
+    
+    for (let i = 1; i < this.size; i++) {
+        this.arr[i-1] = this.arr[i];
+    }
+    this.size--;
+}
+
+
+getFront (Peek):
+
+Return first element if not empty, else -1.
+Time: O(1) , Space: O(1)
+
+//C++
+int getFront() {
+    if (size == 0) {
+        cout << "Queue is empty" << endl;
+        return -1;
+    }
+    
+    return arr[0];
+}
+
+//C
+int getFront() {
+    if (size == 0) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    
+    return arr[0];
+}
+
+//JAVA
+int getFront() {
+    if (size == 0) {
+        System.out.println("Queue is empty");
+        return -1;
+    }
+    
+    return arr[0];
+}
+
+
+//PYTHON
+def getFront(self):
+    if self.size == 0:
+        print("Queue is empty")
+        return -1
+    
+    return self.arr[0]
+
+//C#
+public int getFront() {
+    if (size == 0) {
+        Console.WriteLine("Queue is empty");
+        return -1;
+    }
+    
+    return arr[0];
+}
+
+//JAVASCRIPT
+function getFront() {
+    if (this.size === 0) {
+        console.log("Queue is empty");
+        return -1;
+    }
+    
+    return this.arr[0];
+}
+
+
+getRear():
+
+Return last element if not empty, else -1.
+Time: O(1) , Space: O(1)
+
+//C++
+int getRear() {
+    if (isEmpty()) {
+        cout << "Queue is empty!" << endl;
+        return -1;
+    }
+    return arr[size - 1];
+}
+
+//C
+int getRear(Queue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty!\n");
+        return -1;
+    }
+    return q->arr[q->size - 1];
+}
+
+//JAVA 
+public int getRear() {
+    if (isEmpty()) {
+        System.out.println("Queue is empty!");
+        return -1;
+    }
+    return arr[size - 1];
+}
+
+//PYTHON
+def getRear(self):
+    if self.isEmpty():
+        print("Queue is empty!")
+        return -1
+    return self.arr[self.size - 1]
+
+//C#
+public int getRear() {
+    if (isEmpty()) {
+        Console.WriteLine("Queue is empty!");
+        return -1;
+    }
+    return arr[size - 1];
+}
+
+//JAVASCRIPT
+function getRear() {
+    if (this.isEmpty()) {
+        console.log("Queue is empty!");
+        return -1;
+    }
+    return this.arr[this.size - 1];
+}
+
+isEmpty():
+
+Checks whether the queue has any elements or not.
+Returns true if the queue is empty, otherwise false.
+Time: O(1) , Space: O(1)
+
+//C++
+bool isEmpty() {
+    return size == 0;
+}
+
+//C
+int isEmpty(struct Queue* q) {
+    return q->size == 0;
+}
+
+//JAVA 
+public boolean isEmpty() {
+    return size == 0;
+}
+
+//PYTHON
+def isEmpty(self):
+    return self.size == 0
+
+//C#
+public bool isEmpty() {
+    return size == 0;
+}
+
+//JAVASCRIPT
+function isEmpty() {
+    return this.size === 0;
+}
+
+
+isFull():
+
+Checks whether the queue has reached its maximum capacity.
+Returns true if the queue is full, otherwise false.
+Time: O(1) , Space: O(1)
+
+//C++
+bool isFull() {
+    return size == capacity;
+}
+
+//C
+int isFull(struct Queue* q) {
+    return q->size == q->capacity;
+}
+
+//JAVA 
+public boolean isFull() {
+    return size == capacity;
+}
+
+//PYTHON
+def isFull(self):
+    return self.size == self.capacity
+
+//C#
+public bool isFull() {
+    return size == capacity;
+}
+
+//JAVASCRIPT
+function isFull() {
+    return this.size === this.capacity;
+}
+
+
+
+Full Implementations of Queue using Array
+
+//C++
+#include <iostream>
+using namespace std;
+
+class myQueue {
+
+    // Array to store queue elements.
+    int *arr;
+
+    // Maximum number of elements the queue can hold.
+    int capacity;
+
+    // Current number of elements in the queue.
+    int size;
+
+  public:
+    myQueue(int c) {
+        capacity = c;
+        arr = new int[capacity];
+        size = 0;
+    }
+
+    bool isEmpty()
+    {
+        return size == 0;
+    }
+    bool isFull()
+    {
+        return size == capacity;
+    }
+
+    // Adds an element x at the rear of the queue.
+    void enqueue(int x)
+    {
+        if (isFull())
+        {
+            cout << "Queue is full!\n";
+            return;
+        }
+        arr[size] = x;
+        size++;
+    }
+
+    // Removes the front element of the queue.
+    void dequeue()
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty!\n";
+            return;
+        }
+        for (int i = 1; i < size; i++)
+        {
+            arr[i - 1] = arr[i];
+        }
+        size--;
+    }
+
+    // Returns the front element of the queue.
+    int getFront()
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty!\n";
+            return -1;
+        }
+        return arr[0];
+    }
+    // Return the last element of queue
+    int getRear()
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty!" << endl;
+            return -1;
+        }
+        return arr[size - 1];
+    }
+};
+
+int main()
+{
+    myQueue q(3);
+
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    cout << "Front: " << q.getFront() << endl;
+
+    q.dequeue();
+    cout << "Front: " << q.getFront() << endl;
+     cout << "Rear: " << q.getRear() << endl;
+
+    q.enqueue(40);
+
+    return 0;
+}
+
+//C
+#include <stdio.h>
+#include <stdlib.h>
+
+struct myQueue {
+    // Array to store queue elements
+    int *arr;
+
+    // Maximum number of elements the queue can hold
+    int capacity;
+
+    // Current number of elements in the queue
+    int size;
+};
+
+// Create queue
+struct myQueue* createQueue(int capacity) {
+    struct myQueue* q = (struct myQueue*)malloc(sizeof(struct myQueue));
+    q->capacity = capacity;
+    q->size = 0;
+    q->arr = (int*)malloc(capacity * sizeof(int));
+    return q;
+}
+
+int isEmpty(struct myQueue* q) {
+    return q->size == 0;
+}
+
+int isFull(struct myQueue* q) {
+    return q->size == q->capacity;
+}
+
+// Adds an element x at the rear of the queue
+void enqueue(struct myQueue* q, int x) {
+    if (isFull(q)) {
+        printf("Queue is full!\n");
+        return;
+    }
+    q->arr[q->size] = x;
+    q->size++;
+}
+
+// Removes the front element of the queue
+void dequeue(struct myQueue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty!\n");
+        return;
+    }
+    for (int i = 1; i < q->size; i++) {
+        q->arr[i - 1] = q->arr[i];
+    }
+    q->size--;
+}
+
+// Returns the front element of the queue
+int getFront(struct myQueue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty!\n");
+        return -1;
+    }
+    return q->arr[0];
+}
+
+// Returns the last element of the queue
+int getRear(struct myQueue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty!\n");
+        return -1;
+    }
+    return q->arr[q->size - 1];
+}
+
+int main() {
+    struct myQueue* q = createQueue(3);
+
+    enqueue(q, 10);
+    enqueue(q, 20);
+    enqueue(q, 30);
+    printf("Front: %d\n", getFront(q)); 
+
+    dequeue(q);
+    printf("Front: %d\n", getFront(q));
+    printf("Rear: %d\n", getRear(q));
+
+    enqueue(q, 40);
+
+    return 0;
+}
+
+//JAVA 
+class myQueue {
+    private int[] arr;
+    private int capacity;
+    private int size;
+
+    // Constructor
+    public myQueue(int capacity) {
+         //Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+         // Array to store queue elements.
+        arr = new int[capacity];
+        // Current number of elements in the queue.
+        size = 0;
+    }
+
+    // Check if queue is empty
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Check if queue is full
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    // Enqueue
+    public void enqueue(int x) {
+        if (isFull()) {
+            System.out.println("Queue is full!");
+            return;
+        }
+        arr[size] = x;
+        size++;
+    }
+
+    // Dequeue
+    public void dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty!");
+            return;
+        }
+        for (int i = 1; i < size; i++) {
+            arr[i - 1] = arr[i];
+        }
+        size--;
+    }
+
+    // Get front element
+    public int getFront() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty!");
+            return -1;
+        }
+        return arr[0];
+    }
+    //Get last element
+    public int getRear() {
+    if (isEmpty()) {
+        System.out.println("Queue is empty!");
+        return -1;
+    }
+    return arr[size - 1];
+    }
+
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        myQueue q = new myQueue(3);
+
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        System.out.println("Front: " + q.getFront()); 
+
+        q.dequeue();
+        System.out.println("Front: " + q.getFront());
+         System.out.println("Rear: " + q.getRear());
+
+        q.enqueue(40);
+       
+    }
+}
+
+//PYTHON
+class myQueue:
+    def __init__(self, capacity):
+         #Maximum number of elements the queue can hold.
+        self.capacity = capacity
+        #  Array to store queue elements.
+        self.arr = [0] * capacity
+        #  Current number of elements in the queue.
+        self.size = 0
+
+    # Check if queue is empty
+    def isEmpty(self):
+        return self.size == 0
+
+    # Check if queue is full
+    def isFull(self):
+        return self.size == self.capacity
+
+    # Enqueue
+    def enqueue(self, x):
+        if self.isFull():
+            print("Queue is full!")
+            return
+        self.arr[self.size] = x
+        self.size += 1
+
+    # Dequeue
+    def dequeue(self):
+        if self.isEmpty():
+            print("Queue is empty!")
+            return
+        for i in range(1, self.size):
+            self.arr[i - 1] = self.arr[i]
+        self.size -= 1
+
+    # Get front element
+    def getFront(self):
+        if self.isEmpty():
+            print("Queue is empty!")
+            return -1
+        return self.arr[0]
+        
+    def getRear(self):
+        if self.isEmpty():
+           print("Queue is empty!")
+           return -1
+        return self.arr[self.size - 1]
+
+
+# Driver code
+if __name__ == '__main__':
+    q = myQueue(3)
+    
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    print("Front:", q.getFront())  
+    
+    q.dequeue()
+    print("Front:", q.getFront())  
+    print("Rear:", q.getRear())  
+    
+    q.enqueue(40)
+
+//C#
+using System;
+
+class myQueue {
+    private int[] arr;
+    private int capacity;
+    private int size;
+
+    public myQueue(int capacity)
+    {
+        // Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+        // Array to store queue elements.
+        arr = new int[capacity];
+        // Current number of elements in the queue.
+        size = 0;
+    }
+
+    // Check if queue is empty
+    public bool isEmpty() { return size == 0; }
+
+    // Check if queue is full
+    public bool isFull() { return size == capacity; }
+
+    // Enqueue
+    public void enqueue(int x)
+    {
+        if (isFull()) {
+            Console.WriteLine("Queue is full!");
+            return;
+        }
+        arr[size] = x;
+        size++;
+    }
+
+    // Dequeue
+    public void dequeue()
+    {
+        if (isEmpty()) {
+            Console.WriteLine("Queue is empty!");
+            return;
+        }
+        for (int i = 1; i < size; i++) {
+            arr[i - 1] = arr[i];
+        }
+        size--;
+    }
+
+    // Get front element
+    public int getFront()
+    {
+        if (isEmpty()) {
+            Console.WriteLine("Queue is empty!");
+            return -1;
+        }
+        return arr[0];
+    }
+    // get last element
+    public int getRear()
+    {
+        if (isEmpty()) {
+            Console.WriteLine("Queue is empty!");
+            return -1;
+        }
+        return arr[size - 1];
+    }
+}
+
+class GfG {
+    static void Main()
+    {
+        myQueue q = new myQueue(3);
+
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        Console.WriteLine("Front: " + q.getFront());
+
+        q.dequeue();
+        Console.WriteLine("Front: " + q.getFront());
+        Console.WriteLine("Rear: " + q.getRear());
+
+        q.enqueue(40);
+    }
+}
+
+//JAVASCRIPT
+class myQueue {
+    constructor(capacity) {
+     
+        //Maximum number of elements the queue can hold.
+        this.capacity = capacity;
+     
+          // Array to store queue elements.
+        this.arr = new Array(capacity);
+     
+          // Current number of elements in the queue.
+        this.size = 0;
+    }
+
+    //Maximum number of elements the queue can hold.
+    isEmpty() {
+        return this.size === 0;
+    }
+
+    // Check if full
+    isFull() {
+        return this.size === this.capacity;
+    }
+
+    // Enqueue
+    enqueue(x) {
+        if (this.isFull()) {
+            console.log("Queue is full!");
+            return;
+        }
+        this.arr[this.size] = x;
+        this.size++;
+    }
+
+    // Dequeue
+    dequeue() {
+        if (this.isEmpty()) {
+            console.log("Queue is empty!");
+            return;
+        }
+        for (let i = 1; i < this.size; i++) {
+            this.arr[i - 1] = this.arr[i];
+        }
+        this.size--;
+    }
+
+    // Get front element
+    getFront() {
+        if (this.isEmpty()) {
+            console.log("Queue is empty!");
+            return -1;
+        }
+        return this.arr[0];
+    }
+    
+     // Get rear element
+    getRear() {
+        if (this.isEmpty()) {
+            console.log("Queue is empty!");
+            return -1;
+        }
+        return this.arr[this.size - 1];
+    }
+}
+
+//Driver Code
+let q = new myQueue(3);
+
+q.enqueue(10);
+q.enqueue(20);
+q.enqueue(30);
+console.log("Front:", q.getFront());  
+
+q.dequeue();
+console.log("Front:", q.getFront()); 
+console.log("Rear:", q.getRear()); 
+
+q.enqueue(40);
+
+Output
+Front: 10
+Front: 20
+Rear: 30
+We can notice that the Dequeue operation is O(n) which is not acceptable. The enqueue and dequeue both operations should have O(1) time complexity. That is why if we wish to implement a queue using array (because of array advantages like cache friendliness and random access), we do circular array implementation of queue.
+
+
+
+
+Implementation of Circular Queue Using Array
+
+A circular queue is a linear data structure that overcomes the limitations of a simple queue. In a normal array implementation, dequeue() can be O(n) or we may waste space. Using a circular array, both enqueue() and dequeue() can be done in O(1).
+
+Declaration using Array:
+In this implementation, arr is used to store elements. some variables are maintained:
+
+arr[] : array to store elements.
+capacity : maximum size of the queue.
+front : index of the front element.
+size : current number of elements in the queue.
+
+
+//C++
+class myQueue {
+private:
+
+    // Fixed-size array to store queue elements
+    int* arr;
+
+    // Index of the front element
+    int front;
+
+    // Current number of elements in the queue
+    int size;
+
+    // Maximum capacity of the queue
+    int capacity;
+
+public:
+
+    // Constructor to initialize the queue with given capacity
+    myQueue(int cap) {
+        capacity = cap;
+        arr = new int[capacity]; 
+        front = 0;
+        size = 0;
+    }
+};
+
+//C
+class myQueue {
+    
+    // Fixed-size array to store queue elements
+    private int[] arr;
+
+    // Index of the front element
+    private int front;
+
+    // Current number of elements in the queue
+    private int size;
+
+    // Maximum capacity of the queue
+    private int capacity;
+
+    // Constructor to initialize the queue with given capacity
+    public myQueue(int cap) {
+        capacity = cap;
+        arr = new int[capacity]; 
+        front = 0;
+        size = 0;
+    }
+}
+
+//JAVA 
+class myQueue:
+  
+    def __init__(self, cap):
+          # Maximum capacity of the queue
+        self.capacity = cap
+        
+       # Fixed-size list to store queue elements
+        self.arr = [0] * cap  
+        
+       # Index of the front element
+        self.front = 0
+        
+         # Current number of elements in the queue
+        self.size = 0
+
+//PYTHON
+class myQueue:
+  
+    def __init__(self, cap):
+          # Maximum capacity of the queue
+        self.capacity = cap
+        
+       # Fixed-size list to store queue elements
+        self.arr = [0] * cap  
+        
+       # Index of the front element
+        self.front = 0
+        
+         # Current number of elements in the queue
+        self.size = 0
+
+//C#
+class myQueue:
+  
+    def __init__(self, cap):
+          # Maximum capacity of the queue
+        self.capacity = cap
+        
+       # Fixed-size list to store queue elements
+        self.arr = [0] * cap  
+        
+       # Index of the front element
+        self.front = 0
+        
+         # Current number of elements in the queue
+        self.size = 0
+
+//JAVASCRIPT
+class myQueue {
+    // Fixed-size array to store queue elements
+    arr;
+
+    // Index of the front element
+    front;
+
+    // Current number of elements in the queue
+    size;
+
+    // Maximum capacity of the queue
+    capacity;
+
+    // Constructor to initialize the queue with given capacity
+    constructor(cap) {
+        this.capacity = cap;
+        this.arr = new Array(cap); 
+        this.front = 0;
+        this.size = 0;
+    }
+}
+
+
+Operations On Circular Queue:
+enqueue(x) :
+Purpose: Insert an element x at the rear of the circular queue.
+
+Check for full queue: If size == capacity, the queue is full print message or return.
+Compute rear index: rear = (front + size) % capacity ensures circular behavior.
+Insert element: arr[rear] = x.
+Update size: Increment size by 1.
+Time Complexity: O(1) Space Complexity: O(1) for the array
+
+
+//C++
+// Insert an element at the rear
+void enqueue(int x) {
+    if (size == capacity) {
+        cout << "Queue is full!" << endl;
+        return;
+    }
+    int rear = (front + size) % capacity;
+    arr[rear] = x;
+    size++;
+}
+
+//JAVA 
+// Insert an element at the rear
+public void enqueue(int x) {
+    if (size == capacity) {
+        System.out.println("Queue is full!");
+        return;
+    }
+    int rear = (front + size) % capacity;
+    arr[rear] = x;
+    size++;
+}
+
+//PYTHON
+# Insert an element at the rear
+def enqueue(self, x):
+    if self.size == self.capacity:
+        print("Queue is full!")
+        return
+    rear = (self.front + self.size) % self.capacity
+    self.arr[rear] = x
+    self.size += 1
+
+//C#
+// Insert an element at the rear
+public void enqueue(int x) {
+    if (size == capacity) {
+        Console.WriteLine("Queue is full!");
+        return;
+    }
+    int rear = (front + size) % capacity;
+    arr[rear] = x;
+    size++;
+}
+
+//JAVASCRIPT
+// Insert an element at the rear
+function enqueue(x) {
+    if (this.size === this.capacity) {
+        console.log("Queue is full!");
+        return;
+    }
+    let rear = (this.front + this.size) % this.capacity;
+    this.arr[rear] = x;
+    this.size++;
+}
+
+
+dequeue() :
+Purpose: Remove and return the front element from the circular queue.
+
+Check for empty queue: If size == 0, the queue is empty print message or return -1.
+Retrieve front element: res = arr[front].
+Move front forward: front = (front + 1) % capacity circular movement.
+Update size: Decrement size by 1.
+Return element: Return res.
+Time Complexity: O(1) Space Complexity: O(1)
+
+//C++
+// Remove an element from the front
+int dequeue() {
+    if (size == 0) {
+        cout << "Queue is empty!" << endl;
+        return -1;
+    }
+    int res = arr[front];
+    front = (front + 1) % capacity;
+    size--;
+    return res;
+}
+
+//JAVA 
+// Remove an element from the front
+public int dequeue() {
+    if (size == 0) {
+        System.out.println("Queue is empty!");
+        return -1;
+    }
+    int res = arr[front];
+    front = (front + 1) % capacity;
+    size--;
+    return res;
+}
+
+//PYTHON
+# Remove an element from the front
+def dequeue(self):
+    if self.size == 0:
+        print("Queue is empty!")
+        return -1
+    res = self.arr[self.front]
+    self.front = (self.front + 1) % self.capacity
+    self.size -= 1
+    return res
+
+//C#
+// Remove an element from the front
+public int dequeue() {
+    if (size == 0) {
+        Console.WriteLine("Queue is empty!");
+        return -1;
+    }
+    int res = arr[front];
+    front = (front + 1) % capacity;
+    size--;
+    return res;
+}
+
+//JAVASCRIPT
+// Remove an element from the front
+function dequeue() {
+    if (this.size === 0) {
+        console.log("Queue is empty!");
+        return -1;
+    }
+    let res = this.arr[this.front];
+    this.front = (this.front + 1) % this.capacity;
+    this.size--;
+    return res;
+}
+
+
+getRear() :
+Purpose: Return the element at the rear of the circular queue.
+
+Check for empty queue: If size == 0, the queue is empty → return -1.
+Compute rear index: rear = (front + size - 1) % capacity.
+Return element: Return arr[rear].
+Time Complexity: O(1) Space Complexity: O(1)
+
+//C++
+// Get the rear element
+int getRear() {
+    if (size == 0)
+        return -1;  
+    int rear = (front + size - 1) % capacity;
+    return arr[rear];
+}
+
+//JAVA 
+// Get the rear element
+public int getRear() {
+    if (size == 0)
+        return -1;  
+    int rear = (front + size - 1) % capacity;
+    return arr[rear];
+}
+
+//PYTHON
+# Get the rear element
+def getRear(self):
+    if self.size == 0:
+        return -1  
+    rear = (self.front + self.size - 1) % self.capacity
+    return self.arr[rear]
+
+//C#
+// Get the rear element
+public int getRear() {
+    if (size == 0)
+        return -1;  
+    int rear = (front + size - 1) % capacity;
+    return arr[rear];
+}
+
+//JAVASCRIPT
+// Get the rear element
+function getRear() {
+    if (this.size === 0) return -1;
+    let rear = (this.front + this.size - 1) % this.capacity;
+    return this.arr[rear];
+}
+
+
+getFront() :
+Purpose: Return the element at the front of the circular queue.
+
+Check for empty queue: If size == 0, the queue is empty → return -1.
+Return element: arr[front] is the front element.
+Time Complexity: O(1) Space Complexity: O(1)
+
+//C++
+// Get the front element
+int getFront() {
+    if (size == 0)
+        return -1;  
+    return arr[front];
+}
+
+//JAVA 
+// Get the front element
+public int getFront() {
+    if (size == 0)
+        return -1;   
+    return arr[front];
+}
+
+//PYTHON
+# Get the front element
+def getFront(self):
+    if self.size == 0:
+        return -1
+    return self.arr[self.front]
+
+//C#
+// Get the front element
+public int getFront() {
+    if (size == 0)
+        return -1;   
+    return arr[front];
+}
+
+//JAVASCRIPT
+// Get the front element
+function getFront() {
+    if (this.size === 0) return -1; 
+    return this.arr[this.front];
+}
+
+
+Complete Implementation:
+
+//C++
+#include <iostream>
+using namespace std;
+
+class myQueue {
+private:
+     // fixed-size array
+    int* arr;  
+     // index of front element
+    int front; 
+     // current number of elements
+    int size;   
+      // maximum capacity
+    int capacity;
+
+public:
+    myQueue(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        front = 0;
+        size = 0;
+    }
+
+    // Insert an element at the rear
+    void enqueue(int x) {
+        if (size == capacity) {
+            cout << "Queue is full!" << endl;
+            return;
+        }
+        int rear = (front + size) % capacity;
+        arr[rear] = x;
+        size++;
+    }
+
+    // Remove an element from the front
+    int dequeue() {
+        if (size == 0) {
+            cout << "Queue is empty!" << endl;
+            return -1;
+        }
+        int res = arr[front];
+        front = (front + 1) % capacity;
+        size--;
+        return res;
+    }
+
+    // Get the front element
+    int getFront() {
+        if (size == 0) return -1;
+        return arr[front];
+    }
+
+    // Get the rear element
+    int getRear() {
+        if (size == 0) return -1;
+        int rear = (front + size - 1) % capacity;
+        return arr[rear];
+    }
+};
+
+int main() {
+    myQueue q(5);
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    cout << q.getFront() << " " << q.getRear() << endl;
+    q.dequeue();
+    cout << q.getFront() << " " << q.getRear() << endl;
+    q.enqueue(40);
+    cout << q.getFront() << " " << q.getRear() << endl;
+    return 0;
+}
+
+//JAVA 
+class myQueue {
+    // fixed-size array
+    private int[] arr;  
+    // index of front element
+    private int front;  
+     // current number of elements
+    private int size;     
+    // maximum capacity
+    private int capacity;   
+
+    public myQueue(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        front = 0;
+        size = 0;
+    }
+
+    // Insert an element at the rear
+    public void enqueue(int x) {
+        if (size == capacity) {
+            System.out.println("Queue is full!");
+            return;
+        }
+        int rear = (front + size) % capacity;
+        arr[rear] = x;
+        size++;
+    }
+
+    // Remove an element from the front
+    public int dequeue() {
+        if (size == 0) {
+            System.out.println("Queue is empty!");
+            return -1;
+        }
+        int res = arr[front];
+        front = (front + 1) % capacity;
+        size--;
+        return res;
+    }
+
+    // Get the front element
+    public int getFront() {
+        if (size == 0) return -1;
+        return arr[front];
+    }
+
+    // Get the rear element
+    public int getRear() {
+        if (size == 0) return -1;
+        int rear = (front + size - 1) % capacity;
+        return arr[rear];
+    }
+
+    public static void main(String[] args) {
+        myQueue q = new myQueue(5);
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        System.out.println(q.getFront() + " " + q.getRear());
+        q.dequeue();
+        System.out.println(q.getFront() + " " + q.getRear());
+        q.enqueue(40);
+        System.out.println(q.getFront() + " " + q.getRear());
+    }
+}
+
+//PYTHON
+class myQueue:
+    def __init__(self, cap):
+         # fixed-size array
+        self.arr = [0]*cap    
+           # index of front element
+        self.front = 0 
+          # current number of elements
+        self.size = 0      
+         # maximum capacity
+        self.capacity = cap    
+
+    # Insert an element at the rear
+    def enqueue(self, x):
+        if self.size == self.capacity:
+            print("Queue is full!")
+            return
+        rear = (self.front + self.size) % self.capacity
+        self.arr[rear] = x
+        self.size += 1
+
+    # Remove an element from the front
+    def dequeue(self):
+        if self.size == 0:
+            print("Queue is empty!")
+            return -1
+        res = self.arr[self.front]
+        self.front = (self.front + 1) % self.capacity
+        self.size -= 1
+        return res
+
+    # Get the front element
+    def getFront(self):
+        if self.size == 0:
+            return -1
+        return self.arr[self.front]
+
+    # Get the rear element
+    def getRear(self):
+        if self.size == 0:
+            return -1
+        rear = (self.front + self.size - 1) % self.capacity
+        return self.arr[rear]
+
+if __name__ == "__main__":
+    q = myQueue(5)
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    print(q.getFront(), q.getRear())
+    q.dequeue()
+    print(q.getFront(), q.getRear())
+    q.enqueue(40)
+    print(q.getFront(), q.getRear())
+
+//C#
+using System;
+
+class myQueue {
+     // fixed-size array
+    private int[] arr;   
+     // index of front element
+    private int front;    
+     // current number of elements
+    private int size;    
+    // maximum capacity
+    private int capacity;   
+
+    public myQueue(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        front = 0;
+        size = 0;
+    }
+
+    // Insert an element at the rear
+    public void enqueue(int x) {
+        if (size == capacity) {
+            Console.WriteLine("Queue is full!");
+            return;
+        }
+        int rear = (front + size) % capacity;
+        arr[rear] = x;
+        size++;
+    }
+
+    // Remove an element from the front
+    public int dequeue() {
+        if (size == 0) {
+            Console.WriteLine("Queue is empty!");
+            return -1;
+        }
+        int res = arr[front];
+        front = (front + 1) % capacity;
+        size--;
+        return res;
+    }
+
+    // Get the front element
+    public int getFront() {
+        if (size == 0) return -1;
+        return arr[front];
+    }
+
+    // Get the rear element
+    public int getRear() {
+        if (size == 0) return -1;
+        int rear = (front + size - 1) % capacity;
+        return arr[rear];
+    }
+
+    static void Main() {
+        myQueue q = new myQueue(5);
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        Console.WriteLine(q.getFront() + " " + q.getRear());
+        q.dequeue();
+        Console.WriteLine(q.getFront() + " " + q.getRear());
+        q.enqueue(40);
+        Console.WriteLine(q.getFront() + " " + q.getRear());
+    }
+}
+
+//JAVASCRIPT
+class myQueue {
+    constructor(cap) {
+       
+        // fixed-size array
+        this.arr = new Array(cap);  
+       
+        // index of front element
+        this.front = 0; 
+       
+        // current number of elements
+        this.size = 0;    
+       
+        // maximum capacity
+        this.capacity = cap;        
+    }
+
+    // Insert an element at the rear
+    enqueue(x) {
+        if (this.size === this.capacity) {
+            console.log("Queue is full!");
+            return;
+        }
+        let rear = (this.front + this.size) % this.capacity;
+        this.arr[rear] = x;
+        this.size++;
+    }
+
+    // Remove an element from the front
+    dequeue() {
+        if (this.size === 0) {
+            console.log("Queue is empty!");
+            return -1;
+        }
+        let res = this.arr[this.front];
+        this.front = (this.front + 1) % this.capacity;
+        this.size--;
+        return res;
+    }
+
+    // Get the front element
+    getFront() {
+        if (this.size === 0) return -1;
+        return this.arr[this.front];
+    }
+
+    // Get the rear element
+    getRear() {
+        if (this.size === 0) return -1;
+        let rear = (this.front + this.size - 1) % this.capacity;
+        return this.arr[rear];
+    }
+}
+
+// Driver Code
+let q = new myQueue(5);
+q.enqueue(10);
+q.enqueue(20);
+q.enqueue(30);
+console.log(q.getFront(), q.getRear());
+q.dequeue();
+console.log(q.getFront(), q.getRear());
+q.enqueue(40);
+console.log(q.getFront(), q.getRear());
+
+
+Output
+10 30
+20 30
+20 40
+
+
+
+Queue - Linked List Implementation
+
+A Queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. The element inserted first is the first one to be removed.
+
+Declaration of Queue using Linked List
+To implement a queue with a linked list, we maintain:
+
+A Node structure/class that contains:
+
+data → to store the element.
+next → pointer/reference to the next node in the queue.
+Two pointers/references:
+
+front → points to the first node (head of the queue).
+rear → points to the last node (tail of the queue).
+
+//C++
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int new_data) {
+        data = new_data;
+        next = nullptr;
+    }
+};
+
+// Queue class
+class myQueue {
+private:
+    Node* front;
+    Node* rear;
+
+public:
+    myQueue() {
+        front = rear = nullptr;
+    }
+};
+
+//C
+// Node structure
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// Queue structure
+typedef struct myQueue {
+    Node* front;
+    Node* rear;
+} myQueue;
+
+//JAVA 
+class Node {
+    int data;
+    Node next;
+    Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+
+// Queue class definition
+class myQueue {
+    private Node front;
+    private Node rear;
+
+    public myQueue() {
+        front = rear = null;
+    }
+};
+
+//PYTHON
+class Node:
+    def __init__(self, new_data):
+        self.data = new_data
+        self.next = None
+
+class myQueue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+//C#
+// Node class definition
+public class Node {
+    public int data;
+    public Node next;
+    public Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+
+// Queue class definition
+public class myQueue {
+    private Node front;
+    private Node rear;
+
+    public myQueue() {
+        front = rear = null;
+    }
+};
+
+//JAVASCRIPT
+// Node class
+class Node {
+    constructor(new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+
+// Queue class
+class myQueue {
+    constructor() {
+        this.front = this.rear = null;
+    }
+};
+
+
+Operations on Queue using Linked List:
+Enqueue Operation
+The enqueue operation adds an element to the rear of the queue. Unlike array implementation, there is no fixed capacity in linked list. Overflow occurs only when memory is exhausted.
+
+A new node is created with the given value.
+If the queue is empty (front == null and rear == null), both front and rear are set to this new node.
+Otherwise, the current rear’s next pointer is set to the new node.
+The rear pointer is updated to point to the new node.
+
+
+//C++
+void enqueue(int new_data) {
+    Node* node = new Node(new_data);
+    if (isEmpty()) {
+        front = rear = node;
+    } else {
+        rear->next = node;
+        rear = node;
+    }
+}
+
+//C
+void enqueue(Queue* q, int data) {
+    Node* node = newNode(data);
+    if (isEmpty(q)) {
+        q->front = q->rear = node;
+    } else {
+        q->rear->next = node;
+        q->rear = node;
+    }
+}
+
+//JAVA 
+public void enqueue(int new_data) {
+    Node new_node = new Node(new_data);
+    if (isEmpty()) {
+        front = rear = new_node;
+    } else {
+        rear.next = new_node;
+        rear = new_node;
+    }
+}
+
+//PYTHON
+def enqueue(self, new_data):
+    new_node = Node(new_data)
+    if self.isEmpty():
+        self.front = self.rear = new_node
+    else:
+        self.rear.next = new_node
+        self.rear = new_node
+
+//C#
+public void enqueue(int new_data) {
+    Node new_node = new Node(new_data);
+    if (isEmpty()) {
+        front = rear = new_node;
+    } else {
+        rear.next = new_node;
+        rear = new_node;
+    }
+}
+
+//JAVASCRIPT
+function enqueue(new_data) {
+    const new_node = new Node(new_data);
+    if (this.isEmpty()) {
+        this.front = this.rear = new_node;
+    } else {
+        this.rear.next = new_node;
+        this.rear = new_node;
+    }
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+
+
+Dequeue Operation
+The dequeue operation removes an element from the front of the queue.
+
+If the queue is empty (front == null), return underflow (queue is empty).
+Otherwise, store the current front node in a temporary pointer.
+Move the front pointer to the next node (front = front.next).
+If the front becomes null, also set rear = null (queue becomes empty).
+
+//C++
+// Dequeue
+int dequeue() {
+       if (isEmpty()) {
+           cout << "Queue Underflow" << endl;
+           return -1;
+       }
+ 
+       Node* temp = front;
+       int removedData = temp->data;
+       front= front->next;
+ 
+       if (front == nullptr) rear = nullptr;
+       delete temp;
+       return removedData;
+}
+
+//C
+int dequeue(Queue* q) {
+    if (isEmpty(q)) {
+        printf("Queue Underflow\n");
+        return -1;
+    }
+   
+    Node* temp = q->front;
+    int removedData = temp->data;
+    q->front = q->front->next;
+   
+    if (q->front == NULL) q->rear = NULL;
+    free(temp);
+   
+    return removedData;
+}
+
+//JAVA 
+public void dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue Underflow");
+            return;
+        }
+    
+        Node temp = front;
+        front = front.next;
+        if (front == null) rear = null;
+        temp = null; 
+    }
+
+//PYTHON
+def dequeue(self):
+    if self.isEmpty():
+        print("Queue Underflow")
+        return
+   
+    temp = self.front
+    self.front = self.front.next
+    if self.front is None:
+        self.rear = None
+
+//C#
+public void dequeue() {
+    if (isEmpty()) {
+        System.Console.WriteLine("Queue Underflow");
+        return;
+    }
+    
+    Node temp = front;
+    front = front.next;
+    if (front == null)
+        rear = null;
+}
+
+//JAVASCRIPT
+function dequeue() {
+    if (this.isEmpty()) {
+        console.log("Queue Underflow");
+        return;
+    }
+    this.front = this.front.next;
+    
+    if (this.front === null) {
+        this.rear = null;
+    }
+}
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+
+
+isEmpty Operation
+The isEmpty operation checks whether the queue has no elements.
+
+If the front pointer is NULL, it means the queue is empty → return true.
+Otherwise, the queue has elements → return false.
+
+//C++
+// Check if empty
+bool isEmpty() {
+    return front == nullptr;
+}
+
+//C
+// Check if the queue is empty
+int isEmpty(Queue* q) {
+    return q->front == NULL;
+}
+
+//JAVA 
+// Check if the queue is empty
+public boolean isEmpty() {
+    return front == null;
+}
+
+//PYTHON
+# Check if the queue is empty
+def isEmpty(self):
+    return self.front is None
+
+//C#
+// Check if the queue is empty
+public bool isEmpty() {
+    return front == null;
+}
+
+//JAVASCRIPT
+// Check if queue is empty
+function isEmpty() {
+    return this.front === null;
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+
+
+Front Operation
+The front() function returns the element at the front of the queue without removing it.
+
+If the queue is empty (front == NULL), print a message and return -1.
+Otherwise, return front->data (the value at the front).
+
+//C++
+int getfront() {
+    if (isEmpty()) {
+        cout << "Queue is empty" << endl;
+        return -1;
+    }
+    return front->data;
+}
+
+//C
+int getfront(Queue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    return q->front->data;
+}
+
+//JAVA 
+// Return front element
+public int getfront() {
+    if (isEmpty()) {
+        System.out.println("Queue is empty");
+        return -1;
+    }
+    return front.data;
+}
+
+//PYTHON
+# Return the front element
+def getfront(self):
+   if self.isEmpty():
+        print("Queue is empty")
+        return -1
+    return self.front.data
+
+//C#
+// Return front element
+public int getfront() {
+    if (isEmpty()) {
+        System.Console.WriteLine("Queue is empty");
+        return -1;
+    }
+    return front.data;
+}
+
+//JAVASCRIPT
+// Return the front element
+function getfront() {
+    if (this.isEmpty()) {
+        console.log("Queue is empty");
+        return -1;
+    }
+    return this.front.data;
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+
+Full Implementations of Queue Using Linked List
+
+//C++
+#include <iostream>
+using namespace std;
+
+// Node class
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int new_data) {
+        data = new_data;
+        next = nullptr;
+    }
+};
+
+// Queue class
+class myQueue {
+private:
+    int currSize;
+    Node* front;
+    Node* rear;
+
+public:
+    myQueue() {
+        currSize = 0;
+        front = rear= nullptr;
+    }
+
+    // Check if empty
+    bool isEmpty() {
+        return front == nullptr;
+    }
+
+    // Enqueue
+    void enqueue(int new_data) {
+        Node* node = new Node(new_data);
+        if (isEmpty()) {
+            front = rear = node;
+        } else {
+            rear->next = node;
+            rear = node;
+        }
+        
+        currSize++;
+    }
+
+    // Dequeue
+    int dequeue() {
+        if (isEmpty()) {
+            cout << "Queue Underflow" << endl;
+            return -1;
+        }
+        
+        Node* temp = front;
+        int removedData = temp->data;
+        front = front->next;
+        
+        if (front == nullptr) rear = nullptr;
+        delete temp;
+        
+        currSize--;
+        return removedData;
+    }
+
+    // Get front element
+    int getfront() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return front->data;
+    }
+
+    // Get size
+    int size() {
+       return currSize;
+    }
+};
+
+int main() {
+    myQueue q;
+    
+    q.enqueue(10);
+    q.enqueue(20);
+
+    cout << "Dequeue: " << q.dequeue() << "\n";
+    
+    q.enqueue(30);
+
+    cout << "Front: " << q.getfront() << endl;
+    cout << "Size: " << q.size() << endl;
+
+    return 0;
+}
+
+//C
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// myQueue structure
+typedef struct myQueue {
+    int currSize;
+    Node* front;
+    Node* rear;
+} myQueue;
+
+// Create a new node
+Node* newNode(int data) {
+    Node* node = (Node*)malloc(sizeof(Node));
+    node->data = data;
+    node->next = NULL;
+    return node;
+}
+
+// Create an empty queue
+myQueue* createQueue() {
+    myQueue* q = (myQueue*)malloc(sizeof(myQueue));
+    q->front = q->rear = NULL;
+    q->currSize = 0;
+    return q;
+}
+
+// Check if the queue is empty
+int isEmpty(myQueue* q) {
+    return q->front == NULL;
+}
+
+// Enqueue operation
+void enqueue(myQueue* q, int data) {
+    Node* node = newNode(data);
+    if (isEmpty(q)) {
+        q->front = q->rear = node;
+    } else {
+        q->rear->next = node;
+        q->rear = node;
+    }
+    
+    q->currSize++;
+}
+
+// Dequeue operation
+int dequeue(myQueue* q) {
+    if (isEmpty(q)) {
+        printf("Queue Underflow\n");
+        return -1;
+    }
+    
+    Node* temp = q->front;
+    int removedData = temp->data;
+    q->front = q->front->next;
+    if (q->front == NULL) q->rear = NULL;
+    free(temp);
+    
+    q->currSize--;
+    return removedData;
+}
+
+// Get front element
+int getFront(myQueue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    return q->front->data;
+}
+
+// Get queue size
+int size(myQueue* q) {
+    return q->currSize;
+}
+
+int main() {
+    myQueue* q = createQueue();
+
+    enqueue(q, 10);
+    enqueue(q, 20);
+
+    printf("Dequeue: %d\n",dequeue(q));
+
+    enqueue(q, 30);
+
+    printf("Front: %d\n", getFront(q));
+    printf("Size: %d\n", size(q));
+
+    return 0;
+}
+
+//JAVA 
+// Node class definition
+class Node {
+    int data;
+    Node next;
+    Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+
+// Queue class definition
+class myQueue {
+    private Node front;
+    private Node rear;
+    private int currSize;
+
+    public myQueue() {
+        currSize = 0;
+        front = rear = null;
+    }
+
+    // Check if the queue is empty
+    public boolean isEmpty() {
+        return front == null;
+    }
+
+    // Enqueue operation
+    public void enqueue(int new_data) {
+        Node new_node = new Node(new_data);
+        if (isEmpty()) {
+            front = rear = new_node;
+        } else {
+            rear.next = new_node;
+            rear = new_node;
+        }
+        
+        currSize++;
+    }
+
+    // Dequeue operation (returns removed element)
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue Underflow");
+            return -1;
+        }
+        Node temp = front;
+        int removedData = temp.data;
+        front = front.next;
+        if (front == null) rear = null;
+    
+        currSize--;
+        return removedData;
+    }
+
+    // Return front element
+    public int getfront() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        return front.data;
+    }
+
+    // Return size of the queue
+    public int size() {
+        return currSize;
+    }
+}
+
+class GFG {
+    public static void main(String[] args) {
+        myQueue q = new myQueue();
+
+        q.enqueue(10);
+        q.enqueue(20);
+
+        System.out.println("Dequeue: " + q.dequeue());
+
+        q.enqueue(30);
+
+        System.out.println("Front: " + q.getfront());
+        System.out.println("Size: " + q.size());
+    }
+}
+
+//PYTHON
+class Node:
+    def __init__(self, new_data):
+        self.data = new_data
+        self.next = None
+
+class myQueue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+        self.currSize = 0  
+        
+    # Check if the queue is empty
+    def isEmpty(self):
+        return self.front is None
+
+    # Add element to the queue
+    def enqueue(self, new_data):
+        new_node = Node(new_data)
+        if self.isEmpty():
+            self.front = self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+            
+        # increment size
+        self.currSize += 1 
+
+    # Remove element from the queue and return it
+    def dequeue(self):
+        if self.isEmpty():
+            print("Queue Underflow")
+            return -1
+        removedData = self.front.data
+        self.front = self.front.next
+        if self.front is None:
+            self.rear = None
+            
+        # decrement size
+        self.currSize -= 1 
+        return removedData
+
+    # Return the front element
+    def getfront(self):
+        if self.isEmpty():
+            print("Queue is empty")
+            return -1
+        return self.front.data
+
+    # Return size in O(1)
+    def size(self):
+        return self.currSize
+
+if __name__ == "__main__":
+    q = myQueue()
+    
+    q.enqueue(10)
+    q.enqueue(20)
+    
+    print("Dequeue:", q.dequeue())
+    
+    q.enqueue(30)
+    
+    print("Front:", q.getfront())
+    print("Size:", q.size())
+
+//C#
+using System;
+
+// Node class definition
+class Node {
+    public int data;
+    public Node next;
+
+    public Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+
+// Queue class definition
+class myQueue {
+    private Node front;
+    private Node rear;
+    private int currSize; 
+
+    public myQueue() {
+        front = rear = null;
+        currSize = 0;
+    }
+
+    // Check if the queue is empty
+    public bool isEmpty() {
+        return front == null;
+    }
+
+    // Enqueue operation
+    public void enqueue(int new_data) {
+        Node new_node = new Node(new_data);
+        if (isEmpty()) {
+            front = rear = new_node;
+        } else {
+            rear.next = new_node;
+            rear = new_node;
+        }
+        currSize++; 
+    }
+
+    // Dequeue operation (returns removed element)
+    public int dequeue() {
+        if (isEmpty()) {
+            Console.WriteLine("Queue Underflow");
+            return -1;
+        }
+        int removedData = front.data;
+        front = front.next;
+        if (front == null) rear = null;
+        currSize--; 
+        return removedData;
+    }
+
+    // Return front element
+    public int getFront() {
+        if (isEmpty()) {
+            Console.WriteLine("Queue is empty");
+            return -1;
+        }
+        return front.data;
+    }
+
+    // Return size in O(1)
+    public int size() {
+        return currSize;
+    }
+}
+
+class GFG {
+    public static void Main(string[] args) {
+        myQueue q = new myQueue();
+
+        q.enqueue(10);
+        q.enqueue(20);
+
+        Console.WriteLine("Dequeue: " + q.dequeue());
+
+        q.enqueue(30);
+
+        Console.WriteLine("Front: " + q.getFront());
+        Console.WriteLine("Size: " + q.size());
+    }
+}
+
+//JAVASCRIPT
+// Node class
+class Node {
+    constructor(new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+
+// Queue class
+class myQueue {
+    constructor() {
+        this.front = this.rear = null;
+        this.currSize = 0; 
+    }
+
+    // Check if queue is empty
+    isEmpty() {
+        return this.front === null;
+    }
+
+    // Add element to the queue
+    enqueue(new_data) {
+        const new_node = new Node(new_data);
+        if (this.isEmpty()) {
+            this.front = this.rear = new_node;
+        } else {
+            this.rear.next = new_node;
+            this.rear = new_node;
+        }
+        this.currSize++; 
+    }
+
+    // Remove element from the queue and return it
+    dequeue() {
+        if (this.isEmpty()) {
+            console.log("Queue Underflow");
+            return -1;
+        }
+        const removedData = this.front.data;
+        this.front = this.front.next;
+        if (this.front === null) {
+            this.rear = null;
+        }
+        this.currSize--; 
+        return removedData;
+    }
+
+    // Return the front element
+    getfront() {
+        if (this.isEmpty()) {
+            console.log("Queue is empty");
+            return -1;
+        }
+        return this.front.data;
+    }
+
+    // Return the size of the queue in O(1)
+    size() {
+        return this.currSize;
+    }
+}
+
+// Driver code
+const q = new myQueue();
+
+q.enqueue(10);
+q.enqueue(20);
+
+console.log("Dequeue:", q.dequeue());
+
+q.enqueue(30);
+
+console.log("Front:", q.getfront());
+console.log("Size:", q.size());
+
+
+Output
+Dequeue: 10
+Front: 20
+Size: 2
+
+
+Applications, Advantages and Disadvantages of Queue
+
+A Queue is a linear data structure. This data structure follows a particular order in which the operations are performed. The order is First In First Out (FIFO).
+
+Network: In a network, a queue is used in devices such as a router or a switch. another application of a queue is a mail queue which is a directory that stores data and controls files for mail messages.
+Job Scheduling: The computer has a task to execute a particular number of jobs that are scheduled to be executed one after another. These jobs are assigned to the processor one by one which is organized using a queue.
+Shared resources: Queues are used as waiting lists for a single shared resource.
+
+
+Real-time application of Queue:
+
+Working as a buffer between a slow and a fast device. For example keyboard and CPU, and two devices on network.
+ATM Booth Line
+Ticket Counter Line
+CPU task scheduling
+Waiting time of each customer at call centers.
+Advantages of Queue:
+
+Queues are useful when a particular service is used by multiple consumers.
+Queues are fast in speed for data inter-process communication.
+Queues can be used for the implementation of other data structures.
+
+
+Disadvantages of Queue:
+
+The operations such as insertion and deletion of elements from the middle are time consuming.
+In a classical queue, a new element can only be inserted when the existing elements are deleted from the queue.
+Searching an element takes O(N) time.
+Maximum size of a queue must be defined prior in case of array implementation.

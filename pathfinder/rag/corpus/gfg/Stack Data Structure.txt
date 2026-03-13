@@ -1,0 +1,2337 @@
+Stack Data Structure
+
+A Stack is a linear data structure that follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out). LIFO implies that the element that is inserted last, comes out first and FILO implies that the element that is inserted first, comes out last.
+
+It behaves like a stack of plates, where the last plate added is the first one to be removed. Think of it this way:
+
+Pushing an element onto the stack is like adding a new plate on top.
+
+Popping an element removes the top plate from the stack.
+
+Introduction to Stack Data Structure
+
+Stack is a linear data structure that follows LIFO (Last In First Out) Principle, the last element inserted is the first to be popped out. It means both insertion and deletion operations happen at one end only.
+
+LIFO(Last In First Out) Principle
+The LIFO principle means that the last element added to a stack is the first one to be removed.
+
+New elements are always pushed on top.
+Removal (pop) also happens only from the top.
+This ensures a strict order: last in → first out.
+Real-world examples of LIFO:
+
+Stack of plates – The last plate placed on top is the first one you pick up.
+Shuttlecock box – The last shuttlecock inserted is the first one taken out, since both operations happen from the same end.
+Basic Terminologies of Stack
+Top: The position of the most recently inserted element. Insertions (push) and deletions (pop) are always performed at the top.
+Size: Refers to the current number of elements present in the stack.
+Types of Stack:
+Fixed Size Stack
+A fixed size stack has a predefined capacity.
+Once it becomes full, no more elements can be added (this causes overflow).
+If the stack is empty and we try to remove an element, it causes underflow.
+Typically implemented using a static array.
+Example: Declaring a stack of size 10 using an array.
+
+Dynamic Size Stack
+A dynamic size stack can grow and shrink automatically as needed.
+If the stack is full, its capacity expands to allow more elements.
+As elements are removed, memory usage can shrink as well.
+Can be implemented using:
+-> Linked List → grows/shrinks naturally.
+-> Dynamic Array (like vector in C++ or ArrayList in Java) → resizes automatically.
+Example: Stack implementation using linked list or resizable array.
+
+Note: We generally use dynamic stacks in practice, as they can grow or shrink as needed without overflow issues.
+
+Common Operations on Stack:
+In order to make manipulations in a stack, there are certain operations provided to us.
+
+push() to insert an element into the stack.
+pop() to remove an element from the stack.
+top() Returns the top element of the stack.
+isEmpty() returns true if stack is empty else false.
+size() returns the size of the stack.
+Refer to this article to know more about Operations on Stack.
+
+Implementation of Stack
+Stack can be implemented in Different Ways :-
+
+Implementation of Stack using Array
+Implementation of Stack using Linked List
+Implementation of Stack using Deque
+Applications and Use Cases of Stack
+Applications of Stack
+
+Applications, Advantages and Disadvantages of Stack
+Last Updated : 20 Jan, 2026
+A stack is a linear data structure in which the insertion of a new element and removal of an existing element takes place at the same end represented as the top of the stack. This property of stack is used to solve a lot of interesting problems like Next Greater, Previous Greater, Next Smaller, Previous Smaller, Largest Area in a Histogram and Stock Span Problems.
+
+Applications of Stacks:
+Function calls: Stacks are used to keep track of the return addresses of function calls, allowing the program to return to the correct location after a function has finished executing.
+Recursion: Stacks are used to store the local variables and return addresses of recursive function calls, allowing the program to keep track of the current state of the recursion.
+Expression evaluation: Stacks are used to evaluate expressions in postfix notation (Reverse Polish Notation).
+Syntax parsing: Stacks are used to check the validity of syntax in programming languages and other formal languages.
+Memory management: Stacks are used to allocate and manage memory in some operating systems and programming languages.
+
+Advantages of Stacks:
+Simplicity: Stacks are a simple and easy-to-understand data structure, making them suitable for a wide range of applications.
+Efficiency: Push and pop operations on a stack can be performed in constant time (O(1)), providing efficient access to data.
+Last-in, First-out (LIFO): Stacks follow the LIFO principle, ensuring that the last element added to the stack is the first one removed. This behavior is useful in many scenarios, such as function calls and expression evaluation.
+Limited memory usage: Stacks only need to store the elements that have been pushed onto them, making them memory-efficient compared to other data structures.
+
+Disadvantages of Stacks:
+Limited access: Elements in a stack can only be accessed from the top, making it difficult to retrieve or modify elements in the middle of the stack.
+Potential for overflow: If more elements are pushed onto a stack than it can hold, an overflow error will occur, resulting in a loss of data.
+Not suitable for random access: Stacks do not allow for random access to elements, making them unsuitable for applications where elements need to be accessed in a specific order.
+Limited capacity: Stacks have a fixed capacity, which can be a limitation if the number of elements that need to be stored is unknown or highly variable.
+
+Stack using Array
+Last Updated : 15 Dec, 2025
+A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. It can be implemented using an array by treating the end of the array as the top of the stack.
+
+A stack can be implemented using an array where we maintain:
+
+An integer array to store elements.
+A variable capacity to represent the maximum size of the stack.
+A variable top to track the index of the top element. Initially, top = -1 to indicate an empty stack.
+
+//C++
+class myStack {
+    
+    // array to store elements
+    int *arr;       
+    
+    // maximum size of stack
+    int capacity;   
+    
+    // index of top element
+    int top;          
+
+public:
+    
+    // constructor
+    myStack(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        top = -1;
+    }
+};
+
+//C
+typedef struct
+{
+    int *arr;     // array to store elements
+    int capacity; // maximum size of stack
+    int top;      // index of top element
+} Stack;
+
+// Function to create a stack (constructor equivalent)
+Stack *createStack(int capacity)
+{
+    Stack *stack = (Stack *)malloc(sizeof(Stack));
+    stack->capacity = capacity;
+    stack->arr = (int *)malloc(capacity * sizeof(int));
+    stack->top = -1;
+    return stack;
+}
+
+// Function to free stack memory
+void freeStack(Stack *stack)
+{
+    free(stack->arr);
+    free(stack);
+}
+
+//JAVA
+class myStack {
+
+    // array to store elements
+    private int[] arr;
+
+    // maximum size of stack
+    private int capacity;
+
+    // index of top element
+    private int top;
+
+    // constructor
+    public myStack(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        top = -1;
+    }
+}
+
+//PYTHON
+class myStack:
+
+    def __init__(self, cap):
+        
+        # array to store elements
+        self.arr = [0] * cap
+        
+        # maximum size of stack
+        self.capacity = cap
+        
+        # index of top element
+        self.top = -1
+
+//C#
+class myStack {
+
+    // array to store elements
+    private int[] arr;
+
+    // maximum size of stack
+    private int capacity;
+
+    // index of top element
+    private int top;
+
+    // constructor
+    public myStack(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        top = -1;
+    }
+}
+
+//JAVASCRIPT
+class myStack {
+
+    // constructor
+    constructor(cap) {
+        
+        // array to store elements
+        this.arr = new Array(cap);
+        
+        // maximum size of stack
+        this.capacity = cap;
+        
+        // index of top element
+        this.top = -1;
+    }
+}
+
+
+
+Operations On Stack
+Push Operation:
+Adds an item to the stack. If the stack is full, then it is said to be an Overflow condition.
+
+Before pushing the element to the stack, we check if the stack is full.
+If the stack is full (top == capacity-1) , then Stack Overflows and we cannot insert the element to the stack.
+Otherwise, we increment the value of top by 1 (top = top + 1) and the new value is inserted at top position .
+The elements can be pushed into the stack till we reach the capacity of the stack.
+
+//C++
+void push(int x) {
+   
+    if (top == capacity - 1) {
+        cout << "Stack Overflow\n";
+        return;
+    }
+   
+    arr[++top] = x;
+}
+
+//C
+typedef struct {
+    int* arr;
+    int capacity;
+    int top;
+} Stack;
+
+void push(Stack* stack, int x) {
+    if (stack->top == stack->capacity - 1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    stack->arr[++stack->top] = x;
+}
+
+//JAVA
+void push(int x) {
+   
+    if (top == capacity - 1) {
+        System.out.println("Stack Overflow");
+        return;
+    }
+   
+    arr[++top] = x;
+}
+
+//PYHTON
+def push(self, x):
+    
+    if self.top == self.capacity - 1:
+        print("Stack Overflow")
+        return
+    
+    self.top += 1
+    
+    self.arr[self.top] = x
+
+//C#
+void push(int x) {
+  
+    if (top == capacity - 1) {
+        Console.WriteLine("Stack Overflow");
+        return;
+    }
+  
+    arr[++top] = x;
+}
+
+//JAVASCRIPT
+function push(x) {
+    
+    if (top === capacity - 1) {
+        console.log('Stack Overflow');
+        return;
+    }
+    
+    arr[++top] = x;
+}
+
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Pop Operation:
+Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.
+
+Before popping the element from the stack, we check if the stack is empty .
+If the stack is empty (top == -1), then Stack Underflows and we cannot remove any element from the stack.
+Otherwise, we store the value at top, decrement the value of top by 1 (top = top – 1) and return the stored top value.
+
+//C++
+int pop() {
+
+    if (top == -1) {
+        cout << "Stack Underflow\n";
+        return -1;
+    }
+
+    return arr[top--];
+}
+
+//C
+int pop()
+{
+
+    if (top == -1)
+    {
+        cout << "Stack Underflow\n";
+        return -1;
+    }
+
+    return arr[top--];
+}
+
+//JAVA
+int pop() {
+    
+    if (top == -1) {
+        System.out.println("Stack Underflow");
+        return -1;
+    }
+    
+    return arr[top--];
+}
+
+
+//PYTHON
+def pop(self):
+    
+    if self.top == -1:
+        print("Stack Underflow")
+        return -1
+    
+    value = self.arr[self.top]
+    self.top -= 1
+ 
+    return value
+
+//C#
+int pop() {
+   
+    if (top == -1) {
+        Console.WriteLine("Stack Underflow");
+        return -1;
+    }
+   
+    return arr[top--];
+}
+
+//JAVASCRIPT
+function pop() {
+   
+    if (top == -1) {
+        console.log('Stack Underflow');
+        return -1;
+    }
+   
+    return arr[top--];
+}
+
+
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Top or Peek Operation in Stack:
+Returns the top element of the stack.
+
+Before returning the top element from the stack, we check if the stack is empty.
+If the stack is empty (top == -1), we simply print “Stack is empty”.
+Otherwise, we return the element stored at index = top.
+
+
+//C++
+int peek() {
+    
+    if (top == -1) {
+        cout << "Stack is Empty\n";
+        return -1;
+    }
+    
+    return arr[top];
+}
+
+//C
+int peek()
+{
+
+    if (top == -1)
+    {
+        cout << "Stack is Empty\n";
+        return -1;
+    }
+
+    return arr[top];
+}
+
+//JAVA
+int peek() {
+   
+    if (top == -1) {
+        System.out.println("Stack is Empty");
+        return -1;
+    }
+   
+    return arr[top];
+}
+
+
+/PYTHON
+def peek(self):
+  
+    if self.top == -1:
+        print("Stack is Empty")
+        return -1
+  
+    return self.arr[self.top]
+
+//C#
+int peek() {
+  
+    if (top == -1) {
+        Console.WriteLine("Stack is Empty");
+        return -1;
+    }
+  
+    return arr[top];
+}
+
+//JAVASCRIPT
+function peek() {
+ 
+    if (top == -1) {
+        console.log('Stack is Empty');
+        return -1;
+    }
+ 
+    return arr[top];
+}
+
+
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+isEmpty Operation in Stack:
+Returns true if the stack is empty, else false.
+
+Check for the value of top in stack.
+If (top == -1) , then the stack is empty so return true.
+Otherwise, the stack is not empty so return false.
+
+
+//C++
+bool isEmpty() {
+ 
+    return top == -1;
+}
+
+//C 
+bool isEmpty() {
+ 
+    return top == -1;
+}
+
+//JAVA
+boolean isEmpty() {
+   
+    return top == -1;
+}
+
+//PYTHON 
+def isEmpty(self):
+   
+    return self.top == -1
+
+//C#
+bool isEmpty() {
+    return top == -1;
+}
+
+//JAVASCRIPT
+isEmpty() {
+    
+    return this.top === -1;
+}
+
+
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+isFull Operation in Stack :
+Returns true if the stack is full, else false.
+
+Check for the value of top in stack.
+If (top == capacity-1), then the stack is full so return true.
+Otherwise, the stack is not full so return false.
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Full Implementation of Stack using Array
+
+//C++
+class myStack {
+    constructor(cap) {
+        
+        // array to store elements
+        this.arr = new Array(cap); 
+        
+        // maximum size of stack
+        this.capacity = cap;       
+        
+        // index of top element
+        this.top = -1;             
+    }
+
+    // push operation
+    push(x) {
+        if (this.top === this.capacity - 1) {
+            console.log("Stack Overflow");
+            return;
+        }
+        this.arr[++this.top] = x;
+    }
+
+    // pop operation
+    pop() {
+        if (this.top === -1) {
+            console.log("Stack Underflow");
+            return -1;
+        }
+        return this.arr[this.top--];
+    }
+
+    // peek (or top) operation
+    peek() {
+        if (this.top === -1) {
+            console.log("Stack is Empty");
+            return -1;
+        }
+        return this.arr[this.top];
+    }
+
+    // check if stack is empty
+    isEmpty() {
+        return this.top === -1;
+    }
+
+    // check if stack is full
+    isFull() {
+        return this.top === this.capacity - 1;
+    }
+}
+
+// Driver Code
+let st = new myStack(4);
+
+// pushing elements
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+
+// popping one element
+console.log("Popped: " + st.pop());
+
+// checking top element
+console.log("Top element: " + st.peek());
+
+// checking if stack is empty
+console.log("Is stack empty: " + (st.isEmpty() ? "Yes" : "No"));
+
+// checking if stack is full
+console.log("Is stack full: " + (st.isFull() ? "Yes" : "No"));
+
+//C
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define stack structure
+typedef struct
+{
+    int *arr;     // array to store elements
+    int capacity; // maximum size of stack
+    int top;      // index of top element
+} Stack;
+
+// Function to create a stack
+Stack *createStack(int capacity)
+{
+    Stack *stack = (Stack *)malloc(sizeof(Stack));
+    stack->capacity = capacity;
+    stack->arr = (int *)malloc(capacity * sizeof(int));
+    stack->top = -1;
+    return stack;
+}
+
+// Push operation
+void push(Stack *stack, int x)
+{
+    if (stack->top == stack->capacity - 1)
+    {
+        printf("Stack Overflow\n");
+        return;
+    }
+    stack->arr[++stack->top] = x;
+}
+
+// Pop operation
+int pop(Stack *stack)
+{
+    if (stack->top == -1)
+    {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    return stack->arr[stack->top--];
+}
+
+// Peek operation
+int peek(Stack *stack)
+{
+    if (stack->top == -1)
+    {
+        printf("Stack is Empty\n");
+        return -1;
+    }
+    return stack->arr[stack->top];
+}
+
+// Check if stack is empty
+bool isEmpty(Stack *stack)
+{
+    return stack->top == -1;
+}
+
+// Check if stack is full
+bool isFull(Stack *stack)
+{
+    return stack->top == stack->capacity - 1;
+}
+
+// Free stack memory
+void freeStack(Stack *stack)
+{
+    free(stack->arr);
+    free(stack);
+}
+
+int main()
+{
+    Stack *st = createStack(4);
+
+    // Push elements
+    push(st, 1);
+    push(st, 2);
+    push(st, 3);
+    push(st, 4);
+
+    // Pop one element
+    printf("Popped: %d\n", pop(st));
+
+    // Peek top element
+    printf("Top element: %d\n", peek(st));
+
+    // Check if stack is empty
+    printf("Is stack empty: %s\n", isEmpty(st) ? "Yes" : "No");
+
+    // Check if stack is full
+    printf("Is stack full: %s\n", isFull(st) ? "Yes" : "No");
+
+    freeStack(st); // free memory
+    return 0;
+}
+
+//JAVA
+
+import java.util.Arrays;
+
+class myStack {
+
+    // array to store elements
+    private int[] arr;
+
+    // maximum size of stack
+    private int capacity;
+
+    // index of top element
+    private int top;
+
+    // constructor
+    public myStack(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        top = -1;
+    }
+
+    // push operation
+    public void push(int x) {
+        if (top == capacity - 1) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    // pop operation
+    public int pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    // peek (or top) operation
+    public int peek() {
+        if (top == -1) {
+            System.out.println("Stack is Empty");
+            return -1;
+        }
+        return arr[top];
+    }
+
+    // check if stack is empty
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    // check if stack is full
+    public boolean isFull() {
+        return top == capacity - 1;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        myStack st = new myStack(4);
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        System.out.println("Popped: " + st.pop());
+
+        // checking top element
+        System.out.println("Top element: " + st.peek());
+
+        // checking if stack is empty
+        System.out.println("Is stack empty: " +
+                            (st.isEmpty() ? "Yes" : "No"));
+
+        // checking if stack is full
+        System.out.println("Is stack full: " +
+                            (st.isFull() ? "Yes" : "No"));
+    }
+}
+
+//PYTHON 
+
+class myStack:
+    # constructor
+    def __init__(self, cap):
+        self.capacity = cap
+        self.arr = [0] * self.capacity
+        self.top = -1
+
+    # push operation
+    def push(self, x):
+        if self.top == self.capacity - 1:
+            print("Stack Overflow")
+            return
+        self.top += 1
+        self.arr[self.top] = x
+
+    # pop operation
+    def pop(self):
+        if self.top == -1:
+            print("Stack Underflow")
+            return -1
+        val = self.arr[self.top]
+        self.top -= 1
+        return val
+
+    # peek (or top) operation
+    def peek(self):
+        if self.top == -1:
+            print("Stack is Empty")
+            return -1
+        return self.arr[self.top]
+
+    # check if stack is empty
+    def isEmpty(self):
+        return self.top == -1
+
+    # check if stack is full
+    def isFull(self):
+        return self.top == self.capacity - 1
+
+
+if __name__ == "__main__":
+    st = myStack(4)
+
+    # pushing elements
+    st.push(1)
+    st.push(2)
+    st.push(3)
+    st.push(4)
+
+    # popping one element
+    print("Popped:", st.pop())
+
+    # checking top element
+    print("Top element:", st.peek())
+
+    # checking if stack is empty
+    print("Is stack empty: ", "Yes" if st.isEmpty() else "No")
+
+    # checking if stack is full
+    print("Is stack full: ", "Yes" if st.isFull() else "No")
+
+//C#
+
+using System;
+
+class myStack {
+
+    // array to store elements
+    private int[] arr;
+
+    // maximum size of stack
+    private int capacity;
+
+    // index of top element
+    private int top;
+
+    public myStack(int cap) {
+        capacity = cap;
+        arr = new int[capacity];
+        top = -1;
+    }
+
+    // push operation
+    public void push(int x) {
+        if (top == capacity - 1) {
+            Console.WriteLine("Stack Overflow");
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    // pop operation
+    public int pop() {
+        if (top == -1) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    // peek (or top) operation
+    public int peek() {
+        if (top == -1) {
+            Console.WriteLine("Stack is Empty");
+            return -1;
+        }
+        return arr[top];
+    }
+
+    // check if stack is empty
+    public bool isEmpty() {
+        return top == -1;
+    }
+
+    // check if stack is full
+    public bool isFull() {
+        return top == capacity - 1;
+    }
+}
+
+class GfG {
+    static void Main() {
+        myStack st = new myStack(4);
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        Console.WriteLine("Popped:" + st.pop());
+
+        // checking top element
+        Console.WriteLine("Top element:" + st.peek());
+
+        // checking if stack is empty
+        Console.WriteLine("Is stack empty:" + (st.isEmpty() ? "Yes" : "No"));
+
+        // checking if stack is full
+        Console.WriteLine("Is stack full:" + (st.isFull() ? "Yes" : "No"));
+    }
+}
+
+//JAVASCRIPT
+class myStack {
+    constructor(cap) {
+        
+        // array to store elements
+        this.arr = new Array(cap); 
+        
+        // maximum size of stack
+        this.capacity = cap;       
+        
+        // index of top element
+        this.top = -1;             
+    }
+
+    // push operation
+    push(x) {
+        if (this.top === this.capacity - 1) {
+            console.log("Stack Overflow");
+            return;
+        }
+        this.arr[++this.top] = x;
+    }
+
+    // pop operation
+    pop() {
+        if (this.top === -1) {
+            console.log("Stack Underflow");
+            return -1;
+        }
+        return this.arr[this.top--];
+    }
+
+    // peek (or top) operation
+    peek() {
+        if (this.top === -1) {
+            console.log("Stack is Empty");
+            return -1;
+        }
+        return this.arr[this.top];
+    }
+
+    // check if stack is empty
+    isEmpty() {
+        return this.top === -1;
+    }
+
+    // check if stack is full
+    isFull() {
+        return this.top === this.capacity - 1;
+    }
+}
+
+// Driver Code
+let st = new myStack(4);
+
+// pushing elements
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+
+// popping one element
+console.log("Popped: " + st.pop());
+
+// checking top element
+console.log("Top element: " + st.peek());
+
+// checking if stack is empty
+console.log("Is stack empty: " + (st.isEmpty() ? "Yes" : "No"));
+
+// checking if stack is full
+console.log("Is stack full: " + (st.isFull() ? "Yes" : "No"));
+
+
+
+Output
+Popped: 4
+Top element: 3
+Is stack empty: No
+Is stack full: No
+
+Stack Implementation using Dynamic Array
+When using a fixed-size array, the stack has a maximum capacity that cannot grow beyond its initial size. To overcome this limitation, we can use dynamic arrays. Dynamic arrays automatically resize themselves as elements are added or removed, which makes the stack more flexible.
+
+In C++, we can use vector.
+In Java, we can use ArrayList.
+In Python, we can use list.
+In C#, we can use List.
+In JavaScript, we can use Array.
+
+//C++
+
+class myStack {
+    constructor() {
+        this.arr = [];
+    }
+
+    // push operation
+    push(x) {
+        this.arr.push(x);
+    }
+
+    // pop operation
+    pop() {
+        if (this.arr.length === 0) {
+            console.log("Stack Underflow");
+            return -1;
+        }
+        return this.arr.pop();
+    }
+
+    // peek operation
+    peek() {
+        if (this.arr.length === 0) {
+            console.log("Stack is Empty");
+            return -1;
+        }
+        return this.arr[this.arr.length - 1];
+    }
+
+    // check if stack is empty
+    isEmpty() {
+        return this.arr.length === 0;
+    }
+
+    // current size
+    size() {
+        return this.arr.length;
+    }
+}
+
+// Driver Code
+let st = new myStack();
+
+// pushing elements
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+
+// popping one element
+console.log("Popped:", st.pop());
+
+// checking top element
+console.log("Top element:", st.peek());
+
+// checking if stack is empty
+console.log("Is stack empty:", st.isEmpty() ? "Yes" : "No");
+
+// checking current size
+console.log("Current size:", st.size());
+
+//C
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+    int *arr;     // dynamic array to store stack elements
+    int top;      // index of top element
+    int capacity; // current capacity of the stack
+} Stack;
+
+// Initialize stack
+Stack *createStack(int initialCapacity)
+{
+    Stack *stack = (Stack *)malloc(sizeof(Stack));
+    stack->arr = (int *)malloc(initialCapacity * sizeof(int));
+    stack->top = -1;
+    stack->capacity = initialCapacity;
+    return stack;
+}
+
+// Push operation
+void push(Stack *stack, int value)
+{
+    // Resize array if needed
+    if (stack->top + 1 >= stack->capacity)
+    {
+        stack->capacity *= 2; // double the capacity
+        stack->arr = (int *)realloc(stack->arr, stack->capacity * sizeof(int));
+    }
+    stack->arr[++stack->top] = value;
+}
+
+// Pop operation
+int pop(Stack *stack)
+{
+    if (stack->top == -1)
+    {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    return stack->arr[stack->top--];
+}
+
+// Peek operation
+int peek(Stack *stack)
+{
+    if (stack->top == -1)
+    {
+        printf("Stack is Empty\n");
+        return -1;
+    }
+    return stack->arr[stack->top];
+}
+
+// Check if stack is empty
+bool isEmpty(Stack *stack)
+{
+    return stack->top == -1;
+}
+
+// Current size of stack
+int size(Stack *stack)
+{
+    return stack->top + 1;
+}
+
+// Free stack memory
+void freeStack(Stack *stack)
+{
+    free(stack->arr);
+    free(stack);
+}
+
+int main()
+{
+    Stack *st = createStack(2); // initial capacity 2
+
+    // Push elements
+    push(st, 1);
+    push(st, 2);
+    push(st, 3);
+    push(st, 4);
+
+    // Pop one element
+    printf("Popped: %d\n", pop(st));
+
+    // Peek top element
+    printf("Top element: %d\n", peek(st));
+
+    // Check if stack is empty
+    printf("Is stack empty: %s\n", isEmpty(st) ? "Yes" : "No");
+
+    // Current size
+    printf("Current size: %d\n", size(st));
+
+    freeStack(st); // free memory
+    return 0;
+}
+
+//JAVA
+
+import java.util.ArrayList;
+
+class myStack {
+    ArrayList<Integer> arr = new ArrayList<>();
+
+    // push operation
+    void push(int x) {
+        arr.add(x);
+    }
+
+    // pop operation
+    int pop() {
+        if (arr.isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        int val = arr.get(arr.size() - 1);
+        arr.remove(arr.size() - 1);
+        return val;
+    }
+
+    // peek operation
+    int peek() {
+        if (arr.isEmpty()) {
+            System.out.println("Stack is Empty");
+            return -1;
+        }
+        return arr.get(arr.size() - 1);
+    }
+
+    // check if stack is empty
+    boolean isEmpty() {
+        return arr.isEmpty();
+    }
+
+    // current size
+    int size() {
+        return arr.size();
+    }
+
+    public static void main(String[] args) {
+        myStack st = new myStack();
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        System.out.println("Popped: " + st.pop());
+
+        // checking top element
+        System.out.println("Top element: " + st.peek());
+
+        // checking if stack is empty
+        System.out.println("Is stack empty: " + 
+                            (st.isEmpty() ? "Yes" : "No"));
+
+        // checking current size
+        System.out.println("Current size: " + st.size());
+    }
+}
+
+//PYHTON
+
+class myStack:
+    def __init__(self):
+        self.arr = []
+
+    # push operation
+    def push(self, x):
+        self.arr.append(x)
+
+    # pop operation
+    def pop(self):
+        if not self.arr:
+            print("Stack Underflow")
+            return -1
+        return self.arr.pop()
+
+    # peek operation
+    def peek(self):
+        if not self.arr:
+            print("Stack is Empty")
+            return -1
+        return self.arr[-1]
+
+    # check if stack is empty
+    def isEmpty(self):
+        return len(self.arr) == 0
+
+    # current size
+    def size(self):
+        return len(self.arr)
+
+
+if __name__ == "__main__":
+    st = myStack()
+
+    # pushing elements
+    st.push(1)
+    st.push(2)
+    st.push(3)
+    st.push(4)
+
+    # popping one element
+    print("Popped:", st.pop())
+
+    # checking top element
+    print("Top element:", st.peek())
+
+    # checking if stack is empty
+    print("Is stack empty:", "Yes" if st.isEmpty() else "No")
+
+    # checking current size
+    print("Current size:", st.size())
+
+//C#
+using System;
+using System.Collections.Generic;
+
+class myStack {
+    List<int> arr = new List<int>();
+
+    // push operation
+    public void push(int x) {
+        arr.Add(x);
+    }
+
+    // pop operation
+    public int pop() {
+        if (arr.Count == 0) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+        int val = arr[arr.Count - 1];
+        arr.RemoveAt(arr.Count - 1);
+        return val;
+    }
+
+    // peek operation
+    public int peek() {
+        if (arr.Count == 0) {
+            Console.WriteLine("Stack is Empty");
+            return -1;
+        }
+        return arr[arr.Count - 1];
+    }
+
+    // check if stack is empty
+    public bool isEmpty() {
+        return arr.Count == 0;
+    }
+
+    // current size
+    public int size() {
+        return arr.Count;
+    }
+
+    public static void Main() {
+        myStack st = new myStack();
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        Console.WriteLine("Popped: " + st.pop());
+
+        // checking top element
+        Console.WriteLine("Top element: " + st.peek());
+
+        // checking if stack is empty
+        Console.WriteLine("Is stack empty: " + 
+                            (st.isEmpty() ? "Yes" : "No"));
+
+        // checking current size
+        Console.WriteLine("Current size: " + st.size());
+    }
+}
+
+//JAVASCRIPT
+class myStack {
+    constructor() {
+        this.arr = [];
+    }
+
+    // push operation
+    push(x) {
+        this.arr.push(x);
+    }
+
+    // pop operation
+    pop() {
+        if (this.arr.length === 0) {
+            console.log("Stack Underflow");
+            return -1;
+        }
+        return this.arr.pop();
+    }
+
+    // peek operation
+    peek() {
+        if (this.arr.length === 0) {
+            console.log("Stack is Empty");
+            return -1;
+        }
+        return this.arr[this.arr.length - 1];
+    }
+
+    // check if stack is empty
+    isEmpty() {
+        return this.arr.length === 0;
+    }
+
+    // current size
+    size() {
+        return this.arr.length;
+    }
+}
+
+// Driver Code
+let st = new myStack();
+
+// pushing elements
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+
+// popping one element
+console.log("Popped:", st.pop());
+
+// checking top element
+console.log("Top element:", st.peek());
+
+// checking if stack is empty
+console.log("Is stack empty:", st.isEmpty() ? "Yes" : "No");
+
+// checking current size
+console.log("Current size:", st.size());
+
+
+
+Output
+Popped: 4
+Top element: 3
+Is stack empty: No
+Current size: 3
+
+Fixed Size Stack Vs Dynamic Size Stack
+
+Features
+Memory Allocation
+Flexibility
+Performance
+Ease of Use
+Use Case
+
+Fixed Size
+Fixed at the time of stack creation
+Limited, cannot exceed predefined
+capacity
+Slightly faster due to no
+resizing overhead
+Need to handle overflow/
+underflow manually
+Useful when maximum size is
+known in advance
+
+Dynamic Size
+Grows or shrinks automatically as
+elements change
+Highly flexible, no
+predefined size limit
+May have resizing cost
+(amortized 0(1) push)
+More convenient, no
+overflow (only underflow)
+Useful when size requirements
+are unknown or variable
+
+
+Stack - Linked List Implementation
+Last Updated : 13 Sep, 2025
+A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. It can be implemented using a linked list, where each element of the stack is represented as a node. The head of the linked list acts as the top of the stack.
+
+Declaration of Stack using Linked List
+A stack can be implemented using a linked list where we maintain:
+
+A Node structure/class that contains:
+data → to store the element.
+next → pointer/reference to the next node in the stack.
+A pointer/reference top that always points to the current top node of the stack.
+Initially, top = null to represent an empty stack.
+
+
+//C++
+// Node structure
+class Node {
+public:
+    int data;
+    Node* next;
+    
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+// Stack class
+class myStack {
+    
+    // pointer to top node
+    Node* top;  
+    
+public:
+    myStack() {
+        
+        // initially stack is empty
+        top = NULL;   
+    }
+};
+
+//JAVA
+/* Node structure */
+class Node {
+    public int data;
+    public Node next;
+
+    public Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+
+/* Stack class */
+class MyStack {
+
+    // pointer to top node
+    private Node top;
+
+    public MyStack() {
+        // initially stack is empty
+        top = null;
+    }
+}
+//PYTHON
+
+# Node structure
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+
+# Stack class
+class myStack:
+    def __init__(self):
+        
+        # initially stack is empty
+        self.top = None
+
+//C#
+/* Node structure */
+public class Node {
+    public int data { get; set; }
+    public Node next { get; set; }
+
+    public Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+
+/* Stack class */
+public class myStack {
+    
+    // pointer to top node
+    private Node top;
+
+    public myStack() {
+        
+        // initially stack is empty
+        top = null;
+    }
+}
+
+//JAVASCRIPT
+/* Node structure */
+class Node {
+    constructor(x) {
+        this.data = x;
+        this.next = null;
+    }
+}
+
+/* Stack class */
+class myStack {
+    
+    // pointer to top node
+    top = null;
+
+    constructor() {
+        // initially stack is empty
+    }
+}
+
+Operations on Stack using Linked List
+Push Operation
+Adds an item to the stack. Unlike array implementation, there is no fixed capacity in linked list. Overflow occurs only when memory is exhausted.
+
+ A new node is created with the given value.
+The new node’s next pointer is set to the current top.
+The top pointer is updated to point to this new node.
+
+//C++
+
+void push(int x) {
+    Node* temp = new Node(x);
+    temp->next = top;
+    top = temp;
+}
+
+//JAVA
+void push(int x) {
+    Node temp = new Node(x);
+    temp.next = top;
+    top = temp;
+}
+
+//PYHTON
+def push(self, x):
+    temp = Node(x)
+    temp.next = self.top
+    self.top = temp
+
+//C#
+void push(int x) {
+    Node temp = new Node(x);
+    temp.next = top;
+    top = temp;
+}
+
+//JAVASCRIPT
+function push(x) {
+    let temp = new Node(x);
+    temp.next = top;
+    top = temp;
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Pop Operation
+Removes the top item from the stack. If the stack is empty, it is said to be an Underflow condition.
+
+Before deleting, we check if the stack is empty (top == NULL).
+If the stack is empty, underflow occurs and deletion is not possible.
+Otherwise, we store the current top node in a temporary pointer.
+Move the top pointer to the next node.
+Delete the temporary node to free memory.
+
+//C++
+int pop() {
+
+    if (top == NULL) {
+        cout << "Stack Underflow" << endl;
+        return -1;
+    }
+
+    Node* temp = top;
+    top = top->next;
+    int val = temp->data;
+
+    delete temp;
+    return val;
+}
+
+//JAVA
+public int pop() {
+  
+    if (top == null) {
+        System.out.println("Stack Underflow");
+        return -1;
+    }
+
+    Node temp = top;
+    top = top.next;
+    int val = temp.data;
+
+    temp = null; 
+    return val;
+}
+
+
+//PYTHON
+def pop(self):
+   
+    if self.top is None:
+        print("Stack Underflow")
+        return -1
+
+    temp = self.top
+    self.top = self.top.next
+    val = temp.data
+
+    del temp
+    return val
+
+//C#
+int pop() {
+    
+    if (top == null) {
+        Console.WriteLine("Stack Underflow");
+        return -1;
+    }
+
+    Node temp = top;
+    top = top.next;
+    int val = temp.data;
+
+    temp = null;
+    return val;
+}
+
+//JAVASCRIPT
+function pop() {
+    
+    if (this.top === null) {
+        console.log('Stack Underflow');
+        return -1;
+    }
+
+    let temp = this.top;
+    this.top = this.top.next;
+    let val = temp.data;
+
+    temp = null;
+    return val;
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Peek (or Top) Operation
+Returns the value of the top item without removing it from the stack.
+
+If the stack is empty (top == NULL), then no element exists.
+Otherwise, simply return the data of the node pointed by top.
+
+//C++
+int peek() {
+
+    if (top == NULL) {
+        cout << "Stack is Empty" << endl;
+        return -1;
+    }
+
+    return top->data;
+}
+
+//JAVA
+
+int peek() {
+   
+    if (top == null) {
+        System.out.println("Stack is Empty");
+        return -1;
+    }
+   
+    return top.data;
+}
+
+//PYTHON
+def peek(self):
+ 
+    if self.top is None:
+        print("Stack is Empty")
+        return -1
+ 
+    return self.top.data
+
+// C#
+
+int peek() {
+   
+    if (top == null) {
+        Console.WriteLine("Stack is Empty");
+        return -1;
+    }
+   
+    return top.data;
+}
+
+// JAVASCRIPT
+
+function peek() {
+  
+    if (top === null) {
+        console.log('Stack is Empty');
+        return -1;
+    }
+  
+    return top.data;
+}
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+isEmpty Operation
+Checks whether the stack has no elements.
+
+If the top pointer is NULL, it means the stack is empty and the function returns true.
+Otherwise, it returns false.
+
+//C++
+bool isEmpty() {
+    return top == NULL;
+}
+
+//JAVA
+boolean isEmpty() {
+    return top == null;
+}
+
+//PYHTON
+
+def isEmpty(self):
+    return self.top is None
+
+//C#
+bool isEmpty() {
+    return top == null;
+}
+
+//JAVASCRIPT
+function isEmpty() {
+    return top === null;
+}
+
+Stack Implementation using Linked List
+
+//C++
+
+#include <iostream>
+using namespace std;
+
+// Node structure
+class Node {
+public:
+    int data;
+    Node* next;
+    
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+// Stack implementation using linked list
+class myStack {
+    Node* top;
+    
+    // To Store current size of stack
+    int count;
+    
+public:
+    myStack() {
+        
+        // initially stack is empty
+        top = NULL;
+        count = 0;
+    }
+
+    // push operation
+    void push(int x) {
+        Node* temp = new Node(x);
+        temp->next = top;
+        top = temp;
+        
+        count++;
+    }
+
+    // pop operation
+    int pop() {
+        if (top == NULL) {
+            cout << "Stack Underflow" << endl;
+            return -1;
+        }
+        Node* temp = top;
+        top = top->next;
+        int val = temp->data;
+        
+        count--;
+        delete temp;
+        return val;
+    }
+
+    // peek operation
+    int peek() {
+        if (top == NULL) {
+            cout << "Stack is Empty" << endl;
+            return -1;
+        }
+        return top->data;
+    }
+
+    // check if stack is empty
+    bool isEmpty() {
+        return top == NULL;
+    }
+
+    // size of stack
+    int size() {
+        return count;
+    }
+};
+
+int main() {
+    myStack st;
+
+    // pushing elements
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+
+    // popping one element
+    cout << "Popped: " << st.pop() << endl;
+
+    // checking top element
+    cout << "Top element: " << st.peek() << endl;
+
+    // checking if stack is empty
+    cout << "Is stack empty: " << (st.isEmpty() ? "Yes" : "No") << endl;
+
+    // checking current size
+    cout << "Current size: " << st.size() << endl;
+
+    return 0;
+}
+
+//JAVA
+// Node structure
+class Node {
+    int data;
+    Node next;
+
+    Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+
+// Stack implementation using linked list
+class myStack {
+    Node top;
+
+    // To Store current size of stack
+    int count;
+
+    myStack() {
+        // initially stack is empty
+        top = null;
+        count = 0;
+    }
+
+    // push operation
+    void push(int x) {
+        Node temp = new Node(x);
+        temp.next = top;
+        top = temp;
+
+        count++;
+    }
+
+    // pop operation
+    int pop() {
+        if (top == null) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        Node temp = top;
+        top = top.next;
+        int val = temp.data;
+
+        count--;
+        return val;
+    }
+
+    // peek operation
+    int peek() {
+        if (top == null) {
+            System.out.println("Stack is Empty");
+            return -1;
+        }
+        return top.data;
+    }
+
+    // check if stack is empty
+    boolean isEmpty() {
+        return top == null;
+    }
+
+    // size of stack
+    int size() {
+        return count;
+    }
+
+    public static void main(String[] args) {
+        myStack st = new myStack();
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        System.out.println("Popped: " + st.pop());
+
+        // checking top element
+        System.out.println("Top element: " + st.peek());
+
+        // checking if stack is empty
+        System.out.println("Is stack empty: " + (st.isEmpty() ? "Yes" : "No"));
+
+        // checking current size
+        System.out.println("Current size: " + st.size());
+    }
+}
+
+//PYHTON
+
+# Node structure
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+# Stack implementation using linked list
+class myStack:
+    def __init__(self):
+        # initially stack is empty
+        self.top = None
+        self.count = 0
+
+    # push operation
+    def push(self, x):
+        temp = Node(x)
+        temp.next = self.top
+        self.top = temp
+
+        self.count += 1
+
+    # pop operation
+    def pop(self):
+        if self.top is None:
+            print("Stack Underflow")
+            return -1
+        temp = self.top
+        self.top = self.top.next
+        val = temp.data
+
+        self.count -= 1
+        return val
+
+    # peek operation
+    def peek(self):
+        if self.top is None:
+            print("Stack is Empty")
+            return -1
+        return self.top.data
+
+    # check if stack is empty
+    def isEmpty(self):
+        return self.top is None
+
+    # size of stack
+    def size(self):
+        return self.count
+
+
+if __name__ == "__main__":
+    st = myStack()
+
+    # pushing elements
+    st.push(1)
+    st.push(2)
+    st.push(3)
+    st.push(4)
+
+    # popping one element
+    print("Popped:", st.pop())
+
+    # checking top element
+    print("Top element:", st.peek())
+
+    # checking if stack is empty
+    print("Is stack empty:", "Yes" if st.isEmpty() else "No")
+
+    # checking current size
+    print("Current size:", st.size())
+
+//C#
+
+using System;
+
+// Node structure
+class Node {
+    public int data;
+    public Node next;
+
+    public Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+
+// Stack implementation using linked list
+class myStack {
+    Node top;
+
+    // To Store current size of stack
+    int count;
+
+    public myStack() {
+        // initially stack is empty
+        top = null;
+        count = 0;
+    }
+
+    // push operation
+    public void push(int x) {
+        Node temp = new Node(x);
+        temp.next = top;
+        top = temp;
+
+        count++;
+    }
+
+    // pop operation
+    public int pop() {
+        if (top == null) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+        Node temp = top;
+        top = top.next;
+        int val = temp.data;
+
+        count--;
+        return val;
+    }
+
+    // peek operation
+    public int peek() {
+        if (top == null) {
+            Console.WriteLine("Stack is Empty");
+            return -1;
+        }
+        return top.data;
+    }
+
+    // check if stack is empty
+    public bool isEmpty() {
+        return top == null;
+    }
+
+    // size of stack
+    public int size() {
+        return count;
+    }
+
+    static void Main(string[] args) {
+        myStack st = new myStack();
+
+        // pushing elements
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+
+        // popping one element
+        Console.WriteLine("Popped: " + st.pop());
+
+        // checking top element
+        Console.WriteLine("Top element: " + st.peek());
+
+        // checking if stack is empty
+        Console.WriteLine("Is stack empty: " + (st.isEmpty() ? "Yes" : "No"));
+
+        // checking current size
+        Console.WriteLine("Current size: " + st.size());
+    }
+}
+
+//JAVASCRIPT
+// Node structure
+class Node {
+    constructor(x) {
+        this.data = x;
+        this.next = null;
+    }
+}
+
+// Stack implementation using linked list
+class myStack {
+    constructor() {
+        // initially stack is empty
+        this.top = null;
+        this.count = 0;
+    }
+
+    // push operation
+    push(x) {
+        let temp = new Node(x);
+        temp.next = this.top;
+        this.top = temp;
+
+        this.count++;
+    }
+
+    // pop operation
+    pop() {
+        if (this.top === null) {
+            console.log("Stack Underflow");
+            return -1;
+        }
+        let temp = this.top;
+        this.top = this.top.next;
+        let val = temp.data;
+
+        this.count--;
+        return val;
+    }
+
+    // peek operation
+    peek() {
+        if (this.top === null) {
+            console.log("Stack is Empty");
+            return -1;
+        }
+        return this.top.data;
+    }
+
+    // check if stack is empty
+    isEmpty() {
+        return this.top === null;
+    }
+
+    // size of stack
+    size() {
+        return this.count;
+    }
+}
+
+// Driver code
+let st = new myStack();
+
+// pushing elements
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+
+// popping one element
+console.log("Popped:", st.pop());
+
+// checking top element
+console.log("Top element:", st.peek());
+
+// checking if stack is empty
+console.log("Is stack empty:", st.isEmpty() ? "Yes" : "No");
+
+// checking current size
+console.log("Current size:", st.size());
+
+
+Output
+Popped: 4
+Top element: 3
+Is stack empty: No
+Current size: 3
+
+Stack Implementation using Deque
+
+A doubly ended queue or deque allows insertion and deletion at both ends. In a stack, we need to do insertions and deletions at one end only. We can use either end of deque (front or back) to implement a stack.
+
+In the below implementation, we use back (or rear) of stack to do both insertions and deletions. Please note that the time complexities of all the operations (insertions and deletions at both ends) in a deque is O(1). So the time complexity of the below implementation is O(1) only.
+
+In Java, the deque implementation of stack is preferred over standard Stack class, because the standard Stack class is legacy class and mainly designed for multi threaded environment.
+In Python, there is no standard stack class, so we can either use list or deque. The deque implementation is preferred because it is optimized for insertion and deletion at ends.
+
+
+//C++
+#include <iostream>
+#include <deque>
+
+using namespace std;
+
+int main() {
+    deque<int> stack;
+
+    stack.push_back(10);
+    stack.push_back(20);
+    stack.push_back(30);
+
+    cout << stack.back() << " popped from deque" << endl;
+    stack.pop_back();
+    cout << "Top element is: " << stack.back() << endl;
+    return 0;
+}
+
+//JAVA
+import java.util.*;
+
+class GfG {
+    public static void main(String[] args) {
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println(stack.pop() + " popped from stack");
+        System.out.println("Top element is: " + stack.peek());
+    }
+}
+
+	
+//PYTHON
+
+from collections import deque
+
+stack = deque()
+
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+print(f'{stack.pop()} popped from stack')
+print(f'Top element is: {stack[-1]}' if stack else 'Stack is empty')
+
+Output
+30 popped from deque
+Top element is: 20
+
+

@@ -1,0 +1,635 @@
+Linked List Data Structure
+A linked list is a fundamental data structure in computer science. It mainly allows efficient insertion and deletion operations compared to arrays. Like arrays, it is also used to implement other data structures like stack, queue and deque.
+
+A linked list is a type of linear data structure individual items are not necessarily at contiguous locations. The individual items are called nodes and connected with each other using links.
+
+A node contains two things first is data and second is a link that connects it with another node.
+The first node is called the head node and we can traverse the whole list using this head and next links.
+
+Here’s the comparison of Linked List and Arrays
+
+Linked List:
+
+Data Structure: Non-contiguous
+Memory Allocation: Typically allocated one by one to individual elements
+Insertion/Deletion: Efficient
+Access: Sequential
+Array:
+
+Data Structure: Contiguous
+Memory Allocation: Typically allocated to the whole array
+Insertion/Deletion: Inefficient
+Access: Random
+
+Singly Linked List Tutorial
+Last Updated : 13 Jan, 2026
+A singly linked list is a fundamental data structure, it consists of nodes where each node contains a data field and a reference to the next node in the linked list. The next of the last node is null, indicating the end of the list. Linked Lists support efficient insertion and deletion operations.
+
+link1
+Understanding Node Structure
+In a singly linked list, each node consists of two parts: data and a pointer to the next node. This structure allows nodes to be dynamically linked together, forming a chain-like sequence.
+
+//C++ code -
+// Definition of a Node in a singly linked list
+class Node {
+  
+public:
+    // Data part of the node
+    int data;
+
+    // Pointer to the next node in the list
+    Node* next;
+
+    // Constructor to initialize the node with data
+    Node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
+//Java code
+// Definition of a Node in a singly linked list
+class Node {
+  
+public:
+    // Data part of the node
+    int data;
+
+    // Pointer to the next node in the list
+    Node* next;
+
+    // Constructor to initialize the node with data
+    Node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
+
+#Python code -
+# Definition of a Node in a singly linked list
+class Node:
+    def __init__(self, data):
+        
+        # Data part of the node
+        self.data = data   
+        self.next = None
+
+In this example, the Node class contains an integer data field (data) to store the information and a pointer to another Node (next) to establish the link to the next node in the list.
+
+Creating an Example Linked List of Size 3 to Understand Working
+Create the first node
+
+Allocate memory for the first node and Store data in it.
+Mark this node as head.
+Create the second node
+
+Allocate memory for the second node and Store data in it.
+Link the first node’s next to this new node.
+Create the third node
+
+Allocate memory for the third node and Store data in it.
+Link the second node’s next to this node.
+Set its next to NULL to ensure that the next of the last is NULL.
+
+
+//C++ code
+
+#include<iostream>
+using namespace std;
+
+// singly linked list node structure
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // constructor to initialize a new node with data
+    Node(int new_data) {
+        this->data = new_data;
+        this->next = nullptr;
+    }
+};
+
+int main() {
+    
+    // Create the first node (head of the list)
+    Node* head = new Node(10);
+
+    // Link the second node
+    head->next = new Node(20);
+
+    // Link the third node
+    head->next->next = new Node(30);
+
+    // Link the fourth node
+    head->next->next->next = new Node(40);
+
+    // printing linked list
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+
+//Java code
+class Node {
+    int data;
+    Node next;
+
+    // constructor to initialize a new node with data
+    Node(int new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create the first node (head of the list)
+        Node head = new Node(10);
+
+        // Link the second node
+        head.next = new Node(20);
+
+        // Link the third node
+        head.next.next = new Node(30);
+
+        // Link the fourth node
+        head.next.next.next = new Node(40);
+
+        // printing linked list
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+}
+
+#Python code-
+# constructor to initialize a new node with data
+class Node:
+    def __init__(self, new_data):
+        self.data = new_data
+        self.next = None
+
+# Create the first node (head of the list)
+head = Node(10)
+
+# Link the second node
+head.next = Node(20)
+
+# Link the third node
+head.next.next = Node(30)
+
+# Link the fourth node
+head.next.next.next = Node(40)
+
+# printing linked list
+temp = head
+while temp is not None:
+    print(temp.data, end=" ")
+    temp = temp.next
+
+ommon Operation in Linked List
+A linked list supports several operations. Here are the most common ones:
+
+Traversal : Traversing singly linked list
+Insertion : At the beginning, At the end and At a specific position
+Deletion : From beginning, From end and From a specific position
+Searching : Find whether a given key exists in the list
+Updating (Modification) : Modify contents of linked list.
+Reversal : Reverse the linked list and make the last node as new head.
+
+Applications -
+Polynomial Arithmetic: Used to represent and evaluate polynomials (each node stores coefficient and exponent).
+
+Sparse Matrices: Efficiently represent sparse matrices (linked lists store only non-zero values).
+
+Memory Management in Operating Systems: Free blocks of memory (heap management) are often tracked using linked lists.
+
+Hash Chaining in Hash Tables: Used to handle collisions in hash maps (each bucket is a linked list).
+
+File System Management: Directory structures and file allocation tables can use linked lists.
+
+Browser History Navigation: "Back" and "Forward" buttons use a doubly linked list.
+
+Image Slideshow / Carousel: Next and previous navigation is naturally implemented with circular linked lists.
+
+Job Scheduling / CPU Scheduling: Processes waiting for CPU time are often maintained in queues implemented via linked lists.
+
+Big Integer Arithmetic: Very large numbers (beyond primitive data types) can be stored digit-by-digit in linked lists.
+
+Undo/Redo in Drawing Tools or Word Editors: Each state of the document can be stored as a linked list node.
+
+Text Editors (like Sublime, VS Code internals): Sometimes implement text as a linked structure (rope / gap buffer, variations).
+
+Social Media Feeds: Linked structures help in representing "next post" relationships dynamically.
+
+Advantage
+Dynamic size (no fixed limit like arrays)
+Efficient insertion and deletion at beginning and end. We also have insertion at the middle efficient if we have reference or pointer to the node after which we need to insert.
+Can implement complex data structures like stack, queue, graph
+Disadvantage
+Extra memory required for storing pointers
+No direct/random access (need traversal)
+Cache unfriendly (not stored in contiguous memory)
+
+Doubly Linked List Tutorial
+Last Updated : 19 Sep, 2025
+A doubly linked list is a more complex data structure than a singly linked list, but it offers several advantages. The main advantage of a doubly linked list is that it allows for efficient traversal of the list in both directions. This is because each node in the list contains a pointer to the previous node and a pointer to the next node. This allows for quick and easy insertion and deletion of nodes from the list, as well as efficient traversal of the list in both directions.
+
+11
+Representation of Doubly Linked List in Data Structure
+In a data structure, a doubly linked list is represented using nodes that have three fields:
+
+Data
+A pointer to the next node (next)
+A pointer to the previous node (prev)
+22
+Node Definition
+Here is how a node in a Doubly Linked List is typically represented:
+
+//C++ code -
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    // To store the Value or data
+    int data;
+
+    // Pointer to point the Previous Element
+    Node* prev;
+
+    // Pointer to point the Next Element
+    Node* next;
+
+    // Constructor
+    Node(int d) {
+        data = d;
+        prev = nullptr;
+        next = nullptr;
+    }
+};
+
+
+//Java code -
+class Node {
+
+    // To store the Value or data.
+    int data;
+
+    // Reference to the Previous Node
+    Node prev;
+  
+    // Reference to the next Node
+    Node next;
+  
+    // Constructor
+    Node(int d) {
+       data = d;
+       prev = next = null;      
+    }
+};
+
+#Python Code -
+class Node:
+  
+    def __init__(self, data):
+        # To store the value or data.
+        self.data = data
+
+        # Reference to the previous node
+        self.prev = None
+
+        # Reference to the next node
+        self.next = None
+
+Each node in a Doubly Linked List contains the data it holds, a pointer to the next node in the list, and a pointer to the previous node in the list. By linking these nodes together through the next and prev pointers, we can traverse the list in both directions (forward and backward), which is a key feature of a Doubly Linked List.
+
+Creating a Doubly Linked List with 4 Nodes
+Create the head node.
+
+Allocate a node and set head to it. Its prev and next should be null/None.
+Create the next node and link it to head.
+
+head.next = new Node(value2)
+head.next.prev = head
+Create further nodes the same way.
+
+For the third node:
+=> head.next.next = new Node(value3)
+=> head.next.next.prev = head.next
+Repeat until you have the required nodes.
+Ensure the tail's next is null.
+The last node you created must have next == null
+
+Set / keep track of head (and optionally tail).
+Use head to access the list from the front. Keeping a tail pointer simplifies appends.
+
+//C++ code -
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
+
+    Node(int value) {
+        data = value;
+        prev = nullptr;
+        next = nullptr;
+    }
+};
+
+int main() {
+    // Create the first node (head of the list)
+    Node* head = new Node(10);
+
+    // Create and link the second node
+    head->next = new Node(20);
+    head->next->prev = head;
+
+    // Create and link the third node
+    head->next->next = new Node(30);
+    head->next->next->prev = head->next;
+
+    // Create and link the fourth node
+    head->next->next->next = new Node(40);
+    head->next->next->next->prev = head->next->next;
+
+    // Traverse the list forward and print elements
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data;
+        if (temp->next != nullptr) {
+            cout << " <-> ";
+        }
+        temp = temp->next;
+    }
+
+    return 0;
+}
+
+//Java code -
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    Node(int value) {
+        data = value;
+        prev = null;
+        next = null;
+    }
+}
+
+class GfG {
+    public static void main(String[] args) {
+        // Create the first node (head of the list)
+        Node head = new Node(10);
+
+        // Create and link the second node
+        head.next = new Node(20);
+        head.next.prev = head;
+
+        // Create and link the third node
+        head.next.next = new Node(30);
+        head.next.next.prev = head.next;
+
+        // Create and link the fourth node
+        head.next.next.next = new Node(40);
+        head.next.next.next.prev = head.next.next;
+
+        // Traverse the list forward and print elements
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print(" <-> ");
+            }
+            temp = temp.next;
+        }
+    }
+}
+
+#Python code -
+class Node:
+    def __init__(self, value):
+        self.data = value
+        self.prev = None
+        self.next = None
+
+if __name__ == "__main__":
+    # Create the first node (head of the list)
+    head = Node(10)
+
+    # Create and link the second node
+    head.next = Node(20)
+    head.next.prev = head
+
+    # Create and link the third node
+    head.next.next = Node(30)
+    head.next.next.prev = head.next
+
+    # Create and link the fourth node
+    head.next.next.next = Node(40)
+    head.next.next.next.prev = head.next.next
+
+    # Traverse the list forward and print elements
+    temp = head
+    while temp is not None:
+        print(temp.data, end="")
+        if temp.next is not None:
+            print(" <-> ", end="")
+        temp = temp.next
+
+Common Operation in Doubly Linked List
+Traversal : Display Linked List Elements
+Insertion : At the Beginning, At the End and At the specific position
+Deletion : From the Beginning, From End and From a Specific Position
+
+
+Application of Doubly Linked List
+User-Interface & Navigation
+Navigation in both directions: Used in music/video playlists, image viewers, or slideshow carousels where you can go next and previous.
+
+Undo/Redo operations in text editors: Each state is a node, and you can move backward (undo) or forward (redo).
+
+Browser history navigation: Allows moving backward and forward between visited web pages.
+
+System & Data Management
+Implementation of Deques (Double-ended Queues): DLL makes insertion and deletion efficient at both ends.
+
+Memory Management: Used in operating systems for memory allocation and free list management.
+
+Polynomial arithmetic & sparse matrix representation: DLLs can efficiently represent terms or non-zero elements where both forward & backward traversal helps in calculations.
+
+Complex Computation & Scheduling
+Job Scheduling / CPU Scheduling: Processes can be maintained in a DLL for easy insertion/deletion from both ends.
+
+Complex data Structures: Basis for implementing advanced structures like Fibonacci Heaps and Adjacency lists of graphs where back traversal is useful.
+
+Text editing buffers (Gap Buffers / Rope): Some text editors internally use DLL-like structures to allow efficient cursor movement forward/backward.
+
+
+Advantages of Doubly Linked List
+Bidirectional Traversal - You can traverse forward (using next) as well as backward (using prev).
+Efficient Deletion - Given a pointer to a node, you can delete it in O(1) time (no need to traverse from the head), since you can update both prev and next.
+Insertion at Both Ends - Insertion at head or tail is efficient because you can update both directions easily.
+Easy to Implement Deque / Navigation Features - Useful for undo/redo, browser history, and music playlist navigation, where both forward and backward movement is needed.
+Disadvantages of Doubly Linked List
+Extra Memory Per Node - Each node requires an additional pointer (prev), making DLL more memory-consuming than singly linked list.
+More Complex Implementation - Both prev and next must be handled carefully during insertion and deletion, which increases chances of errors (broken links, null pointer issues)
+Slower Operations Due to Overhead - Extra pointer manipulations during insertion/deletion cause slightly more overhead compared to singly linked list.
+Not Cache-Friendly - Like singly linked list, nodes are scattered in memory, so traversals may be slower compared to arrays due to poor locality of reference.
+
+
+Introduction to Circular Linked List
+Last Updated : 15 Sep, 2025
+A circular linked list is a data structure where the last node points back to the first node, forming a closed loop.
+
+Structure: All nodes are connected in a circle, enabling continuous traversal without encountering NULL.
+Difference from Regular Linked List: In a regular linked list, the last node points to NULL, whereas in a circular linked list, it points to the first node.
+Uses: Ideal for tasks like scheduling and managing playlists, where smooth and repeated.
+Types of Circular Linked Lists
+We can create a circular linked list from both singly linked lists and doubly linked lists. So, circular linked lists are basically of two types:
+
+1. Circular Singly Linked List
+In Circular Singly Linked List, each node has just one pointer called the "next" pointer. The next pointer of the last node points back to the first node and this results in forming a circle. In this type of Linked list, we can only move through the list in one direction.
+
+2. Circular Doubly Linked List:
+In circular doubly linked list, each node has two pointers prev and next, similar to doubly linked list. The prev pointer points to the previous node and the next points to the next node. Here, in addition to the last node storing the address of the first node, the first node will also store the address of the last node.
+
+Representation of a Circular Singly Linked List
+Let's take a look on the structure of a circular linked list.
+
+
+Create/Declare a Node of Circular Linked List
+
+//C++ code -
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // Constructor
+    Node(int value) {
+        data = value;
+        next = nullptr;
+    }
+};
+
+//Java code -
+class Node {
+    int data;
+    Node next;
+
+    Node(int data){
+        this.data = data;
+        this.next = null;
+    }
+}
+
+#Python code -
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+In the code above, each node has data and a pointer to the next node. When we create multiple nodes for a circular linked list, we only need to connect the last node back to the first one.
+
+Example of Creating a Circular Linked List
+Here’s an example of creating a circular linked list with three nodes (10, 20, 30, 40, 50):
+
+Why have we taken a pointer that points to the last node instead of the first node? 
+For the insertion of a node at the beginning, we need to traverse the whole list. Also, for insertion at the end, the whole list has to be traversed. If instead of the start pointer, we take a pointer to the last node, then in both cases there won't be any need to traverse the whole list. So insertion at the beginning or at the end takes constant time, irrespective of the length of the list.
+
+
+Applications of Doubly Linked Lists (DLL)
+Navigation & User Interface
+Navigation in both directions: Used in music/video playlists, image viewers, or slideshow carousels where you can go next and previous.
+
+Undo/Redo operations in text editors: Each state is a node, and you can move backward (undo) or forward (redo).
+
+Browser history navigation: Allows moving backward and forward between visited web pages.
+
+Text editing buffers (Gap Buffers / Rope): Some text editors internally use DLL-like structures to allow efficient cursor movement forward/backward.
+
+System & Data Management
+Implementation of Deques (Double-ended Queues): DLL makes insertion and deletion efficient at both ends.
+
+Memory Management: Used in operating systems for memory allocation and free list management.
+
+Polynomial arithmetic & sparse matrix representation: DLLs can efficiently represent terms or non-zero elements where both forward & backward traversal helps in calculations.
+
+Job Scheduling / CPU Scheduling: Processes can be maintained in a DLL for easy insertion/deletion from both ends.
+
+Complex data Structures: Basis for implementing advanced structures like Fibonacci Heaps and Adjacency lists of graphs where back traversal is useful.
+
+Applications of Circular Linked Lists
+Scheduling & Buffering
+Round-Robin Scheduling (Operating Systems): Used in CPU process scheduling where each process gets an equal share of CPU in circular order.
+
+Implementation of Circular Buffers (Queues): Useful in buffering streaming data (e.g., audio/video streaming, real-time data).
+
+Switching Between Running Applications: OS can use circular lists to manage active tasks/windows.
+
+Continuous Looping & Games
+Multi-Player Games: Players can be arranged in a circle, and turns are passed in a circular manner.
+
+Continuous Playlists / Media Players: After the last song/video, the first one plays again (looping functionality).
+
+Image/Slideshow Viewers: When viewing images in a gallery, after the last image it loops back to the first one seamlessly.
+
+Networks & Real-Time Systems
+Memory Management: For applications needing constant looping through memory blocks.
+
+Token Passing in Networks (e.g., Token Ring Topology): Circular linked list helps in managing nodes in a ring network.
+
+Real-Time Systems (e.g., Traffic Light Control): Circular linked lists can model repeating sequences like traffic light signals (Red → Green → Yellow → Red).
+
+
+Applications, Advantages and Disadvantages of Linked List
+Last Updated : 14 Nov, 2025
+A Linked List is a linear data structure that is used to store a collection of data with the help of nodes. Please remember the following points before moving forward.
+
+The consecutive elements are connected by pointers / references.
+The last node of the linked list points to null.
+The entry point of a linked list is known as the head. 
+The common variations of linked lists are Singly, Doubly, Singly Circular and Doubly Circular.
+Advantages of Linked Lists (or Most Common Use Cases):
+Linked Lists are mostly used because of their effective insertion and deletion.  We only need to change few pointers (or references) to insert (or delete) an item in the middle.
+Insertion and deletion at a known position in a linked list take O(1) time, provided we already have a pointer to that position. In contrast, in an array, insertion or deletion in the middle requires shifting elements and takes O(n) time.
+This data structure is simple and can be also used to implement a stack, queues, and other abstract data structures.
+Implementation of Queue and Deque data structures : Simple array implementation is not efficient at all. We must use circular array to efficiently implement which is complex. But with linked list, it is easy and straightforward. That is why most of the language libraries use Linked List internally to implement these data structures..
+Linked List might turn out to be more space efficient compare to arrays in cases where we cannot guess the number of elements in advance. In case of arrays, the whole memory for items is allocated together. Even with dynamic sized arrays like vector in C++ or list in Python or ArrayList in Java. the internal working involves de-allocation of whole memory and allocation of a bigger chunk when insertions happen beyond the current capacity.
+Applications of Linked Lists:
+Linked Lists can be used to implement stacks, queue, deque, sparse matrices and adjacency list representation of graphs.
+Dynamic memory allocation in operating systems and compilers (linked list of free blocks).
+Manipulation of polynomials
+Arithmetic operations on long integers.
+In operating systems, they can be used in Memory management, process scheduling (for example circular linked list for round robin scheduling) and file system.
+Algorithms that need to frequently insert or delete items from large collections of data.
+LRU cache, which uses a doubly linked list to keep track of the most recently used items in a cache.
+Applications of Linked Lists in real world: 
+The list of songs in the music player are linked to the previous and next songs. 
+In a web browser, previous and next web page URLs can be linked through the previous and next buttons (Doubly Linked List)
+In image viewer, the previous and next images can be linked with the help of the previous and next buttons (Doubly Linked List)
+Circular Linked Lists can be used to implement things in round manner where we go to every element one by one.
+Linked List are preferred over arrays for implementations of Queue and Deque data structures because of fast deletions (or insertions) from the front of the linked lists.
+Disadvantages of Linked Lists:
+Linked lists are a popular data structure in computer science, but like any other data structure, they have certain disadvantages as well. Some of the key disadvantages of linked lists are:
+
+Slow Access Time: Accessing elements in a linked list can be slow, as you need to traverse the linked list to find the element you are looking for, which is an O(n) operation. This makes linked lists a poor choice for situations where you need to access elements quickly.
+Pointers or References: Linked lists use pointers or references to access the next node, which can make them more complex to understand and use compared to arrays. This complexity can make linked lists more difficult to debug and maintain.
+Higher overhead: Linked lists have a higher overhead compared to arrays, as each node in a linked list requires extra memory to store the reference to the next node.
+Cache Inefficiency: Linked lists are cache-inefficient because the memory is not contiguous. This means that when you traverse a linked list, you are not likely to get the data you need in the cache, leading to cache misses and slow performance.
+In conclusion, linked lists are a powerful and flexible data structure, but they have certain disadvantages that need to be taken into consideration when deciding whether to use them or not. For example, if you need fast access time, arrays might be a better choice, but if you need to insert or delete elements frequently, linked lists might be the better choice.
+

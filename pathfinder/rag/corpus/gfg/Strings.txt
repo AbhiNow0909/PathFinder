@@ -1,0 +1,2358 @@
+String in Data Structure
+A string is a sequence of characters. The following facts make string an interesting data structure.
+
+Small set of elements. Unlike normal array, strings typically have smaller set of items. For example, lowercase English alphabet has only 26 characters. ASCII has only 256 characters.
+Strings are immutable in programming languages like Java, Python, JavaScript and C#.
+Many String Problems can optimized using the fact that the character set size is small. For example sorting can be done faster, counting frequencies of items is faster and many interesting interview questions are based on this.
+
+Introduction to Strings
+Strings are sequences of characters. The differences between a character array and a string are, a string is terminated with a special character ‘\0’ and strings are typically immutable in most of the programming languages like Java, Python and JavaScript. Below are some examples of strings:
+
+"geeks" , "for", "geeks", "GeeksforGeeks", "Geeks for Geeks", "123Geeks", "@123 Geeks"
+
+How Strings are represented in Memory?
+C: Strings are declared as character arrays or pointers and must end with a null character (\0) to indicate termination.
+C++: Supports both C-style character arrays and the std::string class, which provides built-in functions for string manipulation.
+Java: Strings are immutable objects of the String class, meaning their values cannot be modified once assigned.
+Python: Strings are immutable and can be declared using single, double, or triple quotes, making them flexible for multi-line text handling.
+JavaScript: Strings are immutable, primitive data types and can be defined using single, double, or template literals (backticks), allowing for interpolation.
+C#: Uses the string keyword, which represents an immutable sequence of characters, similar to Java.
+There is no character type in Python and JavaScript and a single character is also considered as a string.
+
+How to Declare Strings in various languages?
+Below is the representation of strings in various languages:
+
+// C++ program to demonstrate String
+// using Standard String representation
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+
+    // Declare and initialize the string
+    string str1 = "Welcome to GeeksforGeeks!";
+
+    // Initialization by raw string
+    string str2("A Computer Science Portal");
+
+    // Print string
+    cout << str1 << endl << str2;
+
+    return 0;
+}
+
+// C program to illustrate strings
+#include <stdio.h>
+
+int main()
+{
+    // declare and initialize string
+    char str[] = "Geeks";
+
+    // print string
+    printf("%s", str);
+
+    return 0;
+}
+
+// Java code to illustrate String
+import java.io.*;
+import java.lang.*;
+
+class Test {
+    public static void main(String[] args)
+    {
+        // Declare String without using new operator
+        String s = "GeeksforGeeks";
+
+        // Prints the String.
+        System.out.println("String s = " + s);
+
+        // Declare String using new operator
+        String s1 = new String("GeeksforGeeks");
+
+        // Prints the String.
+        System.out.println("String s1 = " + s1);
+    }
+}
+
+# Python Program for
+# Creation of String
+
+# Creating a String
+# with single Quotes
+String1 = 'Welcome to the Geeks World'
+print("String with the use of Single Quotes: ")
+print(String1)
+
+# Creating a String
+# with double Quotes
+String1 = "I'm a Geek"
+print("\nString with the use of Double Quotes: ")
+print(String1)
+
+# Creating a String
+# with triple Quotes
+String1 = '''I'm a Geek and I live in a world of "Geeks"'''
+print("\nString with the use of Triple Quotes: ")
+print(String1)
+
+# Creating String with triple
+# Quotes allows multiple lines
+String1 = '''Geeks
+            For
+            Life'''
+print("\nCreating a multiline String: ")
+print(String1)
+
+// Include namespace system
+using System;
+
+public class Test
+{
+    public static void Main(String[] args)
+    {
+        // Declare String without using new operator
+        var s = "GeeksforGeeks";
+        // Prints the String.
+        Console.WriteLine("String s = " + s);
+        // Declare String using new operator
+        var s1 = new  String("GeeksforGeeks");
+        // Prints the String.
+        Console.WriteLine("String s1 = " + s1);
+    }
+}
+
+// Declare and initialize the string
+let str1 = "Welcome to GeeksforGeeks!";
+
+// Initialization using another method
+let str2 = new String("A Computer Science Portal");
+
+// Print strings
+console.log(str1);
+console.log(str2.toString());
+
+<?php
+
+// single-quote strings
+
+$site = 'Welcome to GeeksforGeeks';
+
+echo $site;
+
+?>
+
+Are Strings Mutable in Different Languages?
+In C/C++, string literals (assigned to pointers) are immutable.
+In C++, string objects are mutable.
+In Python, Java and JavaScript, strings are immutable.
+
+General Operations performed on String
+Here we are providing you with some must-know concepts of string:
+
+Length of String : The length of a string refers to the total number of characters present in it, including letters, digits, spaces, and special characters. It is a fundamental property of strings in any programming language and is often used in various operations such as validation, manipulation, and comparison.
+Search a Character : Searching for a character in a string means finding the position where a specific character appears. If the character is present multiple times, you might need to find its first occurrence, last occurrence, or all occurrences.
+Check for Substring : Checking for a substring means determining whether a smaller sequence of characters exists within a larger string. A substring is a continuous part of a string, and checking for its presence is a common operation in text processing, search algorithms, and data validation.
+Insert a Character : Inserting a character into a string means adding a new character at a specific position while maintaining the original order of other characters. Since strings are immutable in many programming languages, inserting a character usually involves creating a new modified string with the desired character placed at the specified position.
+Delete a Character : Deleting a character from a string means removing a specific character at a given position while keeping the remaining characters intact. Since strings are immutable in many programming languages, this operation usually involves creating a new string without the specified character.
+Check for Same Strings : Checking if two strings are the same means comparing them character by character to determine if they are identical in terms of length, order, and content. If every character in one string matches exactly with the corresponding character in another string, they are considered the same.
+String Concatenation : String concatenation is the process of joining two or more strings together to form a single string. This is useful in text processing, formatting messages, constructing file paths, or dynamically creating content.
+Reverse a String : Reversing a string means arranging its characters in the opposite order while keeping their original positions intact in the reversed sequence. This operation is commonly used in text manipulation, data encryption, and algorithm challenges.
+Rotate a String Rotating a string means shifting its characters to the left or right by a specified number of positions while maintaining the order of the remaining characters. The characters that move past the boundary wrap around to the other side.
+Check for Palindrome : Checking for a palindrome means determining whether a string reads the same forward and backward. A palindrome remains unchanged when reversed, making it a useful concept in text processing, algorithms, and number theory.
+
+Basic Operations
+Length of a String
+Check for Same
+Search a Character
+Insert a Character
+Remove a Character
+Remove all occurrences
+Concatenating Two Strings
+Reverse a string
+Generate all Substrings
+
+Length of a String
+Given a string s, the task is to find the length of the string.
+
+Examples:
+
+Input: s = "abc"
+Output:  3
+
+Input: s = "GeeksforGeeks"
+Output: 13
+
+Input: s = ""
+Output: 0
+
+Using In-built methods
+Every programming language offers a built-in method as well to find the length
+// C++ program to find length
+// of a string
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    string s = "gfg";
+    cout << s.size() << endl;
+    return 0;
+}
+
+// C program to find the length of
+// string using strlen function
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char s[] = "gfg";
+    printf("%ld", strlen(s));
+    return 0;
+}
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+
+class GfG {
+    public static void main(String[] args)
+    {
+        String s = "gfg";
+        System.out.println(s.length());
+    }
+}
+
+# Python code to demonstrate string length
+# using len
+
+s = "gfg"
+print(len(s))
+
+using System;
+
+class GfG
+{
+    static void Main()
+    {
+        string s = "gfg";
+        Console.WriteLine(s.Length);
+        Console.ReadLine();
+    }
+}
+
+//JavaScript code for string length-
+let s = "gfg";
+console.log(s.length);
+
+Writing your Method
+The most traditional method of finding the length of the string is by traversing each character through the loop.
+
+Using a counter, traverse each character of the string with the help of Loop.
+Return the counter value as the length of the string.
+
+//C++ code-
+#include <bits/stdc++.h>
+using namespace std;
+
+// Method to calculate length of a string
+int getLength(const string& s) {
+    int i = 0, cnt = 0;
+    while (s[i]) {
+        i++;
+        cnt++;
+    }
+    return cnt;
+}
+
+int main() {
+    string s = "GeeksforGeeks";
+    cout << getLength(s) << endl;
+    return 0;
+}
+
+//C code -
+#include <stdio.h>
+
+// Function to calculate length of a string
+int getLength(const char* s) {
+    int i = 0, cnt = 0;
+    while (s[i] != '\0') {
+        i++;
+        cnt++;
+    }
+    return cnt;
+}
+
+// Driver code
+int main() {
+    const char* s = "GeeksforGeeks";
+    printf("%d\n", getLength(s));
+
+    return 0;
+}
+
+//Java code -
+public class GfG {
+
+    // Method to calculate length of a string
+    static int getLength(String s) {
+        int cnt = 0;
+        for (char c : s.toCharArray()) {
+            cnt++;
+        }
+        return cnt;
+    }
+
+    public static void main(String[] args) {
+        String s = "GeeksforGeeks";
+        System.out.println(getLength(s));
+    }
+}
+
+#Python code -
+# Function to calculate length of a string
+def get_length(s):
+    cnt = 0
+    for c in s:
+        cnt += 1
+    
+    return cnt
+
+# Driver code
+s = "GeeksforGeeks"
+print(get_length(s))
+
+//C# code -
+using System;
+
+class Program
+{
+    // Method to calculate length of a string
+    static int GetLength(string s)
+    {
+        int cnt = 0;
+        foreach (char c in s)
+        {
+            cnt++;
+        }
+
+        return cnt;
+    }
+
+    static void Main()
+    {
+        string s = "GeeksforGeeks";
+        Console.WriteLine(GetLength(s));
+    }
+}
+
+//JavaScript code -
+// Method to calculate length of a string
+function getLength(s) {
+    let i = 0, cnt = 0;
+
+    // Use a while loop to iterate through 
+    // the characters until the end of the string
+    while (s[i] !== undefined) {
+        i++;
+        cnt++;
+    }
+    
+    return cnt;
+}
+
+// Driver Code
+let s = "GeeksforGeeks";
+console.log(getLength(s));
+
+Time Complexity: O(n), where n is the length of the string.
+Auxiliary space: O(1)
+
+Check if two strings are same or not
+Given two strings, the task is to check if these two strings are identical(same) or not. Consider case sensitivity.
+
+Examples:
+
+Input: s1 = "abc", s2 = "abc" 
+Output: Yes 
+
+Input: s1 = "", s2 = "" 
+Output: Yes 
+
+Input: s1 = "GeeksforGeeks", s2 = "Geeks" 
+Output: No 
+
+Approach - By Using (==) in C++/Python/C#, equals in Java and === in JavaScript
+This approach compares two strings to check if they are the same. It works by using the equality operator (==) to compare both strings character by character. If the strings are identical, it prints "Yes", otherwise, it prints "No". The comparison stops as soon as a mismatch is found, or if one string ends before the other. The program performs this comparison in a straightforward way without any extra steps, simply checking the content of the strings.
+
+//C++ code -
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to compare both strings directly
+bool areStringsSame(string s1, string s2) {
+    return s1 == s2;
+}
+
+int main()
+{
+    string s1 = "abc";
+    string s2 = "abcd";
+  
+    // Call the areStringsSame function to compare strings
+    if (areStringsSame(s1, s2)) {
+        cout << "Yes" << endl;
+    }
+    else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+
+//C code -
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+// Function to compare both strings directly
+bool areStringsSame(const char* s1, const char* s2) {
+    return strcmp(s1, s2) == 0;
+}
+
+int main() {
+    const char* s1 = "abc";
+    const char* s2 = "abcd";
+
+    // Call the areStringsSame function to compare strings
+    if (areStringsSame(s1, s2)) {
+        printf("Yes\n");
+    } else {
+        printf("No\n");
+    }
+
+    return 0;
+}
+
+//Java code - 
+public class GfG {
+    // Function to compare both strings directly
+    public static boolean areStringsSame(String s1, String s2) {
+        return s1.equals(s2);
+    }
+
+    public static void main(String[] args) {
+        String s1 = "abc";
+        String s2 = "abcd";
+
+        // Call the areStringsSame function to compare strings
+        if (areStringsSame(s1, s2)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+#Python code -
+# Function to compare both strings directly
+
+def areStringsSame(s1, s2):
+    return s1 == s2
+
+if __name__ == '__main__':
+    s1 = "abc"
+    s2 = "abcd"
+
+    # Call the areStringsSame function to compare strings
+    if areStringsSame(s1, s2):
+        print("Yes")
+    else:
+        print("No")
+
+//C# code -
+using System;
+
+class GfG {
+    // Function to compare both strings directly
+    static bool areStringsSame(string s1, string s2) {
+        return s1 == s2;
+    }
+
+    static void Main() {
+        string s1 = "abc";
+        string s2 = "abcd";
+
+        // Call the areStringsSame function to compare strings
+        if (areStringsSame(s1, s2)) {
+            Console.WriteLine("Yes");
+        } else {
+            Console.WriteLine("No");
+        }
+    }
+}
+
+//JavaScript code-
+// Function to compare both strings directly
+function areStringsSame(s1, s2) {
+    return s1 === s2;
+}
+
+const s1 = "abc";
+const s2 = "abcd";
+
+// Call the areStringsSame function to compare strings
+if (areStringsSame(s1, s2)) {
+    console.log("Yes");
+} else {
+    console.log("No");
+}
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+Approach - By Using String Comparison Functions
+In this approach, the program compares two strings to check if they are identical. It uses the strcmp function, which compares the strings character by character. If the strings are exactly the same, strcmp returns 0, indicating no difference between them. If the strings are different, strcmp returns a non-zero value. Based on this result, the program prints "Yes" if the strings match and "No" if they don't. The comparison stops as soon as a mismatch is found or the strings end.
+
+//C++ code- 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Function to compare two strings using strcmp
+bool areStringsSame(char s1[], char s2[]) {
+    return strcmp(s1, s2) == 0;
+}
+
+int main() {
+    char s1[] = "hello";
+    char s2[] = "hello";
+
+    // Call the areStringsSame function to compare strings
+    if (areStringsSame(s1, s2)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;  
+    }
+
+    return 0;
+}
+
+//C code -
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+// Function to compare two strings using strcmp
+bool areStringsSame(char s1[], char s2[]) {
+    return strcmp(s1, s2) == 0;
+}
+
+int main() {
+    char s1[] = "hello";
+    char s2[] = "hello";
+
+    // Call the areStringsSame function to compare strings
+    if (areStringsSame(s1, s2)) {
+        printf("Yes\n");
+    } else {
+        printf("No\n");  
+    }
+
+    return 0;
+}
+
+//Java
+import java.util.Arrays;
+
+class GfG {
+    // Function to compare two strings using equals
+    public static boolean areStringsSame(String s1, String s2) {
+        return s1.equals(s2);
+    }
+
+    public static void main(String[] args) {
+        String s1 = "hello";
+        String s2 = "hello";
+
+        // Call the areStringsSame function to compare strings
+        if (areStringsSame(s1, s2)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+#Python code -
+# Function to compare two strings using ==
+def areStringsSame(s1, s2):
+    return s1 == s2
+
+s1 = "hello"
+s2 = "hello"
+
+# Call the areStringsSame function to compare strings
+if areStringsSame(s1, s2):
+    print("Yes")
+else:
+    print("No")
+
+//C# -
+using System;
+
+class GfG {
+    // Function to compare two strings using Equals
+    static bool areStringsSame(string s1, string s2) {
+        return s1.Equals(s2);
+    }
+
+    static void Main() {
+        string s1 = "hello";
+        string s2 = "hello";
+
+        // Call the areStringsSame function to compare strings
+        if (areStringsSame(s1, s2)) {
+            Console.WriteLine("Yes");
+        } else {
+            Console.WriteLine("No");
+        }
+    }
+}
+
+//Javascript-
+// Function to compare two strings using localeCompare
+function areStringsSame(s1, s2) {
+    return s1.localeCompare(s2) === 0;
+}
+
+let s1 = "hello";
+let s2 = "hello";
+
+// Call the areStringsSame function to compare strings
+if (areStringsSame(s1, s2)) {
+    console.log("Yes");
+} else {
+    console.log("No");
+}
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+Approach - By Writing your Own Method
+In this approach, the program compares two strings by first checking if their lengths are the same. If the lengths differ, the strings cannot be identical, so it returns false. If the lengths are the same, it then compares each character of the two strings one by one. If any mismatch is found, it returns false, indicating the strings are not the same. If no differences are found throughout the comparison, it returns true, meaning the strings are identical.
+
+//C++ code-
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool areStringsEqual(string &s1, string &s2) {
+  
+    // Compare lengths first
+    if (s1.length() != s2.length()) {
+        return false;
+    }
+
+    // Compare character by character
+    for (size_t i = 0; i < s1.length(); ++i) {
+        if (s1[i] != s2[i]) {
+            return false; 
+        }
+    }
+
+    return true; 
+}
+
+int main() {
+    string s1 = "hello";
+    string s2 = "hello";
+
+    if (areStringsEqual(s1, s2)) {
+        cout << "Yes" << endl; 
+    } else {
+        cout << "No" << endl;  
+    }
+
+    return 0;
+}
+
+//C code -
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool areStringsEqual(const char *s1, const char *s2) {
+    // Compare lengths first
+    if (strlen(s1) != strlen(s2)) {
+        return 0;
+    }
+
+    // Compare character by character
+    for (size_t i = 0; i < strlen(s1); ++i) {
+        if (s1[i] != s2[i]) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int main() {
+    const char *s1 = "hello";
+    const char *s2 = "hello";
+
+    if (areStringsEqual(s1, s2)) {
+        printf("Yes\n");
+    } else {
+        printf("No\n");
+    }
+
+    return 0;
+}
+
+//Java code -
+public class GfG {
+    public static boolean areStringsEqual(String s1, String s2) {
+        // Compare lengths first
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        // Compare character by character
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String s1 = "hello";
+        String s2 = "hello";
+
+        if (areStringsEqual(s1, s2)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+#Python
+def are_strings_equal(s1, s2):
+    # Compare lengths first
+    if len(s1) != len(s2):
+        return False
+
+    # Compare character by character
+    for i in range(len(s1)):
+        if s1[i] != s2[i]:
+            return False
+
+    return True
+
+s1 = "hello"
+s2 = "hello"
+
+if are_strings_equal(s1, s2):
+    print("Yes")
+else:
+    print("No")
+
+//JavaScript -
+function areStringsEqual(s1, s2) {
+    // Compare lengths first
+    if (s1.length !== s2.length) {
+        return false;
+    }
+
+    // Compare character by character
+    for (let i = 0; i < s1.length; i++) {
+        if (s1[i] !== s2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const s1 = "hello";
+const s2 = "hello";
+
+if (areStringsEqual(s1, s2)) {
+    console.log("Yes");
+} else {
+    console.log("No");
+}
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+Insert a character in String at a Given Position
+Last Updated : 6 Nov, 2024
+Given a string s, a character c and an integer position pos, the task is to insert the character c into the string s at the specified position pos.
+
+Examples:
+
+Input: s = "Geeks", c = 'A', pos = 3
+Output: GeeAks
+
+Input: s = "HelloWorld", c = '!', pos = 5
+Output: Hello!World
+
+[Approach-1] Using Built-In Methods
+We will use library methods like string insert in C++, StringBuilder insert in Java and String Slicing in Python.
+
+// C++ program to insert a character at specific
+// position using Built in functions
+  
+#include <bits/stdc++.h>
+using namespace std;
+
+string insertChar(string &s, char c, int pos) {
+  
+    // Insert character at specified position
+    s.insert(s.begin() + pos, c);
+  	return s;
+}
+
+int main() {
+    string s = "Geeks";
+    cout << insertChar(s, 'A', 3);
+    return 0;
+}
+
+// Java program to insert a character at specific
+// position using Built in functions
+
+class GfG {
+    static String insertChar(StringBuilder sb, char c, int pos) {
+      
+        // Insert character at specified position
+        sb.insert(pos, c);
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Geeks");
+        System.out.println(insertChar(sb, 'A', 3));
+    }
+}
+
+# Python program to insert a character at specific
+# position using Built in functions
+
+def insertChar(s, c, pos):
+  
+    # Insert character at specified position
+    return s[:pos] + c + s[pos:]
+
+s = "Geeks"
+print(insertChar(s, 'A', 3))
+
+// C# program to insert a character at specific
+// position using Built in functions
+
+using System;
+
+class GfG {
+    static string insertChar(string s, char c, int pos) {
+      
+        // Insert character at specified position
+        return s.Substring(0, pos) + c + s.Substring(pos);
+    }
+
+    static void Main() {
+        string s = "Geeks";
+        Console.WriteLine(insertChar(s, 'A', 3));
+    }
+}
+
+// JavaScript program to insert a character at 
+// specific position using Built in functions
+
+function insertChar(s, c, pos) {
+
+    // Insert character at specified position
+    return s.slice(0, pos) + c + s.slice(pos);
+}
+
+const s = "Geeks";
+console.log(insertChar(s, 'A', 3));
+
+Time Complexity: O(n) where n is the length of the string.
+
+[Approch-2] Using Custom Method
+First, iterate through the given string, inserting all the characters into a new string until we reach the position where the given character needs to be inserted. At that position, insert the character, and then append the remaining characters from the input string to the new string.
+
+// C++ program to insert a character at specific
+// position using custom method
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string insertChar(string &s, char c, int pos) {
+    string res = "";
+    for (int i = 0; i < s.length(); i++) {
+      
+        // Insert the character at 
+      	// the given position
+        if (i == pos)
+            res.push_back(c);
+      
+        // Insert the original characters
+        res.push_back(s[i]);
+    }
+  
+    // If the given pos is beyond the length,  
+    // append the character at the end
+    if (pos >= s.length()) 
+        res.push_back(c);
+      
+    return res;
+}
+
+int main() {
+    string s = "Geeks";
+    cout << insertChar(s, 'A', 3);
+    return 0;
+}
+
+// C program to insert a character at specific
+// position using custom method
+
+#include <stdio.h>
+#include <string.h>
+
+void insertChar(char *s, char c, int pos, char *res) {
+    int length = strlen(s);
+    int j = 0;
+    
+    for (int i = 0; i < length; i++) {
+      
+        // Insert the character at the given position
+        if (i == pos) 
+            res[j++] = c;
+        
+        // Insert the original characters
+        res[j++] = s[i];
+    }
+
+    // If the given pos is beyond the length,
+    // append the character at the end
+    if (pos >= length) 
+        res[j++] = c;
+
+    res[j] = '\0'; 
+}
+
+int main() {
+    char s[] = "Geeks";
+  	int len = strlen(s);
+    char res[len + 1]; 
+    insertChar(s, 'A', 3, res); 
+    printf("%s\n", res); 
+    return 0;
+}
+
+// Java program to insert a character at specific
+// position using custom method
+
+class GfG {
+    static String insertChar(String s, char c, int pos) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+      
+            // Insert the character at the given position
+            if (i == pos) 
+                res.append(c);
+      
+            // Insert the original characters
+            res.append(s.charAt(i));
+        }
+  
+        // If the given pos is beyond the length,  
+        // append the character at the end
+        if (pos >= s.length()) 
+            res.append(c);
+      
+        return res.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "Geeks";
+        System.out.println(insertChar(s, 'A', 3));
+    }
+}
+
+
+# Python program to insert a character at 
+# specific position using custom method
+
+def insertChar(s, c, pos):
+    res = ""
+    for i in range(len(s)):
+      
+        # Insert the character at 
+        # the given position
+        if i == pos: 
+            res += c
+      
+        # Insert the original characters
+        res += s[i]
+  
+    # If the given pos is beyond the length,  
+    # append the character at the end
+    if pos >= len(s): 
+        res += c
+      
+    return res
+
+s = "Geeks"
+print(insertChar(s, 'A', 3))
+
+// C# program to insert a character at specific position
+// using custom method
+
+using System;
+
+class GfG {
+    static string insertChar(string s, char c, int pos) {
+        string res = "";
+        for (int i = 0; i < s.Length; i++) {
+      
+            // Insert the character at 
+            // the given position
+            if (i == pos) 
+                res += c;
+      
+            // Insert the original characters
+            res += s[i];
+        }
+  
+        // If the given pos is beyond the length,  
+        // append the character at the end
+        if (pos >= s.Length) 
+            res += c;
+      
+        return res;
+    }
+
+    static void Main() {
+        string s = "Geeks";
+        Console.WriteLine(insertChar(s, 'A', 3));
+    }
+}
+
+// JavaScript program to insert a character at 
+// specific position using custom method
+
+function insertChar(s, c, pos) {
+    let res = "";
+    for (let i = 0; i < s.length; i++) {
+      
+        // Insert the character at 
+        // the given position
+        if (i === pos) 
+            res += c;
+      
+        // Insert the original characters
+        res += s[i];
+    }
+  
+    // If the given pos is beyond the length,  
+    // append the character at the end
+    if (pos >= s.length) 
+        res += c;
+      
+    return res;
+}
+
+let s = "Geeks";
+console.log(insertChar(s, 'A', 3));
+
+Time Complexity: O(n) where n is the length of the string.
+
+Remove a Character from a Given Position
+Last Updated : 23 Jul, 2025
+Given a string and a position (0-based indexing), remove the character at the given position.
+
+Examples: 
+
+Input : s = "abcde",  pos = 1
+Output : s = "acde"
+
+Input : s = "a",  pos = 0
+Output : s = ""
+
+Approach - By Using Built-In Methods
+
+We use erase in C++, string slicing in Python, StringBuilder Delete in Java, substring in Java and slice in JavaScript.
+
+//Cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+string removeCharAtPosition(string s, int pos) {
+    if (pos < 0 || pos >= s.length()) {
+        return s;
+    }
+    s.erase(pos, 1);
+    return s;
+}
+
+int main() {
+    string s = "abcde";
+    int pos = 1;
+    cout << "Output: " << removeCharAtPosition(s, pos) << endl; 
+    return 0;
+}
+
+// C code
+#include <stdio.h>
+#include <string.h>
+
+void removeCharAtPosition(char *s, int pos) {
+    int len = strlen(s);
+    if (pos < 0 || pos >= len) {
+        return;
+    }
+    memmove(&s[pos], &s[pos + 1], len - pos);
+}
+
+int main() {
+    char s[] = "abcde";
+    int pos = 1;
+    removeCharAtPosition(s, pos);
+    printf("Output: %s\n", s);
+    return 0;
+}
+
+
+// Java program to demonstrate
+// the deleteCharAt() Method.
+
+class GFG {
+	public static void main(String[] args)
+	{
+
+		// create a StringBuilder object
+		// with a String pass as parameter
+		StringBuilder s
+			= new StringBuilder("abcde");
+
+
+		// print string after removal of Character
+        // at index 1 
+		System.out.println("Output: " + s.deleteCharAt(1));
+	}
+}
+
+#Python
+def remove_char_at_position(s, pos):
+    if pos < 0 or pos >= len(s):
+        return s
+    return s[:pos] + s[pos+1:]
+
+s = "abcde"
+pos = 1
+print("Output:", remove_char_at_position(s, pos))
+
+//C#
+using System;
+
+class GfG
+{
+    static string RemoveCharAtPosition(string s, int pos)
+    {
+        if (pos < 0 || pos >= s.Length)
+            return s;
+        return s.Substring(0, pos) + s.Substring(pos + 1);
+    }
+
+    static void Main()
+    {
+        string s = "abcde";
+        int pos = 1;
+        Console.WriteLine("Output: " + RemoveCharAtPosition(s, pos));
+    }
+}
+
+//JavaScript
+function removeCharAtPosition(s, pos) {
+    if (pos < 0 || pos >= s.length) {
+        return s;
+    }
+    return s.slice(0, pos) + s.slice(pos + 1);
+}
+
+let s = "abcde";
+let pos = 1;
+console.log("Output: " + removeCharAtPosition(s, pos));
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+Approach - By Writing Your Own Method
+We move all characters after the given position, one index back. To do this we mainly do s]i] = s[i+1] for all indexes i after p.
+
+//C++
+#include <bits/stdc++.h>
+using namespace std;
+
+void customRemoveCharAtPosition(string &s, int pos) {
+  
+    if (pos < 0 || pos >= s.length()) {
+        return; 
+    }
+
+    // Shift characters to the left from the position
+    for (int i = pos; i < s.length() - 1; i++) {
+        s[i] = s[i + 1];
+    }
+
+    s.resize(s.length() - 1);
+}
+
+int main() {
+    string s = "abcde";
+    int pos = 1;
+    customRemoveCharAtPosition(s, pos);
+    cout << s << endl; 
+    return 0;
+}
+
+//C code-
+#include <stdio.h>
+#include <string.h>
+
+void remove_char_at_position(char *s, int pos) {
+    // Check for valid position
+    if (pos < 0 || pos >= strlen(s)) {
+        return;
+    }
+
+    // Shift characters to the left from the position
+    for (int i = pos; i < strlen(s) - 1; i++) {
+        s[i] = s[i + 1];
+    }
+
+    // Null terminate the string
+    s[strlen(s) - 1] = '\0';
+}
+
+int main() {
+    char s[] = "abcde";
+    int pos = 1;
+    remove_char_at_position(s, pos);
+    printf("%s\n", s);
+    return 0;
+}
+
+//Java
+public class Main {
+    public static void removeCharAtPosition(StringBuilder s, int pos) {
+        // Check for valid position
+        if (pos < 0 || pos >= s.length()) {
+            return;
+        }
+
+        // Shift characters to the left from the position
+        for (int i = pos; i < s.length() - 1; i++) {
+            s.setCharAt(i, s.charAt(i + 1));
+        }
+
+        // Remove the last character
+        s.deleteCharAt(s.length() - 1);
+    }
+
+    public static void main(String[] args) {
+        StringBuilder s = new StringBuilder("abcde");
+        int pos = 1;
+        removeCharAtPosition(s, pos);
+        System.out.println(s);
+    }
+}
+
+#Python -
+# Remove character at specified position using a loop
+
+def remove_char_at_position(s, pos):
+  
+    # Check for valid position
+    if pos < 0 or pos >= len(s): 
+        return s
+
+    # Convert string to list for mutable operations
+    s_list = list(s)  
+    
+    # Shift characters to the left from the position
+    for i in range(pos, len(s) - 1):
+        s_list[i] = s_list[i + 1]
+
+    # Remove the last character
+    s_list.pop()  
+    
+    return ''.join(s_list) 
+  
+s = "abcde" 
+pos = 1 
+s = remove_char_at_position(s, pos)  
+print(s)
+
+// C#
+using System;
+
+class GfG {
+    static void Main() {
+        string s = "abcde";
+        int pos = 1;
+        s = RemoveCharAtPosition(s, pos);
+        Console.WriteLine(s);
+    }
+
+    static string RemoveCharAtPosition(string s, int pos) {
+        // Check for valid position
+        if (pos < 0 || pos >= s.Length) {
+            return s;
+        }
+
+        // Create a char array for mutable operations
+        char[] sArray = s.ToCharArray();
+
+        // Shift characters to the left from the position
+        for (int i = pos; i < s.Length - 1; i++) {
+            sArray[i] = sArray[i + 1];
+        }
+
+        // Create a new string excluding the last character
+        return new string(sArray, 0, s.Length - 1);
+    }
+}
+
+//JavaScript -
+// Remove character at specified position using a loop
+function removeCharAtPosition(s, pos) {
+
+    // Check for valid position
+    if (pos < 0 || pos >= s.length) 
+        return s;
+
+    // Convert string to array for mutable operations
+    let sArr = s.split('');  
+    
+    // Shift characters to the left from the position
+    for (let i = pos; i < s.length - 1; i++) 
+        sArr[i] = sArr[i + 1];
+
+    // Remove the last character
+    sArr.pop();  
+    
+    return sArr.join('');  // Convert array back to string
+}
+
+let s = "abcde"; 
+let pos = 1;  
+s = removeCharAtPosition(s, pos);  
+console.log(s);
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+
+Remove all occurrences of a character in a string
+Last Updated : 17 Oct, 2024
+Given a string and a character, remove all the occurrences of the character in the string.
+
+Examples: 
+
+Input : s = "geeksforgeeks"
+        c = 'e'
+Output : s = "gksforgks"
+
+Input : s = "geeksforgeeks"
+        c = 'g'
+Output : s = "eeksforeeks"
+
+Input : s = "geeksforgeeks"
+        c = 'k'
+Output : s = "geesforgees"
+
+Using Built-In Methods
+//C++ code -
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s = "ababca";
+    char c = 'a';
+  
+    // Remove all occurrences of 'c' from 's'
+    s.erase(remove(s.begin(), s.end(), c), s.end());
+
+    cout << s;
+    return 0;
+}
+
+//Java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "ababca";
+        char c = 'a';
+        
+        // Remove all occurrences of 'c' from 's'
+        s = s.replace(String.valueOf(c), "");
+
+        System.out.println(s);
+    }
+}
+
+#Pyhton
+s = "ababca"
+c = 'a'
+
+# Remove all occurrences of 'c' from 's'
+s = s.replace(c, '')
+
+print(s)
+
+//C#
+using System;
+
+class Program {
+    static void Main() {
+        string s = "ababca";
+        char c = 'a';
+
+        // Remove all occurrences of 'c' from 's'
+        s = s.Replace(c.ToString(), "");
+
+        Console.WriteLine(s);
+    }
+}
+
+//JavaScript
+let s = "ababca";
+let c = 'a';
+
+// Remove all occurrences of 'c' from 's'
+s = s.split(c).join('');
+
+console.log(s);
+
+
+Concatenation of Two Strings
+Last Updated : 23 Jul, 2025
+String concatenation is the process of joining two strings end-to-end to form a single string.
+
+Examples
+
+Input: s1 = “Hello”, s2 = “World”
+Output: “HelloWorld”
+Explanation: Joining “Hello” and “World” results in “HelloWorld”.
+
+Input: s1 = “Good”, s2 = “Morning”
+Output: “GoodMorning”
+Explanation: Joining “Good” and “Morning” results in “GoodMorning”
+
+Using + Operator
+Almost all languages support + operator to concatenate two strings. In C, we have a library function strcat() for the same purpose.
+
+//C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string s1 = "Hello, ";
+    string s2 = "World!";
+    
+    // Concatenating the strings
+    string res = s1 + s2;
+    
+    cout << res << endl;
+    return 0;
+}
+
+//C code
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s1[50] = "Hello, ";
+    char s2[] = "World!";
+    
+    // Concatenating the strings
+    strcat(s1, s2);
+    
+    printf("%s\n", s1);
+    return 0;
+}
+
+//Java
+public class GfG {
+    public static void main(String[] args) {
+        String s1 = "Hello, ";
+        String s2 = "World!";
+        
+        // Concatenating the strings
+        String res = s1 + s2;
+        
+        System.out.println(res);
+    }
+}
+
+#Python
+s1 = "Hello, "
+s2 = "World!"
+
+# Concatenating the strings
+res = s1 + s2
+
+print(res)
+
+//C#
+using System;
+
+class Program {
+    static void Main() {
+        string s1 = "Hello, ";
+        string s2 = "World!";
+        
+        // Concatenating the strings
+        string res = s1 + s2;
+        
+        Console.WriteLine(res);
+    }
+}
+
+//JavaScript
+
+let s1 = "Hello, ";
+let s2 = "World!";
+
+// Concatenating the strings
+let res = s1 + s2;
+
+console.log(res);
+
+
+Reverse a String – Complete Tutorial
+Last Updated : 3 Oct, 2025
+Given a string s, the task is to reverse the string. Reversing a string means rearranging the characters such that the first character becomes the last, the second character becomes second last and so on.
+
+Examples:
+
+Input: s = "GeeksforGeeks"
+Output: "skeeGrofskeeG"
+Explanation : The first character G moves to last position, the second character e moves to second-last and so on.
+
+Input: s = "abdcfe"
+Output: "efcdba"
+Explanation: The first character a moves to last position, the second character b moves to second-last and so on. 
+
+Using backward traversal – O(n) Time and O(n) Space
+The idea is to start at the last character of the string and move backward, appending each character to a new string res. This new string res will contain the characters of the original string in reverse order.
+
+// C++ program to reverse a string using backward traversal
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string reverseString(string& s) {
+    string res;
+  
+  	// Traverse on s in backward direction
+  	// and add each charecter to a new string
+    for (int i = s.size() - 1; i >= 0; i--) {
+        res += s[i];
+    }
+    return res;
+}
+
+int main() {
+    string s = "abdcfe";
+    string res = reverseString(s);
+    cout << res;
+    return 0;
+}
+
+// C program to reverse a string using backward traversal
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char *reverseString(char *s) {
+    int n = strlen(s);
+    char *res = (char *)malloc((n + 1) * sizeof(char));
+
+    int j = 0;
+    
+    // Traverse on s in backward direction
+    // and add each character to a new string
+    for (int i = n - 1; i >= 0; i--) {
+        res[j] = s[i];
+        j++;
+    }
+
+    // Null-terminate the result string
+    res[n] = '\0';
+    return res;
+}
+
+int main() {
+    char s[] = "abdcfe";
+    char *res = reverseString(s);
+    printf("%s", res);
+    return 0;
+}
+
+// Java program to reverse a string using backward traversal
+
+class GfG {
+    static String reverseString(String s) {
+        StringBuilder res = new StringBuilder();
+  
+        // Traverse on s in backward direction
+        // and add each character to a new string
+        for (int i = s.length() - 1; i >= 0; i--) {
+            res.append(s.charAt(i));
+        }
+        return res.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "abdcfe";
+        String res = reverseString(s);
+        System.out.print(res);
+    }
+}
+
+# Python program to reverse a string using backward traversal
+
+def reverseString(s):
+    res = []
+  
+    # Traverse on s in backward direction
+    # and add each character to the list
+    for i in range(len(s) - 1, -1, -1):
+        res.append(s[i])
+
+    # Convert list back to string
+    return ''.join(res)
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+
+// C# program to reverse a string using backward traversal
+
+using System;
+using System.Text;
+
+class GfG {
+    static string reverseString(string s) {
+        StringBuilder res = new StringBuilder();
+  
+        // Traverse on s in backward direction
+        // and add each character to a new string
+        for (int i = s.Length - 1; i >= 0; i--) {
+            res.Append(s[i]);
+        }
+      
+        // Convert StringBuilder to string
+        return res.ToString(); 
+    }
+
+    static void Main(string[] args) {
+        string s = "abdcfe";
+        string res = reverseString(s);
+        Console.WriteLine(res);
+    }
+}
+
+// JavaScript program to reverse a string using backward traversal
+
+function reverseString(s) {
+    let res = [];
+  
+    // Traverse on s in backward direction
+    // and add each character to the array
+    for (let i = s.length - 1; i >= 0; i--) {
+        res.push(s[i]);
+    }
+    return res.join('');
+}
+
+const s = "abdcfe";
+console.log(reverseString(s));
+
+Time Complexity: O(n) for backward traversal
+Auxiliary Space: O(n) for storing the reversed string.
+
+Using Two Pointers - O(n) Time and O(1) Space
+The idea is to maintain two pointers: left and right, such that left points to the beginning of the string and right points to the end of the string. 
+
+While left pointer is less than the right pointer, swap the characters at these two positions. After each swap, increment the left pointer and decrement the right pointer to move towards the center of the string. This will swap all the characters in the first half with their corresponding character in the second half.
+
+
+// C++ program to reverse a string using two pointers
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string reverseString(string &s) {
+    int left = 0, right = s.length() - 1;
+
+    // Swap characters from both ends till we reach
+    // the middle of the string
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
+    }
+  
+    return s;
+}
+
+int main() {
+    string s = "abdcfe";
+    cout << reverseString(s);
+    return 0;
+}
+
+// C program to reverse a string using two pointers
+
+#include <stdio.h>
+#include <string.h>
+
+char* reverseString(char *s) {
+    int left = 0, right = strlen(s) - 1;
+
+    // Swap characters from both ends till we reach
+    // the middle of the string
+    while (left < right) {
+        char temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+        left++;
+        right--;
+    }
+  
+    return s;
+}
+
+int main() {
+    char s[] = "abdcfe"; 
+    printf("%s", reverseString(s)); 
+    return 0;
+}
+
+// Java program to reverse a string using two pointers
+
+class GfG {
+    static String reverseString(String s) {
+        int left = 0, right = s.length() - 1;
+      
+        // Use StringBuilder for mutability
+        StringBuilder res = new StringBuilder(s);
+      
+        // Swap characters from both ends till we reach
+        // the middle of the string
+        while (left < right) {
+            char temp = res.charAt(left);
+            res.setCharAt(left, res.charAt(right));
+            res.setCharAt(right, temp);
+            left++;
+            right--;
+        }
+  
+        // Convert StringBuilder back to string
+        return res.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "abdcfe";
+        System.out.println(reverseString(s));
+    }
+}
+
+
+# Python program to reverse a string using two pointers
+
+# Function to reverse a string using two pointers
+
+def reverseString(s):
+    left = 0
+    right = len(s) - 1
+    
+    # Convert string to a list for mutability
+    s = list(s)  
+    
+    # Swap characters from both ends till we reach
+    # the middle of the string
+    while left < right:
+        s[left], s[right] = s[right], s[left]
+        left += 1
+        right -= 1
+    
+    # Convert list back to string
+    return ''.join(s)  
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+
+
+// C# program to reverse a string using two pointers
+
+using System;
+using System.Text;
+
+class GfG {
+    static string reverseString(string s) {
+      
+        // Use StringBuilder for mutability
+        StringBuilder res = new StringBuilder(s); 
+        int left = 0, right = res.Length - 1;
+
+        // Swap characters from both ends till we reach
+        // the middle of the string
+        while (left < right) {
+            char temp = res[left];
+            res[left] = res[right];
+            res[right] = temp;
+            left++;
+            right--;
+        }
+  
+        // Convert StringBuilder back to string
+        return res.ToString(); 
+    }
+
+    static void Main(string[] args) {
+        string s = "abdcfe";
+        Console.WriteLine(reverseString(s));
+    }
+}
+
+
+// JavaScript program to reverse a string using two pointers
+
+function reverseString(s) {
+    let left = 0, right = s.length - 1;
+
+    // Convert string to array for mutability
+    s = s.split(''); 
+    
+    // Swap characters from both ends till we reach
+    // the middle of the string
+    while (left < right) {
+        [s[left], s[right]] = [s[right], s[left]];
+        left++;
+        right--;
+    }
+  
+    return s.join('');
+}
+
+const s = "abdcfe";
+console.log(reverseString(s));
+
+Time Complexity: O(n) 
+Auxiliary Space: O(1)
+
+Using Recursion - O(n) Time and O(n) Space
+The idea is to use recursion and define a recursive function that takes a string as input and reverses it. Inside the recursive function, 
+
+ Swap the first and last element. 
+ Recursively call the function with the remaining substring. 
+
+// C++ Program to reverse an array using Recursion
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// recursive function to reverse a string from l to r
+void reverseStringRec(string &s, int l, int r) {
+  
+    // If the substring is empty, return
+    if(l >= r)
+        return;
+  
+    swap(s[l], s[r]);
+  	
+    // Recur for the remaining string
+    reverseStringRec(s, l + 1, r - 1);
+}
+
+// function to reverse a string
+string reverseString(string &s) {
+    int n = s.length();
+    reverseStringRec(s, 0, n - 1);
+  	return s;
+}
+
+int main() {
+    string s = "abdcfe";
+  	cout << reverseString(s) << endl;
+    return 0;
+}
+
+
+// C program to reverse a string using Recursion
+
+#include <stdio.h>
+#include <string.h>
+
+// Recursive function to reverse a string from l to r
+void reverseStringRec(char *s, int l, int r) {
+    if (l >= r)
+        return;
+
+    // Swap the characters at the ends
+    char temp = s[l];
+    s[l] = s[r];
+    s[r] = temp;
+
+    // Recur for the remaining string
+    reverseStringRec(s, l + 1, r - 1);
+}
+
+char* reverseString(char *s) {
+    int n = strlen(s);
+    reverseStringRec(s, 0, n - 1);
+  	return s;
+}
+
+int main() {
+    char s[] = "abdcfe";
+  
+    printf("%s\n", reverseString(s));
+    return 0;
+}
+
+
+// Java program to reverse a string using Recursion
+
+class GfG {
+  
+    // Recursive function to reverse a string from l to r
+    static void reverseStringRec(char[] s, int l, int r) {
+        if (l >= r)
+            return;
+
+        // Swap the characters at the ends
+        char temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
+
+        // Recur for the remaining string
+        reverseStringRec(s, l + 1, r - 1);
+    }
+
+    // Function to reverse a string
+    static String reverseString(String s) {
+        char[] arr = s.toCharArray();
+        reverseStringRec(arr, 0, arr.length - 1);
+        return new String(arr);
+    }
+	
+    public static void main(String[] args) {
+        String s = "abdcfe";
+        System.out.println(reverseString(s));
+    }
+}
+
+# Python program to reverse a string using Recursion
+
+# Recursive Function to reverse a string
+def reverseStringRec(arr, l, r):
+    if l >= r:
+        return
+
+    # Swap the characters at the ends
+    arr[l], arr[r] = arr[r], arr[l]
+
+    # Recur for the remaining string
+    reverseStringRec(arr, l + 1, r - 1)
+
+def reverseString(s):
+  
+  	# Convert string to list of characters
+    arr = list(s)  
+    reverseStringRec(arr, 0, len(arr) - 1)
+    
+    # Convert list back to string
+    return ''.join(arr)  
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+
+
+// C# program to reverse a string using Recursion
+
+using System;
+using System.Text;
+
+class GfG {
+  
+    // recursive function to reverse a string from l to r
+    static void reverseStringRec(StringBuilder s, int l, int r) {
+        if (l >= r)
+            return;
+
+        char temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
+
+        // Recur for the remaining string
+        reverseStringRec(s, l + 1, r - 1);
+    }
+
+    // function to reverse a string
+    static string reverseString(string input) {
+        StringBuilder s = new StringBuilder(input);
+        int n = s.Length;
+        reverseStringRec(s, 0, n - 1);
+        return s.ToString();
+    }
+
+    static void Main() {
+        string s = "abdcfe";
+        Console.WriteLine(reverseString(s));
+    }
+}
+
+
+// JavaScript program to reverse a string using Recursion
+
+// Recursive Function to reverse a string
+function reverseStringRec(res, l, r) {
+    if (l >= r) return;
+
+    // Swap the characters at the ends
+    [res[l], res[r]] = [res[r], res[l]];
+
+    // Recur for the remaining string
+    reverseStringRec(res, l + 1, r - 1);
+}
+
+function reverseString(s) {
+
+	// Convert string to array of characters
+    let res = s.split('');  
+    reverseStringRec(res, 0, res.length - 1);
+    
+    // Convert array back to string
+    return res.join('');  
+}
+
+let s = "abdcfe";
+console.log(reverseString(s));
+
+Time Complexity: O(n) where n is length of string
+Auxiliary Space: O(n)
+
+Using Stack - O(n) Time and O(n) Space
+The idea is to use stack for reversing a string because Stack follows Last In First Out (LIFO) principle. This means the last character you add is the first one you'll take out. So, when we push all the characters of a string into the stack, the last character becomes the first one to pop. 
+
+// C++ program to reverse a string using stack
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string reverseString(string &s) {
+    stack<char> st;
+  
+    // Push the charcters into stack
+    for (int i = 0; i < s.size(); i++) {
+        st.push(s[i]);
+    }
+
+    // Pop the characters of stack into the original string
+    for (int i = 0; i < s.size(); i++) {
+        s[i] = st.top();
+        st.pop();
+    }
+  
+  	return s;
+}
+
+int main() {
+    string s = "abdcfe";
+    cout << reverseString(s);
+    return 0;
+}
+
+
+// Java program to reverse a string using stack
+import java.util.*;
+
+class GfG {
+    static String reverseString(String s) {
+        Stack<Character> st = new Stack<>();
+      
+        // Push the characters into stack
+        for (int i = 0; i < s.length(); i++)
+            st.push(s.charAt(i));
+
+        StringBuilder res = new StringBuilder();
+      
+        // Pop the characters of stack into the original string
+        for (int i = 0; i < s.length(); i++)
+            res.append(st.pop());
+        
+        return res.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "abdcfe";
+        System.out.println(reverseString(s));
+    }
+}
+
+
+# Python program to reverse a string using stack
+def reverseString(s):
+    stack = []
+    
+    # Push the characters into stack
+    for char in s:
+        stack.append(char)
+
+    # Prepare a list to hold the reversed characters
+    rev = [''] * len(s)
+
+    # Pop the characters from stack into the reversed list
+    for i in range(len(s)):
+        rev[i] = stack.pop()
+
+    # Join the list to form the reversed string
+    return ''.join(rev)
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+
+
+// C# program to reverse a string using stack
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class GfG {
+    static string reverseString(string s) {
+        Stack<char> st = new Stack<char>();
+
+        // Push the characters into stack
+        for (int i = 0; i < s.Length; i++)
+            st.Push(s[i]);
+
+        // Create a StringBuilder to hold the reversed string
+        StringBuilder res = new StringBuilder();
+
+        // Pop the characters from stack into the StringBuilder
+        while (st.Count > 0)
+            res.Append(st.Pop());
+
+        // Convert the StringBuilder back to a string
+        return res.ToString();
+    }
+
+    static void Main() {
+        string s = "abdcfe";
+        Console.WriteLine(reverseString(s));
+    }
+}
+
+
+
+// JavaScript program to reverse a string using stack
+
+function reverseString(s) {
+
+    // To store the characters of the original string.
+    const stack = [];
+
+    // Push the characters into the stack.
+    for (let i = 0; i < s.length; i++) {
+        stack.push(s[i]);
+    }
+
+    // Create an array to hold the reversed characters
+    const res = new Array(s.length);
+	
+    // Pop the characters of the stack and store in the array
+    for (let i = 0; i < s.length; i++) {
+        res[i] = stack.pop();
+    }
+
+    // Join the array to form the reversed string
+    return res.join('');
+}
+
+let str = "abdcfe";
+console.log(reverseString(str));
+
+
+Time Complexity: O(n) 
+Auxiliary Space: O(n)
+
+Using Inbuilt methods - O(n) Time and O(1) Space
+The idea is to use built-in reverse method to reverse the string. If built-in method  for string reversal does not exist, then convert string to array or list and use their built-in method for reverse. Then convert it back to string.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string reverseString(string &s) {
+    reverse(s.begin(), s.end());
+  	return s;
+}
+
+int main() {
+    string s = "abdcfe"; 
+    cout << reverseString(s) ;
+    return 0;
+}
+
+
+// Java program to reverse a string using StringBuffer class
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    static String stringReverse(String s) {
+    	StringBuilder res = new StringBuilder(s);
+        res.reverse();
+      	return res.toString();
+    }
+  	
+    public static void main(String[] args) {
+        String s = "abdcfe";
+        System.out.println(stringReverse(s));
+    }
+}
+
+#Python code-
+# Function to reverse a string
+def reverseString(s):
+  	
+    # Reverse the string using slicing
+    return s[::-1]
+
+if __name__ == "__main__":
+    str = "abdcfe"
+    print(reverseString(str))
+
+
+// C# program to reverse a string
+using System;
+
+class GfG {
+    static string reverseString(string s) {
+      	
+        // Reverse the string using the built-in method
+        char[] arr = s.ToCharArray();
+        Array.Reverse(arr);
+        return new string(arr);
+    }
+
+    static void Main() {
+        string s = "abdcfe"; 
+        Console.WriteLine(reverseString(s));
+    }
+}
+
+//JavaScript
+// Function to reverse a string
+function reverseString(s) {
+	
+    // convert to array to make it mutable
+	s = s.split('');
+    
+    // Reverse the string using the built-in method
+    s = s.reverse();
+    return s.join('');
+}
+
+let str = "abdcfe"; 
+console.log(reverseString(str));
+
+Time Complexity: O(n)
+Auxiliary Space: O(1) in C++ and python and O(n) in Java, C# and JavaScript (extra space is used to store in array or list or StringBuilder for reversal).
+
+
+
+
+Easy Problems-
+Check for Binary
+Camel Case Conversion
+Substrings with Corners as 1s
+Check for Panagram
+Check for Palindrome
+Check for Substring
+Check for Subsequence
+Check for Anagrams
+Check for K-Anagrams
+URLify a given string
+
+
+Medium Problems on String:
+First Repeating Character
+First Non-Repeating Character
+Check for Rotation
+K’th Non-repeating Character
+Implement atoi
+Validate IP Address
+Add n Binary Strings
+Multiply 2 Strings
+Isomorphic Strings
+Remove Adjacent
+Roman to Integer
+Interleaved Strings
+Permutations of a String
+Longest Palindromic Substring
+Anagram substrings
+Binary strings without consecutive 1’s
+Lexicographically next string
+Split String into four distinct strings
+Word Break Problem
+Minimum Swaps for Bracket Balancing
+String to mobile numeric keypad sequence
+Shortest path to print a string on screen
+
+
+Hard Problems on String:
+Lexicographic Rank of a String
+Multiply Large Numbers
+Ways to increase LCS length of 2 strings by one
+Alien Dictionary
+Make two strings Anagram
+Make two Strings Anagram Without Deletion
+Palindrome Substring Queries
+Word Search - 8 Directions and Straight Movement
+Word Search - 4 Directions and Zig-Zag Allowed
+Minimum bracket reversals to make balanced
+Word Wrap problem
+Decode a string encoded with recursive substring counts

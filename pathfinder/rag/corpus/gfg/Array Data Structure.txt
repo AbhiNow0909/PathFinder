@@ -1,0 +1,176 @@
+Array Data Structure
+An array is a fundamental and linear data structure that stores items at contiguous locations. Note that in case of C/C++ and Java-Primitive-Arrays, actual elements are stored at contiguous locations. And in case of Python, JS, Java-Non-Primitive, references are stored at contiguous locations. It offers mainly the following advantages over other data structures.
+
+Random Access : i-th item can be accessed in O(1) Time as we have the base address and every item or reference is of same size.
+Cache Friendliness : Since items / references are stored at contiguous locations, we get the advantage of locality of reference.
+Arrays are used to build other data structures like Stack Queue, Deque, Graph, Hash Table, etc. An array is not useful in places where we have operations like insert in the middle, delete from middle and search in a unsorted data.
+
+Basics
+Array Introduction
+An array is a collection of items of the same variable type that are stored at contiguous memory locations. It is one of the most popular and simple data structures used in programming.
+
+Basic terminologies of Array
+Array Element: Elements are items stored in an array.
+Array Index: Elements are accessed by their indexes. Indexes in most of the programming languages start from 0. 
+Memory representation of Array
+In an array, all the elements or their references are stored in contiguous memory locations. This allows for efficient access and manipulation of elements.
+
+Declaration of Array
+Arrays can be declared in various ways in different languages. For better illustration, below are some language-specific array declarations:
+// This array will store integer type element
+int arr[5];      
+
+// This array will store char type element
+char arr[10];   
+
+// This array will store float type element
+float arr[20]; 
+
+Initialization of Array
+Arrays can be initialized in different ways in different languages. Below are some language-specific array initialization:
+int arr[] = { 1, 2, 3, 4, 5 };
+char arr[5] = { 'a', 'b', 'c', 'd', 'e' };
+float arr[10] = { 1.4, 2.0, 24, 5.0, 0.0 };
+
+Why do we Need Arrays?
+Assume there is a class of five students and if we have to keep records of their marks in examination then, we can do this by declaring five variables individual and keeping track of records but what if the number of students becomes very large, it would be challenging to manipulate and maintain the data. So we use an array of students.
+
+Types of Arrays
+Arrays can be classified in two ways:
+
+On the basis of Size
+On the basis of Dimensions
+
+types of Arrays on the basis of Size
+1. Fixed Sized Arrays
+
+We cannot alter or update the size of this array. Here only a fixed size (i,e. the size that is mentioned in square brackets []) of memory will be allocated for storage.
+In case, we don't know the size of the array then if we declare a larger size and store a lesser number of elements, it will result in a wastage of memory. And if we declare a lesser size than the number of elements then we won't get enough memory to store all the elements.
+# Create a fixed-size list of length 5, 
+# initialized with zeros
+arr = [0] * 5
+
+# Output the fixed-size list
+print(arr)
+
+2. Dynamic Sized Arrays
+
+The size of the array changes as per user requirements during execution of code so the coders do not have to worry about sizes. They can add and removed the elements as per the need. The memory is mostly dynamically allocated and de-allocated in these arrays.
+#include<vector>
+
+// Dynamic Integer Array
+vector<int> v;
+
+Types of Arrays on the basis of Dimensions
+1. One-dimensional Array(1-D Array): You can imagine a 1d array as a row, where elements are stored one after another.
+
+2. Multi-dimensional Array: A multi-dimensional array is an array with more than one dimension. We can use multidimensional array to store complex data in the form of tables, etc. We can have 2-D arrays, 3-D arrays, 4-D arrays and so on.
+
+Two-Dimensional Array(2-D Array or Matrix): 2-D Multidimensional arrays can be considered as an array of arrays or as a matrix consisting of rows and columns.
+
+Three-Dimensional Array(3-D Array): A 3-D Multidimensional array contains three dimensions, so it can be considered an array of two-dimensional arrays.
+
+Operations on Array
+Traversal in Array
+Insertions : At Beginning, At given position and At the end.
+Deletion : From Beginning, Given Position, First Occurrence, All occurrences and From End
+Searching : Linear Search and Binary Search
+
+Applications, Advantages and Disadvantages of Array
+Last Updated : 10 Sep, 2025
+Array is a linear data structure that is a collection of data elements of same types. Arrays are stored in contiguous memory locations. It is a static data structure with a fixed size.
+
+Applications of Array Data Structure:
+Arrays mainly have advantages like random access and cache friendliness over other data structures that make them useful.
+
+Below are some applications of arrays.
+
+Storing and accessing data: Arrays store elements in a specific order and allow constant-time O(1) access to any element.
+Searching: If data in array is sorted, we can search an item in O(log n) time. We can also find floor(), ceiling(), kth smallest, kth largest, etc efficiently.
+Matrices: Two-dimensional arrays are used for matrices in computations like graph algorithms and image processing.
+Implementing other data structures: Arrays are used as the underlying data structure for implementing stacks and queues.
+Dynamic programming: Dynamic programming algorithms often use arrays to store intermediate results of subproblems in order to solve a larger problem.
+Data Buffers: Arrays serve as data buffers and queues, temporarily storing incoming data like network packets, file streams, and database results before processing.
+Advantages of Array Data Structure:
+Efficient and Fast Access: Arrays allow direct and efficient access to any element in the collection with constant access time, as the data is stored in contiguous memory locations.
+Memory Efficiency: Arrays store elements in contiguous memory, allowing efficient allocation in a single block and does not require extra storage for linking different blocks.
+Versatility: Arrays can be used to store a wide range of data types, including integers, floating-point numbers, characters, and even complex data structures such as objects and pointers.
+Compatibility with hardware: The array data structure is compatible with most hardware architectures, making it a versatile tool for programming in a wide range of environments.
+Disadvantages of Array Data Structure:
+Fixed Size: Arrays have a fixed size set at creation. Expanding an array requires creating a new one and copying elements, which is time-consuming and memory-intensive. Even dynamic sized arrays internally use fixed sized memory allocation and de-allocation.
+Memory Allocation Issues: Allocating large arrays can cause memory exhaustion, leading to crashes, especially on systems with limited resources.
+Insertion and Deletion Challenges: Adding or removing elements requires shifting subsequent elements, making these operations inefficient.
+
+Basic Problems
+Print Alternates
+Leaders in an array
+Check if Sorted
+Remove Duplicates from Sorted
+Generate all Subarrays
+Reverse an Array
+Rotate an Array
+Zeroes to End
+Min Increments to Make Equal
+Min Cost to Make Size 1
+
+Easy Problems -
+Duplicate within K Distance
+Make Even Positioned Greater
+Sum of all Subarrays
+Stock Buy and Sell – Multiple Transactions
+Single Among Doubles
+Missing Number
+Missing and Repeating
+Only Repeating from 1 to n-1
+Sorted Subsequence of Size 3
+Max Subarray Sum
+Equilibrium index
+Two Sum - Find if there is a Pair
+Two Sum - Closest Pair [More problems on 2 Sum in Medium Section]
+Split array into three equals
+Maximum Consecutive 1s with K Flips
+
+Prerequisite for the Remaining Problems-
+Binary Search
+Selection Sort, Insertion Sort, Binary Search, QuickSort, MergeSort, CycleSort, and HeapSort
+Sort in C++ / Sort in Java / Sort in Python / Sort in JavaScript
+Two Pointers Technique
+Prefix Sum Technique
+Basics of Hashing
+Window Sliding Technique
+
+Medium Problems-
+Make arr[i] = i
+Maximum Circular Subarray Sum
+Reorder according to given indexes
+Product Except Self
+K-th Largest Sum Subarray
+Smallest missing number
+Smallest subarray with sum greater than x
+Majority Element
+Count possible triangles
+Sub-array with given sum
+Longest Subarray with Equal 0s and 1s
+Longest Common Span in Two Binary Arrays
+Construct an array from its pair-sum array
+2 Sum - All Pairs
+2 Sum - Distinct Pairs
+3 Sum - Find Any
+3 Sum - Closest Triplet
+4 Sum - Find Any 
+
+Hard Problems -
+Surpasser Count
+Trapping Rain Water
+Top K Frequent Elements
+Kth Missing Positive Number in a Sorted Array
+Stock Buy and Sell - At Most K Transactions
+Stock Buy and Sell - At Most 2 Transactions
+Median in a Stream
+Smallest Difference Triplet from 3 arrays
+Max occurred in n ranges
+3 Sum - Distinct Triplets
+3 Sum - All Triplets
+4 Sum - Distinct Quadruples
+4 Sum - All Quadruples
+4 Sum - Closest Quadruple
