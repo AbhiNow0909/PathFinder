@@ -11,6 +11,12 @@ from graph.concept_resolver import (
     load_concept_graph,
 )
 from agents.rag_retriever import retrieve_curriculum_context
+from agents.planning_agent import generate_roadmap
+import sys
+import io
+
+# Fix for Windows console unicode errors
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 def main():
@@ -125,16 +131,23 @@ def main():
         preview = entry.context[:150].replace('\n', ' ') + "..." if len(entry.context) > 150 else entry.context
         print(f"  Context Preview: {preview}")
 
+    # ── Step 8: Planning Agent (LLM Reasoning) ────────────────────────────
+    print("\n" + "=" * 60)
+    print("STEP 8: Reasoning-Aware Planning Agent")
+    print("=" * 60)
+    print("Generating final roadmap with LLM explanations grounded in curriculum...")
+    final_roadmap = generate_roadmap(curriculum_entries, analysis)
+
     # ── Final Summary ─────────────────────────────────────────────────────
     print("\n" + "=" * 60)
     print("FINAL ROADMAP WITH REFERENCES")
     print("=" * 60)
-    for i, entry in enumerate(curriculum_entries, 1):
-        tag = "TARGET" if entry.is_target else "PREREQ"
-        print(f"  {i}. {entry.concept:<25} {entry.estimated_hours:>5.1f}h  [{tag}]")
-        print(f"     Ref: {entry.reference}")
+    for step in final_roadmap.roadmap:
+        print(f"  {step.step}. {step.topic:<20} {step.time_estimate_hours:>5.1f}h")
+        print(f"     Reason: {step.reason}")
+        print(f"     Ref:    {step.reference}\n")
 
-    print(f"\n  Total time:  {ordering.time_allocated:.1f} / {ordering.time_budget:.1f}h")
+    print(f"  Total time:  {final_roadmap.total_time:.1f} / {ordering.time_budget:.1f}h")
     if ordering.topics_skipped:
         print(f"  Skipped:     {ordering.topics_skipped}")
     else:

@@ -59,4 +59,17 @@ class CurriculumEntry(BaseModel):
     is_target: bool
     estimated_hours: float
     context: str = Field(..., description="The concatenated text chunks retrieved from ChromaDB")
-    reference: str = Field(..., description="The source material reference, e.g., 'CLRS (chapter.md)'")
+    reference: str = Field(..., description="The source material reference, e.g., 'CLRS (chapter.md)'")
+
+# ── Step 8: Final Reasoning Output ────────────────────────────────────────────
+
+class RoadmapStep(BaseModel):
+    step: int
+    topic: str
+    time_estimate_hours: float
+    reason: str = Field(..., description="Explanation combining student weakness and curriculum context")
+    reference: str = Field(..., description="Source reference from RAG")
+
+class FinalRoadmap(BaseModel):
+    roadmap: List[RoadmapStep]
+    total_time: float
