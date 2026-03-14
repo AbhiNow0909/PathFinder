@@ -12,6 +12,7 @@ from graph.concept_resolver import (
 )
 from agents.rag_retriever import retrieve_curriculum_context
 from agents.planning_agent import generate_roadmap
+from agents.validation_agent import validate_roadmap
 import sys
 import io
 
@@ -131,12 +132,39 @@ def main():
         preview = entry.context[:150].replace('\n', ' ') + "..." if len(entry.context) > 150 else entry.context
         print(f"  Context Preview: {preview}")
 
-    # ── Step 8: Planning Agent (LLM Reasoning) ────────────────────────────
+    # ── Step 8 & 9: Planning Agent + Validation Self-Correction Loop ──────
     print("\n" + "=" * 60)
-    print("STEP 8: Reasoning-Aware Planning Agent")
+    print("STEP 8 & 9: Reasoning-Aware Planning + Validation Loop")
     print("=" * 60)
-    print("Generating final roadmap with LLM explanations grounded in curriculum...")
-    final_roadmap = generate_roadmap(curriculum_entries, analysis)
+    
+    max_retries = 3
+    attempt = 1
+    feedback = None
+    final_roadmap = None
+
+    while attempt <= max_retries:
+        print(f"  Attempt {attempt} of {max_retries}: Generating roadmap...")
+        if feedback:
+            print("  [Injecting previous validation feedback into LLM prompt]")
+            
+        final_roadmap = generate_roadmap(curriculum_entries, analysis, feedback=feedback)
+        
+        print("  Validating generated roadmap...")
+        errors = validate_roadmap(final_roadmap, analysis, graph)
+        
+        if not errors:
+            print("  🟢 VALIDATION SUCCESS: Roadmap meets all constraints.")
+            break
+        else:
+            print("  🔴 VALIDATION FAILED:")
+            for e in errors:
+                print(f"      - {e}")
+            
+            feedback = "\n".join(errors)
+            attempt += 1
+
+    if attempt > max_retries:
+        print("\n  [Warning] Max retries reached. Outputting last generated roadmap despite violations.")
 
     # ── Final Summary ─────────────────────────────────────────────────────
     print("\n" + "=" * 60)

@@ -60,9 +60,11 @@ Return ONLY the JSON. No markdown blocking, no other text."""
 def generate_roadmap(
     entries: list[CurriculumEntry],
     analysis: SkillAnalysis,
+    feedback: str | None = None,
 ) -> FinalRoadmap:
     """
     Generate the final roadmap using LLM reasoning grounded in the curriculum.
+    Optional `feedback` is injected if the validation loop rejected the previous attempt.
     """
     if not entries:
         return FinalRoadmap(roadmap=[], total_time=0.0)
@@ -96,6 +98,14 @@ def generate_roadmap(
         f"{curriculum_payload}\n\n"
         f"Generate the final JSON roadmap."
     )
+
+    if feedback:
+        user_prompt += (
+            f"\n\n🚨 PREVIOUS ATTEMPT FAILED VALIDATION 🚨\n"
+            f"The previous roadmap you generated violated constraints:\n"
+            f"{feedback}\n\n"
+            f"You MUST fix these structural problems in your new generated JSON."
+        )
 
     try:
         response_text = llm_chat(
