@@ -98,40 +98,24 @@ class TestAnalyzeSkills:
 
 class TestGetLlmSummary:
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_returns_string(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Student should focus on DP and Trees."}
-        }
+        mock_chat.return_value = "Student should focus on DP and Trees."
         analysis = analyze_skills(weak_student)
         result = get_llm_summary(analysis)
         assert isinstance(result, str)
         assert len(result) > 0
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_ollama_called_once(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Some summary."}
-        }
+        mock_chat.return_value = "Some summary."
         analysis = analyze_skills(weak_student)
         get_llm_summary(analysis)
         mock_chat.assert_called_once()
 
-    @patch("agents.skill_analyzer.ollama.chat")
-    def test_correct_model_used(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Some summary."}
-        }
-        analysis = analyze_skills(weak_student)
-        get_llm_summary(analysis)
-        call_args = mock_chat.call_args
-        assert call_args.kwargs["model"] == "llama3"
-
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_system_and_user_prompts_sent(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Some summary."}
-        }
+        mock_chat.return_value = "Some summary."
         analysis = analyze_skills(weak_student)
         get_llm_summary(analysis)
         messages = mock_chat.call_args.kwargs["messages"]
@@ -139,7 +123,7 @@ class TestGetLlmSummary:
         assert "system" in roles
         assert "user" in roles
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_llm_failure_raises(self, mock_chat, weak_student):
         mock_chat.side_effect = Exception("Ollama connection failed")
         analysis = analyze_skills(weak_student)
@@ -151,25 +135,21 @@ class TestGetLlmSummary:
 
 class TestRunSkillAnalyzer:
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_returns_analysis_and_summary(self, mock_chat, weak_student):
-        mock_chat.return_value = {"message": {"content": "Focus on DP and Trees first."}}
+        mock_chat.return_value = "Focus on DP and Trees first."
         result = run_skill_analyzer(weak_student)
         assert isinstance(result, SkillAnalyzerOutput)
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_analysis_is_skill_analysis_type(self, mock_chat, weak_student):
         from schemas.models import SkillAnalysis
-        mock_chat.return_value = {
-            "message": {"content": "Some summary."}
-        }
+        mock_chat.return_value = "Some summary."
         result = run_skill_analyzer(weak_student)
         assert isinstance(result.analysis, SkillAnalysis)
 
-    @patch("agents.skill_analyzer.ollama.chat")
+    @patch("agents.skill_analyzer.llm_chat")
     def test_summary_is_string(self, mock_chat, weak_student):
-        mock_chat.return_value = {
-            "message": {"content": "Some summary."}
-        }
+        mock_chat.return_value = "Some summary."
         result = run_skill_analyzer(weak_student)
         assert isinstance(result.summary, str)

@@ -10,6 +10,7 @@ from graph.concept_resolver import (
     get_unlock_map,
     load_concept_graph,
 )
+from agents.rag_retriever import retrieve_curriculum_context
 
 
 def main():
@@ -111,19 +112,34 @@ def main():
         print(f"    Selected: {topic.topic} ({topic.estimated_hours}h) [{tag}]")
         print(f"    Reason:   {topic.reason}")
 
+    # ── Step 7: RAG Retrieval ─────────────────────────────────────────────
+    print("\n" + "=" * 60)
+    print("STEP 7: Curriculum Grounding (RAG Retrieval)")
+    print("=" * 60)
+    curriculum_entries = retrieve_curriculum_context(ordering.ordered_topics)
+    print(f"Retrieved context for {len(curriculum_entries)} topics.")
+    for entry in curriculum_entries:
+        print(f"\n  Topic: {entry.concept}")
+        print(f"  Source Reference: {entry.reference}")
+        # Print a snippet of the context to show it worked
+        preview = entry.context[:150].replace('\n', ' ') + "..." if len(entry.context) > 150 else entry.context
+        print(f"  Context Preview: {preview}")
+
     # ── Final Summary ─────────────────────────────────────────────────────
     print("\n" + "=" * 60)
-    print("FINAL ROADMAP")
+    print("FINAL ROADMAP WITH REFERENCES")
     print("=" * 60)
-    for i, topic in enumerate(ordering.ordered_topics, 1):
-        tag = "TARGET" if topic.is_target else "PREREQ"
-        print(f"  {i}. {topic.topic:<25} {topic.estimated_hours:>5.1f}h  [{tag}]")
+    for i, entry in enumerate(curriculum_entries, 1):
+        tag = "TARGET" if entry.is_target else "PREREQ"
+        print(f"  {i}. {entry.concept:<25} {entry.estimated_hours:>5.1f}h  [{tag}]")
+        print(f"     Ref: {entry.reference}")
 
     print(f"\n  Total time:  {ordering.time_allocated:.1f} / {ordering.time_budget:.1f}h")
     if ordering.topics_skipped:
         print(f"  Skipped:     {ordering.topics_skipped}")
     else:
         print(f"  All candidate topics covered.")
+
 
 
 if __name__ == "__main__":

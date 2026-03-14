@@ -51,3 +51,12 @@ class OrderingResult(BaseModel):
     time_budget: float = Field(..., description="Total time the student has")
     time_allocated: float = Field(..., description="Total time allocated across ordered topics")
     topics_skipped: List[str] = Field(default_factory=list, description="Candidates dropped due to time budget")
+
+# ── Step 7: RAG Curriculum Output ─────────────────────────────────────────────
+
+class CurriculumEntry(BaseModel):
+    concept: str
+    is_target: bool
+    estimated_hours: float
+    context: str = Field(..., description="The concatenated text chunks retrieved from ChromaDB")
+    reference: str = Field(..., description="The source material reference, e.g., 'CLRS (chapter.md)'")
