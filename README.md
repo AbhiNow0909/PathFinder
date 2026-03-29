@@ -250,3 +250,20 @@ Each step includes:
 - Time estimate
 - Reason for inclusion
 - Curriculum reference
+
+Tech stack:
+Language: Python
+
+LLM: LLaMA-3 8B Instruct (via Ollama)
+
+Embeddings: BGE-small (local)
+
+Vector DB: ChromaDB
+
+Graph Engine: NetworkX + JSON graph file
+
+Schema Validation: Pydantic
+
+API Layer: FastAPI
+
+UI: Streamlit
