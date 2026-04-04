@@ -1,0 +1,482 @@
+[
+  {
+    "id": "W01",
+    "category": "weak",
+    "description": "Complete beginner, short session",
+    "profile": {
+      "arrays": "very weak",
+      "linked_list": "very weak",
+      "stack_queue": "very weak",
+      "sorting": "very weak",
+      "recursion": "very weak",
+      "trees": "weak",
+      "binary_search": "weak",
+      "dp": "weak",
+      "time_available_hours": 4
+    }
+  },
+  {
+    "id": "W02",
+    "category": "weak",
+    "description": "Weak on most, slightly better on recursion, tight budget",
+    "profile": {
+      "arrays": "very weak",
+      "linked_list": "weak",
+      "stack_queue": "very weak",
+      "sorting": "weak",
+      "recursion": "medium",
+      "trees": "very weak",
+      "binary_search": "very weak",
+      "dp": "very weak",
+      "time_available_hours": 3
+    }
+  },
+  {
+    "id": "W03",
+    "category": "weak",
+    "description": "Weak across all topics, moderate session",
+    "profile": {
+      "arrays": "weak",
+      "linked_list": "very weak",
+      "stack_queue": "weak",
+      "sorting": "weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "weak",
+      "dp": "very weak",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "W04",
+    "category": "weak",
+    "description": "Struggling with advanced topics, longer session",
+    "profile": {
+      "arrays": "weak",
+      "linked_list": "weak",
+      "stack_queue": "very weak",
+      "sorting": "weak",
+      "recursion": "weak",
+      "trees": "very weak",
+      "binary_search": "weak",
+      "dp": "very weak",
+      "time_available_hours": 8
+    }
+  },
+  {
+    "id": "W05",
+    "category": "weak",
+    "description": "Total beginner, only one session",
+    "profile": {
+      "arrays": "very weak",
+      "linked_list": "very weak",
+      "stack_queue": "very weak",
+      "sorting": "very weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "very weak",
+      "dp": "very weak",
+      "time_available_hours": 3
+    }
+  },
+  {
+    "id": "W06",
+    "category": "weak",
+    "description": "Foundational gaps, knows only arrays slightly",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "very weak",
+      "stack_queue": "very weak",
+      "sorting": "very weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "very weak",
+      "dp": "very weak",
+      "time_available_hours": 5
+    }
+  },
+  {
+    "id": "W07",
+    "category": "weak",
+    "description": "Weak with slightly more time to study",
+    "profile": {
+      "arrays": "weak",
+      "linked_list": "very weak",
+      "stack_queue": "very weak",
+      "sorting": "very weak",
+      "recursion": "weak",
+      "trees": "weak",
+      "binary_search": "very weak",
+      "dp": "very weak",
+      "time_available_hours": 10
+    }
+  },
+  {
+    "id": "W08",
+    "category": "weak",
+    "description": "Weak learner focusing on graphs path",
+    "profile": {
+      "arrays": "weak",
+      "linked_list": "very weak",
+      "stack_queue": "very weak",
+      "sorting": "weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "weak",
+      "dp": "very weak",
+      "time_available_hours": 7
+    }
+  },
+  {
+    "id": "W09",
+    "category": "weak",
+    "description": "Weak foundation, generous time",
+    "profile": {
+      "arrays": "weak",
+      "linked_list": "weak",
+      "stack_queue": "weak",
+      "sorting": "very weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "very weak",
+      "dp": "very weak",
+      "time_available_hours": 12
+    }
+  },
+  {
+    "id": "W10",
+    "category": "weak",
+    "description": "Most topics weak, extremely tight budget",
+    "profile": {
+      "arrays": "very weak",
+      "linked_list": "very weak",
+      "stack_queue": "weak",
+      "sorting": "weak",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "very weak",
+      "dp": "weak",
+      "time_available_hours": 3
+    }
+  },
+  {
+    "id": "M01",
+    "category": "mixed",
+    "description": "Classic tree + DP gap, good at arrays",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "medium",
+      "stack_queue": "medium",
+      "sorting": "strong",
+      "recursion": "medium",
+      "trees": "weak",
+      "binary_search": "medium",
+      "dp": "very weak",
+      "time_available_hours": 5
+    }
+  },
+  {
+    "id": "M02",
+    "category": "mixed",
+    "description": "Strong sorting, weak recursion-heavy topics",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "strong",
+      "stack_queue": "medium",
+      "sorting": "strong",
+      "recursion": "weak",
+      "trees": "weak",
+      "binary_search": "medium",
+      "dp": "very weak",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "M03",
+    "category": "mixed",
+    "description": "Interview prep: weak graphs, ok at basics",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "medium",
+      "stack_queue": "strong",
+      "sorting": "medium",
+      "recursion": "medium",
+      "trees": "medium",
+      "binary_search": "weak",
+      "dp": "weak",
+      "time_available_hours": 8
+    }
+  },
+  {
+    "id": "M04",
+    "category": "mixed",
+    "description": "Gaps in less-practiced structures",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "weak",
+      "stack_queue": "weak",
+      "sorting": "medium",
+      "recursion": "strong",
+      "trees": "medium",
+      "binary_search": "medium",
+      "dp": "medium",
+      "time_available_hours": 5
+    }
+  },
+  {
+    "id": "M05",
+    "category": "mixed",
+    "description": "Mixed profile, weak on searching and hashing",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "medium",
+      "stack_queue": "medium",
+      "sorting": "medium",
+      "recursion": "medium",
+      "trees": "weak",
+      "binary_search": "very weak",
+      "dp": "medium",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "M06",
+    "category": "mixed",
+    "description": "Moderate across board, DP and trees are weaknesses",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "medium",
+      "stack_queue": "weak",
+      "sorting": "medium",
+      "recursion": "medium",
+      "trees": "weak",
+      "binary_search": "medium",
+      "dp": "weak",
+      "time_available_hours": 9
+    }
+  },
+  {
+    "id": "M07",
+    "category": "mixed",
+    "description": "Good fundmentals, poor in advanced structures",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "medium",
+      "stack_queue": "medium",
+      "sorting": "medium",
+      "recursion": "weak",
+      "trees": "very weak",
+      "binary_search": "strong",
+      "dp": "weak",
+      "time_available_hours": 7
+    }
+  },
+  {
+    "id": "M08",
+    "category": "mixed",
+    "description": "Varied with tight constraints",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "strong",
+      "stack_queue": "weak",
+      "sorting": "strong",
+      "recursion": "weak",
+      "trees": "medium",
+      "binary_search": "medium",
+      "dp": "very weak",
+      "time_available_hours": 4
+    }
+  },
+  {
+    "id": "M09",
+    "category": "mixed",
+    "description": "Half topics mastered, half need work",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "weak",
+      "stack_queue": "strong",
+      "sorting": "strong",
+      "recursion": "very weak",
+      "trees": "very weak",
+      "binary_search": "medium",
+      "dp": "medium",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "M10",
+    "category": "mixed",
+    "description": "Advanced in sorting, weak in graph-adjacent topics",
+    "profile": {
+      "arrays": "medium",
+      "linked_list": "medium",
+      "stack_queue": "weak",
+      "sorting": "very strong",
+      "recursion": "weak",
+      "trees": "medium",
+      "binary_search": "strong",
+      "dp": "very weak",
+      "time_available_hours": 8
+    }
+  },
+  {
+    "id": "A01",
+    "category": "advanced",
+    "description": "Near expert, only DP is a gap",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "strong",
+      "stack_queue": "strong",
+      "sorting": "very strong",
+      "recursion": "strong",
+      "trees": "strong",
+      "binary_search": "very strong",
+      "dp": "weak",
+      "time_available_hours": 5
+    }
+  },
+  {
+    "id": "A02",
+    "category": "advanced",
+    "description": "Mastered most, needs trees polish, short session",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "strong",
+      "stack_queue": "very strong",
+      "sorting": "strong",
+      "recursion": "strong",
+      "trees": "medium",
+      "binary_search": "very strong",
+      "dp": "strong",
+      "time_available_hours": 3
+    }
+  },
+  {
+    "id": "A03",
+    "category": "advanced",
+    "description": "Strong, minor gap in stack/queue concepts",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "very strong",
+      "stack_queue": "weak",
+      "sorting": "very strong",
+      "recursion": "very strong",
+      "trees": "strong",
+      "binary_search": "strong",
+      "dp": "strong",
+      "time_available_hours": 4
+    }
+  },
+  {
+    "id": "A04",
+    "category": "advanced",
+    "description": "Expert overall, just brushing up",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "very strong",
+      "stack_queue": "strong",
+      "sorting": "very strong",
+      "recursion": "strong",
+      "trees": "very strong",
+      "binary_search": "very strong",
+      "dp": "medium",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "A05",
+    "category": "advanced",
+    "description": "Advanced learner, selective weak spots",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "strong",
+      "stack_queue": "strong",
+      "sorting": "very strong",
+      "recursion": "very strong",
+      "trees": "strong",
+      "binary_search": "strong",
+      "dp": "weak",
+      "time_available_hours": 4
+    }
+  },
+  {
+    "id": "A06",
+    "category": "advanced",
+    "description": "Strong student, limited time, DP brush-up",
+    "profile": {
+      "arrays": "strong",
+      "linked_list": "strong",
+      "stack_queue": "very strong",
+      "sorting": "very strong",
+      "recursion": "strong",
+      "trees": "very strong",
+      "binary_search": "strong",
+      "dp": "medium",
+      "time_available_hours": 5
+    }
+  },
+  {
+    "id": "A07",
+    "category": "advanced",
+    "description": "Near-master, linked list is the only gap",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "weak",
+      "stack_queue": "very strong",
+      "sorting": "very strong",
+      "recursion": "very strong",
+      "trees": "strong",
+      "binary_search": "very strong",
+      "dp": "strong",
+      "time_available_hours": 3
+    }
+  },
+  {
+    "id": "A08",
+    "category": "advanced",
+    "description": "Advanced with generous time for thorough review",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "strong",
+      "stack_queue": "strong",
+      "sorting": "very strong",
+      "recursion": "strong",
+      "trees": "very strong",
+      "binary_search": "strong",
+      "dp": "weak",
+      "time_available_hours": 15
+    }
+  },
+  {
+    "id": "A09",
+    "category": "advanced",
+    "description": "Strong everywhere, moderate DP, polishing",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "very strong",
+      "stack_queue": "strong",
+      "sorting": "strong",
+      "recursion": "very strong",
+      "trees": "strong",
+      "binary_search": "very strong",
+      "dp": "medium",
+      "time_available_hours": 6
+    }
+  },
+  {
+    "id": "A10",
+    "category": "advanced",
+    "description": "Expert with large study budget but few gaps",
+    "profile": {
+      "arrays": "very strong",
+      "linked_list": "strong",
+      "stack_queue": "strong",
+      "sorting": "very strong",
+      "recursion": "very strong",
+      "trees": "very strong",
+      "binary_search": "very strong",
+      "dp": "weak",
+      "time_available_hours": 10
+    }
+  }
+]

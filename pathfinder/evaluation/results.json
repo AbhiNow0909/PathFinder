@@ -1,0 +1,1137 @@
+{
+  "summary": {
+    "n": 30,
+    "b1": {
+      "pvr": 0.0,
+      "tba": 100.0,
+      "wtc": 25.3,
+      "constrained_wtc": 25.3
+    },
+    "b2": {
+      "pvr": 0.0,
+      "tba": 100.0,
+      "wtc": 23.3,
+      "constrained_wtc": 23.3
+    },
+    "proposed": {
+      "pvr": 0.0,
+      "tba": 100.0,
+      "wtc": 65.0,
+      "constrained_wtc": 65.0
+    }
+  },
+  "per_profile": [
+    {
+      "id": "W01",
+      "category": "weak",
+      "time_budget": 4,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees"
+        ],
+        "total_time": 3.6
+      }
+    },
+    {
+      "id": "W02",
+      "category": "weak",
+      "time_budget": 3,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6,
+        "constrained_wtc": 0.6,
+        "roadmap_topics": [
+          "arrays",
+          "linked_list",
+          "stack_queue",
+          "binary_search",
+          "sorting"
+        ],
+        "total_time": 3.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.4,
+        "constrained_wtc": 0.4,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search"
+        ],
+        "total_time": 2.6
+      }
+    },
+    {
+      "id": "W03",
+      "category": "weak",
+      "time_budget": 6,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 5.7
+      }
+    },
+    {
+      "id": "W04",
+      "category": "weak",
+      "time_budget": 8,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 7.6000000000000005
+      }
+    },
+    {
+      "id": "W05",
+      "category": "weak",
+      "time_budget": 3,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees"
+        ],
+        "total_time": 2.9
+      }
+    },
+    {
+      "id": "W06",
+      "category": "weak",
+      "time_budget": 5,
+      "weak_topics_gt": [
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6,
+        "constrained_wtc": 0.6,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 4.699999999999999
+      }
+    },
+    {
+      "id": "W07",
+      "category": "weak",
+      "time_budget": 10,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.8333,
+        "constrained_wtc": 0.8333,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming",
+          "sorting"
+        ],
+        "total_time": 10.0
+      }
+    },
+    {
+      "id": "W08",
+      "category": "weak",
+      "time_budget": 7,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 6.699999999999999
+      }
+    },
+    {
+      "id": "W09",
+      "category": "weak",
+      "time_budget": 12,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.8333,
+        "constrained_wtc": 0.8333,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees",
+          "dynamic_programming",
+          "sorting"
+        ],
+        "total_time": 11.999999999999998
+      }
+    },
+    {
+      "id": "W10",
+      "category": "weak",
+      "time_budget": 3,
+      "weak_topics_gt": [
+        "arrays",
+        "sorting",
+        "recursion",
+        "trees",
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "binary_search",
+          "recursion",
+          "trees"
+        ],
+        "total_time": 2.9
+      }
+    },
+    {
+      "id": "M01",
+      "category": "mixed",
+      "time_budget": 5,
+      "weak_topics_gt": [
+        "trees",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.5,
+        "constrained_wtc": 0.5,
+        "roadmap_topics": [
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 5.0
+      }
+    },
+    {
+      "id": "M02",
+      "category": "mixed",
+      "time_budget": 6,
+      "weak_topics_gt": [
+        "recursion",
+        "trees",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "arrays",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 6.0
+      }
+    },
+    {
+      "id": "M03",
+      "category": "mixed",
+      "time_budget": 8,
+      "weak_topics_gt": [
+        "binary_search",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.5,
+        "constrained_wtc": 0.5,
+        "roadmap_topics": [
+          "binary_search",
+          "recursion",
+          "dynamic_programming"
+        ],
+        "total_time": 8.0
+      }
+    },
+    {
+      "id": "M04",
+      "category": "mixed",
+      "time_budget": 5,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "M05",
+      "category": "mixed",
+      "time_budget": 6,
+      "weak_topics_gt": [
+        "trees",
+        "binary_search"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [
+          "binary_search",
+          "recursion",
+          "trees"
+        ],
+        "total_time": 6.0
+      }
+    },
+    {
+      "id": "M06",
+      "category": "mixed",
+      "time_budget": 9,
+      "weak_topics_gt": [
+        "trees",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.5,
+        "constrained_wtc": 0.5,
+        "roadmap_topics": [
+          "arrays",
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 9.0
+      }
+    },
+    {
+      "id": "M07",
+      "category": "mixed",
+      "time_budget": 7,
+      "weak_topics_gt": [
+        "recursion",
+        "trees",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.6667,
+        "constrained_wtc": 0.6667,
+        "roadmap_topics": [
+          "recursion",
+          "trees",
+          "dynamic_programming"
+        ],
+        "total_time": 7.0
+      }
+    },
+    {
+      "id": "M08",
+      "category": "mixed",
+      "time_budget": 4,
+      "weak_topics_gt": [
+        "recursion",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.5,
+        "constrained_wtc": 0.5,
+        "roadmap_topics": [
+          "arrays",
+          "recursion",
+          "dynamic_programming"
+        ],
+        "total_time": 4.0
+      }
+    },
+    {
+      "id": "M09",
+      "category": "mixed",
+      "time_budget": 6,
+      "weak_topics_gt": [
+        "recursion",
+        "trees"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [
+          "recursion",
+          "trees"
+        ],
+        "total_time": 6.0
+      }
+    },
+    {
+      "id": "M10",
+      "category": "mixed",
+      "time_budget": 8,
+      "weak_topics_gt": [
+        "recursion",
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.5,
+        "constrained_wtc": 0.5,
+        "roadmap_topics": [
+          "arrays",
+          "recursion",
+          "dynamic_programming"
+        ],
+        "total_time": 8.0
+      }
+    },
+    {
+      "id": "A01",
+      "category": "advanced",
+      "time_budget": 5,
+      "weak_topics_gt": [
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [
+          "dynamic_programming"
+        ],
+        "total_time": 5.0
+      }
+    },
+    {
+      "id": "A02",
+      "category": "advanced",
+      "time_budget": 3,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A03",
+      "category": "advanced",
+      "time_budget": 4,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A04",
+      "category": "advanced",
+      "time_budget": 6,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A05",
+      "category": "advanced",
+      "time_budget": 4,
+      "weak_topics_gt": [
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [
+          "dynamic_programming"
+        ],
+        "total_time": 4.0
+      }
+    },
+    {
+      "id": "A06",
+      "category": "advanced",
+      "time_budget": 5,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A07",
+      "category": "advanced",
+      "time_budget": 3,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A08",
+      "category": "advanced",
+      "time_budget": 15,
+      "weak_topics_gt": [
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [
+          "dynamic_programming"
+        ],
+        "total_time": 15.0
+      }
+    },
+    {
+      "id": "A09",
+      "category": "advanced",
+      "time_budget": 6,
+      "weak_topics_gt": [],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 1.0,
+        "constrained_wtc": 1.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      }
+    },
+    {
+      "id": "A10",
+      "category": "advanced",
+      "time_budget": 10,
+      "weak_topics_gt": [
+        "dp"
+      ],
+      "b1": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "b2": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [],
+        "total_time": 0.0
+      },
+      "proposed": {
+        "pvr_violated": false,
+        "tba_pass": true,
+        "wtc": 0.0,
+        "constrained_wtc": 0.0,
+        "roadmap_topics": [
+          "dynamic_programming"
+        ],
+        "total_time": 10.0
+      }
+    }
+  ]
+}
